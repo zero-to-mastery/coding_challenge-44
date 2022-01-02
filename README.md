@@ -3,9 +3,9 @@
 
 # Coding Challenge 44 | Single Page Project
 
-![GitHub](https://img.shields.io/github/license/zero-to-mastery/coding_challenge-44?style=for-the-badge)
-![GitHub contributors](https://img.shields.io/github/contributors/zero-to-mastery/coding_challenge-44?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/zero-to-mastery/coding_challenge-44?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/zero-to-mastery/coding_challenge-43?style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors/zero-to-mastery/coding_challenge-43?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/zero-to-mastery/coding_challenge-43?style=for-the-badge)
 
 
 Utilizing your current skills and the desire to learn new ones, the aim of the Single Page Project is to create something challenging of your own choosing to add to the community gallery of single page projects. You can build anything such as a portfolio, a landing page, a fan page, a mini game (Pairs, Hangman, snake etc), a soundboard.
