@@ -1,14 +1,14 @@
 
-<img src="https://via.placeholder.com/200x200" align="right" />
-
 # Coding Challenge 44 | Single Page Project
 
-![GitHub](https://img.shields.io/github/license/zero-to-mastery/coding_challenge-43?style=for-the-badge)
-![GitHub contributors](https://img.shields.io/github/contributors/zero-to-mastery/coding_challenge-43?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/zero-to-mastery/coding_challenge-43?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/zero-to-mastery/coding_challenge-44?style=for-the-badge)
+![GitHub contributors](https://img.shields.io/github/contributors/zero-to-mastery/coding_challenge-44?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/zero-to-mastery/coding_challenge-44?style=for-the-badge)
 
 
-Utilizing your current skills and the desire to learn new ones, the aim of the Single Page Project is to create something challenging of your own choosing to add to the community gallery of single page projects. You can build anything such as a portfolio, a landing page, a fan page, a mini game (Pairs, Hangman, snake etc), a soundboard.
+Utilizing your current skills and the desire to learn new ones, the aim of the Single Page Project is to create something challenging. What you choose to build and add to the community gallery of single page projects is entirely upto you. You can build anything such as a portfolio template, a landing page, a fan page, a mini game (such as Pairs, Hangman, snake etc), a calculator, a quiz, name generator, color picker, todo list. 
+
+The project you build can be as simple or as complex as you like, so this challenge is suitable for students of all stages of their learning journey. If you are currently learning HTML and CSS, you can build a landing/fan/portfolio type page using everything you have learnt about HTML and CSS so far. Or if you are jumping into the JavaScript section you can try your hand and making a mini game or quality of life tool such as a calculator or todo list. Be sure to conform to the rules laid out below though. 
 
 
 ## The Rules
