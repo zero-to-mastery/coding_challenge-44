@@ -27,13 +27,14 @@ Now, once you've forked this repo and got a local version up on your computer, f
 
 1. In the `Submissions` directory, create a **HTML** file using your Github username as the filename.
 2. Using only this HTML file create your project! It can be as simple or as complex as you like. This file should contain all your HTML, CSS & JS
-3. In the submissions section below, add the details of your submission, using the example as a guide.
+3. In the submissions section below, add the details of your submission, using the following example as a guide.
+    `- [PROJECT TITLE](SUBMISSION URL) - By: [YOUR NAME](YOUR GH URL)`
 
 ## Submissions
 
-- [PROJECT TITLE] - [GITHUB USERNAME]
+- [Wedding Landing Page](/submissions/mattcsmith.html) - By: [Matt](https://github.com/mattcsmith)
 
 ## One Last Thing!
 
-**Please note: As with all my challenges there is zero benefit or monetary gain I receive from it. This is just my way of thanking my students and making sure that you are able to continue gaining valuable knowledge outside of just my videos. It would mean a lot to me if you are able to rate my course...5 star reviews make my day :)**
+**Please note: As with all ZTM challenges there is zero benefit or monetary gain ZTM receives from it. This is just our way of thanking students and making sure that you are able to continue gaining valuable knowledge outside of just the course videos. It would mean a lot to us if you are able to rate the course(s) you are taking...5 star reviews makes Andrei's day :)**
 
