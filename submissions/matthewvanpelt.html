@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matteo's trattoria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 250px;
+        }
+
+        body {
+            background-image: url("https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+            background-size: cover;
+            font-size: 20px;
+            font-family: 'Rubik', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+           
+        }
+
+       
+
+        
+        
+
+        .container {
+            
+            display: flex;
+            background-color: rgba(69, 71, 77, 0.804);
+            
+            flex-wrap: wrap;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            
+            padding: 2rem;
+        }
+
+        .container-box {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .container-2 {
+            margin-right: 3rem;
+        }
+
+        #section-1 {
+            
+        }
+
+        #section-2 {
+            display: none;
+        }
+
+        h1 {
+            font-family: 'Parisienne', cursive;
+            color: white;
+            font-size: 4rem;
+        }
+
+        p {
+            color: white;
+            font-weight: 500;
+            
+        }
+
+        button {
+            border-radius: 30px;
+            display: inline-block;
+            background-color: white;
+            padding: 1rem;
+            font-family: inherit;
+            outline: none;
+            border: none;
+            margin-top: 2rem;
+            cursor: pointer;
+        }
+
+        .buttondiv {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .back {
+            background-color: black;
+            width: 60%;
+            color: white;
+        }
+
+        button:hover {
+            background-color: rgba(228, 229, 232, 0.804);
+        }
+
+        @media(max-width: 750px) {
+
+            
+
+            img {
+               width: 100px;
+            }
+            
+            .container-box {
+                display: flex;
+                
+            }
+
+            .container-2 {
+            margin-right: 1rem;
+            
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: .9rem;
+        }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="wrapper">
+            <section id="section-1">
+                <div class=" container container-1">
+                    <div class="heading">
+                        <h1>Matteos trattoria</h1>
+                    </div>
+                    <div class="textbox">
+                        <p>Click the button below to order</p>
+                        
+                    </div>
+                    <button id="button" onclick="handleClick()" type="button">Order Now!</button>
+            
+            
+                </div>
+            </section>
+            <section id="section-2">
+                            
+            <div class="container-box">
+                <div class=" container container-2">
+                    <div class="container-1__heading">
+                        <h1>Take Out</h1>
+                    </div>
+                    <div class="container-1__textbox">
+                        <img  src="https://pizzatoday.com/wp-content/uploads/2020/10/PepTC-1-800x533.jpg" alt="">
+                    </div>
+                    <button type="button">Start Order</button>
+            
+            
+                </div>
+            
+                <div class=" container container-3">
+                    <div class="heading">
+                        <h1>Delivery</h1>
+                    </div>
+                    <div class="textbox">
+                        <img src="https://customsitesmedia.usc.edu/wp-content/uploads/sites/59/2015/10/16133208/delivery_WEB-824x549.jpg" alt="">
+                    </div>
+                    <button type="button">Start Order</button>
+            
+            
+                </div>
+               
+                
+            </div>
+            <div class="buttondiv">
+                <button onclick="handleBack()" id="back" type="button">Back</button>
+            
+            </div>
+            
+            
+            </section>
+
+            
+        </div>
+        
+    </main>
+        
+    
+   
+    
+    <script>
+        function handleClick() {
+            document.getElementById("section-1").style.display = "none";
+            document.getElementById("section-2").style.display = "block";
+        }
+
+        function handleBack() {
+            document.getElementById("section-1").style.display = "flex";
+            document.getElementById("section-2").style.display = "none";
+        }
+    </script>
+</body>
+</html>
