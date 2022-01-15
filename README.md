@@ -34,6 +34,7 @@ Now, once you've forked this repo and got a local version up on your computer, f
 
 - [Wedding Landing Page](/submissions/mattcsmith.html) - By: [Matt](https://github.com/mattcsmith)
 - [Matteos Trattoria](/submissions/matthewvanpelt.html) - By: [Matt](https://github.com/mattvp21)
+- [Introduction](/submissions/matthewvanpelt.html) - By: [Jeet Viramgama](https://github.com/jv18creator)
 
 ## One Last Thing!
 
