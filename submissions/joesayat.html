@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smooth Scroll Template</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Martel:wght@900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      font-size: 17px;
+      color: #838383;
+      line-height: 1.6;
+    }
+
+    nav {
+      width: 100%;
+      height: 80px;
+      position: sticky;
+      top: 0;
+      background-color: #00A0A3;
+    }
+
+    ul {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      list-style: none;
+    }
+
+    li {
+      width: 150px;
+    }
+
+    li a {
+      color: #fff;
+      transition: .3s ease;
+    }
+
+    li a:hover {
+      color: #00DDE0;
+    }
+
+    a {
+      font-family: 'Hind Siliguri', sans-serif;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Martel', serif;
+      font-weight: 900;
+      color: #838383;
+    }
+
+    h1 {
+      font-size: 80px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 40px;
+      color: #00A0A3;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 30px;
+    }
+
+    h4 {
+      font-weight: 300;
+      font-style: italic;
+      color: #999; 
+    }
+
+    section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .jumbotron {
+      height: 100vh;
+      background-color: #00A0A3;
+    }
+
+    .jumbotron-text {
+      text-align: center;
+    }
+
+    .jumbotron-text p {
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .jumbotron-text button {
+      font-size: 22px;
+      padding: 10px 20px;
+      border-radius: 3px;
+      background-color: #00A0A3;
+      border: 2px solid #fff;
+      transition: background-color .5s ease;
+    }
+
+    .about-section {
+      padding: 120px 0;
+    }
+
+    .about-text {
+      width: 1080px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-text img {
+      height: 200px;
+      margin-bottom: 40px;
+    }
+
+    .about-text p {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .partner-section {
+      padding: 120px 0;
+      background-color: #f9f9f9;
+    }
+
+    .partner-text {
+      width: 1080px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .partner-text p {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .partner-columns {
+      width: 1080px;
+      display: flex;
+      margin: 0 auto;
+    }
+
+    .partners {
+      text-align: center;
+    }
+
+    .partners img {
+      height: 250px;
+      margin-bottom: 10px;
+    }
+
+    .partners h3 {
+      color: #333;  
+    }
+
+    .partners p {
+      padding: 16px;
+    }
+
+    .contact-section {
+      padding: 120px 0;
+    }
+
+    .contact-text {
+      width: 540px;
+    }
+
+    .contact-text h2 {
+      text-align: center;
+    }
+
+    .contact-text input {
+      width: 100%;
+      color: #999;
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      padding: 12px 18px;
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .contact-text textarea {
+      width: 100%;
+      height: 200px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #999;
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      padding: 12px 18px;
+      font-size: 18px;
+      resize: none;
+      margin-bottom: 8px;
+    }
+
+    .contact-text input:focus,
+    .contact-text textarea:focus{
+      outline: none;
+    }
+
+    .contact-text button {
+      font-size: 18px;
+      padding: 12px 18px;
+      background-color: #00A0A3;
+      border-radius: 3px;
+      border: none;
+      transition: .5s ease;
+    }
+
+    footer {
+      background-color: #00A0A3;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .footer-text {
+      width: 1080px;
+      margin: 20px auto;
+    }
+
+    .footer-text h3 {
+      color: #fff;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      cursor: pointer;
+      background-color: #00DDE0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#about">About</a>
+      </li>
+      <li>
+        <a href="#partners">Partners</a>
+      </li>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Jumbotron -->
+  <section class="jumbotron">
+    <div class="jumbotron-text">
+      <h1>Lorem ipsum</h1>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <button>
+        <a href="#contact">
+          Get in touch
+        </a>
+      </button>
+    </div>
+  </section>
+
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-text">
+      <img src="https://i.ibb.co/Jd0VMrQ/undraw-Business-decisions-re-84ag.png" alt="about">  
+      <!-- <img src="/img/about.svg" alt="about">   -->
+      <h2>We are Lorem ipsum</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus quia non assumenda fuga soluta, nostrum eos, ullam ducimus temporibus magni delectus id incidunt quos doloribus, possimus velit numquam consequuntur sed! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit temporibus quia saepe quasi qui ex voluptatum facere eum, illum ut nemo cum, accusamus omnis voluptas quaerat aliquam exercitationem! Cum, animi!
+      </p>
+    </div>
+  </section>
+
+  <!-- Partners Section -->
+  <section id="partners" class="partner-section">
+    <div>
+      <div class="partner-text">
+        <h2>Our Partners</h2>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore dolores eos, temporibus nihil molestiae maxime? Velit nulla, fugit atque dolore nobis quo minus, voluptates minima voluptate cupiditate modi earum error?
+        </p>
+      </div>
+      <div class="partner-columns">
+        <div class="partners">
+          <img src="https://i.ibb.co/LPcLLMs/john-doe.jpg" alt="John Doe">
+          <h3>John Doe</h3>
+          <h4>UX Designer</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto quia itaque accusantium quibusdam culpa earum nesciunt fugit officiis! A ut illo in quod.
+          </p>
+        </div>
+        <div class="partners">
+          <img src="https://i.ibb.co/P9bR5C5/jessica-hall.jpg" alt="John Doe">
+          <h3>Jessica Hall</h3>
+          <h4>Full Stack Developer</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque nostrum vel dolorum, ullam cumque sunt commodi aspernatur eveniet excepturi.
+          </p>
+        </div>
+        <div class="partners">
+          <img src="https://i.ibb.co/kDhk8L1/mark-job.jpg " alt="John Doe">
+          <h3>Mark Job</h3>
+          <h4>Dev Ops</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo consequuntur itaque ut ex sed magnam dolore a nulla. 
+          </p>
+        </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="contact-text">
+      <h2>Get in touch</h2>
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <textarea>Enter your message</textarea>
+      <button>
+        <a href="#">
+          Send message
+        </a>
+      </button>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-text">
+      <h3>Lorem ipsum</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+  </footer>
+  
+</body>
+</html>
