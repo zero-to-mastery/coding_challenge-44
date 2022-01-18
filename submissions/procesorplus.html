@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jaguar field notes</title>
+</head>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+	
+body {
+	background: url(https://i.imgur.com/RLNMxjp.png) no-repeat center center fixed; /*has to be exported */
+	background-size: cover;
+	font-family: 'Special Elite', monospace;
+	color:  white;
+}
+
+p {
+	background-color:  rgb(0,0,0);
+	display: inline-block;
+	padding: 2px;
+}
+
+.buffer {
+	height: 10rem;
+}
+
+.radio {
+	background-color: black;
+	font-family: 'Special Elite', monospace;
+	font-size: 1em;
+	color: white;
+	padding: 2px;
+	border: 0px;
+	width: 210px;
+}
+
+.SITREP {
+	display: grid;
+	max-width: 60px;
+	justify-items:  center;
+	justify-content: start;
+}
+
+</style>
+
+<body>
+
+	<div>
+		<p>Brace yourselves brothers for I can see future from miles away...</p>
+	</div>
+	
+	<div class=buffer></div>
+	
+	<div>
+		<p>Jaguar is sending notes on world conflicts straight to your mailbox from the rocky desert outpost.</p>
+	</div>
+	
+	<div>
+		<p>Join the unit - subscribe to the mailing list.<br> Radio me for SITREP with the PRC below.</p>
+	</div>
+	
+	<div class=buffer></div>
+	
+	<div class=SITREP>
+		
+		<img id=call2 src="https://i.imgur.com/ECifWkg.png" alt="PRC radio">
+
+		<input id="email" type="text" placeholder="your email here">
+
+		<button id=call class=radio>Radio Jaguar</button>
+	
+	</div>
+
+	
+
+	<script type="text/javascript">
+		
+		const prc = document.getElementById('call');
+		const user = document.getElementById('email');
+
+		const inputLength = () => {
+			return user.value.length;
+		}
+
+		const sendEmailKey = (e) => {
+			if(inputLength() > 0 && e.which===13){;
+			radioBack();
+			}
+		}
+
+		const sendEmailButton = () => {
+			if(inputLength() > 0) {
+				radioBack();
+			}
+		}
+
+		const radioBack = () => {
+			/*let addToList = user.value;
+			~some code to send it over to database :) */
+			prc.innerHTML = 'Roger!';
+			setTimeout(function() {
+				user.value = '';
+				prc.innerHTML = 'Radio Jaguar';
+			}, 1000);
+		}
+
+		prc.addEventListener('click', sendEmailButton);
+		user.addEventListener('keypress', sendEmailKey);
+
+	</script>
+
+</body>
+</html>
