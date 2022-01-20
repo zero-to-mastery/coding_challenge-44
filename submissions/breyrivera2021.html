@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Kalam&family=Nunito&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/4137f8921b.js" crossorigin="anonymous"></script>
+  <title>Portfolio</title>
+</head>
+<style>
+  * {
+    font-family: Nunito, sans-serif;
+  }
+  body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+    background-color: #523a78;
+    background-image: linear-gradient(316deg, #523a78 0%, #ee696b 74%);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  /* nav > ul {
+    padding: 0;
+    margin: 0;
+  } */
+  nav > ul > li {
+    display: inline-block;
+    list-style: none;
+    padding: 0 20px;
+    letter-spacing: 0.05rem;
+    font-size: 1.1rem;
+    font-weight: 100;
+    border-right: dashed 1px rgba(255, 255, 255, 0.4);
+  }
+  nav > ul > li:first-child{
+    border-right: none;
+  }
+  nav > ul > li:last-child{
+    border-right: none;
+  }
+  nav > ul > li > a {
+    color: white;
+    text-decoration: none;
+    padding: 0.05rem;
+  }
+  nav > ul > li > a:hover{
+    border-bottom: solid 0.15rem white;
+  }
+  .nav {
+    width: 100%;
+    list-style: none;
+  }
+  .name {
+    cursor: default;
+    font-weight: bold;
+    color: white;
+  }
+  .active {
+    border-bottom: solid 0.15rem white;
+  }
+  .align-center {
+    text-align: center;
+  }
+
+  /*CONTENT*/
+  .header-container {
+    display: table;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+    border-bottom: solid 1px rgba(255, 255, 255, 0.4);
+    color: white;
+  }
+  .text-container {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .header {
+    font-size: 4rem;
+    height: auto;
+    width: 100%;
+    color: white;
+  }
+  .sub-header {
+    font-size: 1.1rem;
+    letter-spacing: 0.25rem;
+    font-weight: lighter;
+  }
+  .about-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    padding: 100px 0;
+    justify-content: center;
+    text-align: center;
+  }
+  .about-text {
+    width: 400px;
+    margin: 0 20px;
+    color: white;
+  }
+  .about-languages {
+    width: 500px;
+    margin: 0 20px;
+    color: white;
+  }
+  .languages-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-rows: 1fr;
+    justify-items: center;
+    width: 100%;
+  }
+  .language {
+    width: 100px;
+    margin: 20px;
+  }
+  .language:hover{
+    color: rgba(255, 255, 255, 0.5);
+    border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+  }
+
+  /*Footer*/
+  .footer {
+    letter-spacing: 0.1rem;
+    text-align: center;
+    color: white;
+  }
+
+  /* MEDIA QUERIES */
+  @media only screen and (max-width: 800px) {
+    li > a {
+      font-size: 0.75rem;
+    }
+  }
+  @media only screen and (max-width: 470px) {
+    li > a {
+      font-size: 0.6rem;
+      padding: 10px;
+    }
+    .header-container {
+      margin-top: 80px;
+    }
+  }
+</style>
+<body>
+  <nav>
+    <ul class="nav">
+      <li><a href="#home" id="home-link" class="active nav-el">Home</a></li>
+      <li><a href="#about" id="about-link" class="nav-el">About</a></li>
+      <li><a href="#projects" id="projects-link" class="nav-el">Projects</a></li>
+      <li><a href="#contact" id="contact-link" class="nav-el">Contact</a></li>
+    </ul>
+  </nav>
+  <header id="home" class="header-container">
+    <section class="text-container">
+      <h1 class="header">Hello! My name is <span style="font-family: Kalam, cursive;">(Your name here)</span></h1>
+      <h2 class="sub-header" style="margin-bottom: 10rem;">Aspiring Web Developer</h2>
+      <span style="font-size: 3em">
+        <i class="fas fa-chevron-down"></i>
+      </span>
+    </section>
+  </header>
+  <section class="about-container" id="about">
+    <section class="about-text">
+      <h1 style="font-size: 2rem; letter-spacing: 0.25rem;">About Me</h1>
+      <p style="text-align: center; font-size: 1.25rem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate debitis dolorum vel impedit, incidunt voluptas! Labore vitae facere facilis dolor amet iste est, recusandae pariatur vero deleniti, nostrum repellat voluptatibus.</p>
+    </section>
+    <section class="about-languages">
+      <h1 style="font-size: 2rem; letter-spacing: 0.25rem;">Familiar Languages</h1>
+      <div class="languages-container">
+        <div class="language">
+          <span style="font-size: 3em;">
+            <i class="fab fa-html5"></i>
+          </span>
+          <p>HTML</p>
+        </div>
+        <div class="language">
+          <span style="font-size: 3em;">
+            <i class="fab fa-css3"></i>
+          </span>
+          <p>CSS</p>
+        </div>
+        <div class="language">
+          <span style="font-size: 3em;">
+            <i class="fab fa-js-square"></i>
+          </span>
+          <p>JavaScript</p>
+        </div>
+        <div class="language">
+          <span style="font-size: 3em;">
+            <i class="fab fa-java"></i>
+          </span>
+          <p>Java</p>
+        </div>
+        <div class="language">
+          <span style="font-size: 3em;">
+            <i class="fab fa-python"></i>
+          </span>
+          <p>Python3</p>
+        </div>
+      </div>
+    </section>
+  </section>
+  <footer class="footer">
+    <h4>2022</h4>
+    <a href="#home" style="text-decoration: none; color: white"><p>Back to Top</p></a>
+  </footer>
+  <script>
+    //TODO Scroll feature so that the active class changes between the li elements as the user goes down the page
+    let navbarElements = [...document.querySelectorAll("li > a.nav-el")]
+
+    const removeAdd = () => {
+      navbarElements.forEach(element => {
+          element.classList?.remove("active");
+      })
+    }
+
+    const navbarChangeActive = () => {
+      let windowYPos = window.scrollY;
+      console.log(windowYPos); // for testing
+      if(windowYPos <= 650){
+        removeAdd();
+        navbarElements[0].classList.add("active");
+      } else if (windowYPos <= 900) {
+        removeAdd();
+        navbarElements[1].classList.add("active");
+      }
+    }
+
+    document.addEventListener("scroll", navbarChangeActive)
+  </script>
+</body>
+</html>
