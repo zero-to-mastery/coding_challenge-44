@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Modern Form with Validation</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #0f0c29;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right,
+                #24243e,
+                #302b63,
+                #0f0c29);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right,
+                #24243e,
+                #302b63,
+                #0f0c29);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 95vh;
+    }
+
+    .wrapper {
+        background-color: white;
+        padding: 40px;
+        width: 50%;
+        max-width: 30%;
+        border-radius: 20px;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .form-wrapper {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .title {
+        font-size: 32px;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .title-subtitle {
+        font-size: 14px;
+
+        color: grey;
+    }
+
+    .login-sub {
+        color: rgb(42, 1, 71);
+    }
+
+    .input-text {
+        flex: 1;
+        min-width: 50%;
+        padding: 15px;
+        margin: 10px 0px;
+        border-radius: 10px;
+        border: 0.5px solid lightgray;
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        padding: 17px;
+        margin: 10px 0px;
+        border-radius: 10px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        background-color: indigo;
+        color: white;
+    }
+
+    .submit-btn:hover {
+        background-color: rgb(204, 106, 167);
+        color: rgb(27, 2, 83);
+    }
+
+    .password-validations {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+
+    .validation-left {
+        line-height: 10px;
+    }
+
+    .validation-right {
+        line-height: 10px;
+    }
+
+    .point-check {
+        margin-top: 10px;
+    }
+
+    .check-icon {
+        margin-right: 5px;
+        border: none;
+        border-radius: 50%;
+        font-size: 12px;
+        color: #b9b9b9;
+        background-color: #d8d8d8;
+        text-align: center;
+        width: 15px;
+        height: 15px;
+        margin: 0 auto;
+        padding: 0;
+        vertical-align: middle;
+        line-height: 0px;
+    }
+
+    .check-text {
+        font-size: 14px;
+        color: #333333;
+    }
+
+    footer {
+        color: whitesmoke;
+        font-weight: 200;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    @media only screen and (max-width: 800px) {
+        .wrapper {
+            max-width: 70%;
+        }
+
+        .title {
+            font-size: 24px;
+        }
+
+        .password-validations {
+            flex-direction: column;
+        }
+    }
+
+    @media only screen and (max-width: 900px) {
+        .wrapper {
+            max-width: 70%;
+        }
+
+        .title {
+            font-size: 24px;
+        }
+
+        .password-validations {
+            flex-direction: column;
+        }
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="wrapper">
+            <div class="title-container">
+                <h3 class="title">Create an account</h3>
+                <span class="title-subtitle">Already have an account? <span class="login-sub">Log in</span>
+                </span>
+
+            </div>
+            <div class="form-container">
+                <div class="form-wrapper">
+                    <input type="text" placeholder="Name" class="input-text">
+                    <input type="email" placeholder="Email" class="input-text">
+                    <input type="text" placeholder="Phone" class="input-text">
+                    <input type="password" placeholder="Password" class="input-text password">
+                    <button class="submit-btn">Sign up</button>
+                </div>
+            </div>
+            <div class="password-validations">
+                <div class="validation-left">
+                    <div class="point-check" id="lowercase">
+                        <button class="check-icon">𐄂</button>
+                        <span class="check-text">One lowercase character</span>
+                    </div>
+                    <div class="point-check" id="uppercase">
+                        <button class="check-icon">𐄂</button>
+                        <span class="check-text">One uppercase character
+                        </span>
+                    </div>
+                    <div class="point-check" id="numbers">
+                        <button class="check-icon">𐄂</button>
+                        <span class="check-text">One number
+                        </span>
+                    </div>
+                </div>
+                <div class="validation-right">
+                    <div class="point-check" id="special-character">
+                        <button class="check-icon">𐄂</button>
+                        <span class="check-text">One special character</span>
+                    </div>
+                    <div class="point-check" id="min-characters">
+                        <button class="check-icon">𐄂</button>
+                        <span class="check-text">12 characters minimum</span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <footer>Built with Passion By Ayman </footer>
+
+    <script>
+        const passwordValidator = document.querySelector('.form-wrapper .password')
+        function validInput(inputEntry) {
+            let input = document.querySelector(`#${inputEntry} .check-text`);
+            let iconBtn = document.querySelector(`#${inputEntry} .check-icon`);
+
+            input.style.color = '#333333'
+            iconBtn.style.backgroundColor = '#b7e2ab'
+            iconBtn.style.color = '#2a8511'
+            iconBtn.innerHTML = '✓'
+
+        }
+
+
+        function InvalidInput(inputEntry) {
+            let input = document.querySelector(`#${inputEntry} .check-text`);
+            let iconBtn = document.querySelector(`#${inputEntry} .check-icon`);
+
+            input.style.color = '#b9b9b9'
+            iconBtn.style.backgroundColor = '#d8d8d8'
+            iconBtn.style.color = '#a7a2a2'
+            iconBtn.innerHTML = '𐄂'
+        }
+
+        passwordValidator.addEventListener('input', () => {
+            //check for lowercase letters 
+            if (passwordValidator.value.match(/[a-z]/) != null) validInput('lowercase')
+            else InvalidInput('lowercase')
+
+            //check for uppercase letters
+            if (passwordValidator.value.match(/[A-Z]/) != null) validInput('uppercase')
+            else InvalidInput('uppercase')
+
+            //check for numbers
+            if (passwordValidator.value.match(/[0-9]/) != null) validInput('numbers')
+            else InvalidInput('numbers')
+
+            //check for special characters
+            if (passwordValidator.value.match(/[!@#$%^&*]/) != null) validInput('special-character')
+            else InvalidInput('special-character')
+
+            //check for minimu of 12 characters
+            if (passwordValidator.value.length > 11) validInput('min-characters')
+            else InvalidInput('min-characters')
+        })
+    </script>
+</body>
+
+</html>
