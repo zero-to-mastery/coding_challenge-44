@@ -28,15 +28,20 @@ Now, once you've forked this repo and got a local version up on your computer, f
 1. In the `Submissions` directory, create a **HTML** file using your Github username as the filename.
 2. Using only this HTML file create your project! It can be as simple or as complex as you like. This file should contain all your HTML, CSS & JS
 3. In the submissions section below, add the details of your submission, using the following example as a guide.
-    `- [PROJECT TITLE](SUBMISSION URL) - By: [YOUR NAME](YOUR GH URL)`
+    `| [PROJECT TITLE](SUBMISSION URL) | By: [YOUR NAME](YOUR GH URL)`
 
 ## Submissions
 
-- [Wedding Landing Page](/submissions/mattcsmith.html) - By: [Matt](https://github.com/mattcsmith)
-- [Matteos Trattoria](/submissions/matthewvanpelt.html) - By: [Matt](https://github.com/mattvp21)
-- [Portfolio Page (Landing/About)](/submission/breyrivera2021.html) - By: [Brey Rivera](https://github.com/BreyRivera2021)
-- [Smooth Scroll Template](/submissions/joesayat.html) - By: [Joe](https://github.com/joesayat)
-- [Introduction](/submissions/matthewvanpelt.html) - By: [Jeet Viramgama](https://github.com/jv18creator)
+| Project Name   | Developer           
+| :------------- |:-------------| 
+| [Wedding Landing Page](/submissions/mattcsmith.html)  | By: [Matt](https://github.com/mattcsmith) | 
+| [Matteos Trattoria](/submissions/matthewvanpelt.html) | By: [Matt](https://github.com/mattvp21)    | 
+| [Portfolio Page (Landing/About)](/submission/breyrivera2021.html)  | By: [Brey Rivera](https://github.com/BreyRivera2021)  |
+| [Smooth Scroll Template](/submissions/joesayat.html) | By: [Joe](https://github.com/joesayat)
+| [Introduction](/submissions/matthewvanpelt.html) | By: [Jeet Viramgama](https://github.com/jv18creator)
+| [Modern Form with Validations](/submissions/aymanx.html) | By: Ayman A.
+
+
 
 
 ## One Last Thing!
