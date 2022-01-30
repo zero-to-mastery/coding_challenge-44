@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&family=Vollkorn:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Playlist Filters</title>
+  </head>
+  <style>
+    *,
+    *::after,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      box-sizing: border-box;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      background-color: #eff0f3;
+      color: #2a2a2a;
+    }
+
+    .container {
+      max-width: 1170px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .mt-2 {
+      margin-top: 2rem;
+    }
+
+    .mb-1 {
+      margin-bottom: 1rem;
+    }
+
+    .mb-2 {
+      margin-bottom: 2rem;
+    }
+
+    .mb-3 {
+      margin-bottom: 3rem;
+    }
+
+    .heading {
+      font-family: 'Vollkorn', serif;
+      font-size: 4rem;
+      text-align: center;
+      color: #0d0d0d;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #ff8e3c;
+      padding: 1rem 1.5rem;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: 500;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+
+    .btn--show-playlist {
+      padding: 1rem 5rem;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    label {
+      display: block;
+    }
+
+    select {
+      width: 100%;
+      padding: 1rem;
+      border: 1px solid #ced4da;
+      font-family: inherit;
+      border-radius: 3px;
+    }
+
+    ol,
+    ul {
+      padding-left: 3rem;
+    }
+  </style>
+  <body>
+    <div class="container mt-1">
+      <h1 class="heading mb-2">Playlist Filters</h1>
+      <button class="btn btn--show-playlist mb-3">Show Playlist</button>
+      <form id="playlist-filters" class="mb-3">
+        <div class="mb-2">
+          <label for="genre" class="form-label">Choose a genre:</label>
+          <select id="genre" name="genre" class="form-select">
+            <option value="pop">Pop</option>
+            <option value="hip-hop">Hip-Hop</option>
+            <option value="rock">Rock</option>
+            <option value="electronic">Electronic</option>
+            <option value="country">Country</option>
+          </select>
+        </div>
+        <div class="mb-2">
+          <label for="grammy" class="form-label">Grammy award?:</label>
+          <select id="grammy" name="grammy" class="form-select">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary filters">Submit</button>
+      </form>
+
+      <ol id="playlist" class="mt-2 mb-2">
+        <li data-genre="pop" data-grammy="yes">
+          "Thank U, Next" by Arianna Grande
+        </li>
+        <li data-genre="hip-hop" data-grammy="yes">
+          "Sicko Mode" by Travis Scott
+        </li>
+        <li data-genre="rock" data-grammy="yes">
+          "High Hopes" by Panic! at the Disco
+        </li>
+        <li data-genre="pop" data-grammy="no">"Girls Like You" by Maroon 5</li>
+        <li data-genre="hip-hop" data-grammy="no">"Wow." by Post Malone</li>
+        <li data-genre="hip-hop" data-grammy="no">
+          "Better Now" by Post Malone
+        </li>
+        <li data-genre="hip-hop" data-grammy="no">"Money" by Cardi B</li>
+        <li data-genre="hip-hop" data-grammy="no">"Going Bad" by Meek Mill</li>
+        <li data-genre="pop" data-grammy="yes">"Shallow" by Lady Gaga</li>
+        <li data-genre="rock" data-grammy="no">"Natural" by Imagine Dragons</li>
+        <li data-genre="electronic" data-grammy="no">
+          "Close to Me" by Ellie Goulding
+        </li>
+        <li data-genre="country" data-grammy="yes">
+          "She Got The Best Of Me" by Luke Combs
+        </li>
+        <li data-genre="hip-hop" data-grammy="no">"A Lot" by 21 Savage</li>
+        <li data-genre="country" data-grammy="yes">
+          "Beautiful Crazy" by Luke Combs
+        </li>
+        <li data-genre="country" data-grammy="no">
+          "Burning Man" by Dierks Bentley
+        </li>
+        <li data-genre="hip-hop" data-grammy="no">
+          "Backin' It Up" by Pardison Fontaine
+        </li>
+        <li data-genre="country" data-grammy="yes">
+          "Girl Like You" by Jason Aldean
+        </li>
+        <li data-genre="pop" data-grammy="no">
+          "Consequences" by Camila Cabello
+        </li>
+        <li data-genre="hip-hop" data-grammy="yes">
+          "Talk To Me" by Tory Lanez
+        </li>
+        <li data-genre="hip-hop" data-grammy="yes">
+          "No Stylist" by French Montana
+        </li>
+        <li data-genre="hip-hop" data-grammy="yes">
+          "Yosemite" by Travis Scott
+        </li>
+        <li data-genre="rock" data-grammy="no">
+          "Bad Liar" by Imagine Dragons
+        </li>
+        <li data-genre="rock" data-grammy="no">"Get Up" by Shinedown</li>
+        <li data-genre="pop" data-grammy="yes">"Without Me" by Halsey</li>
+      </ol>
+    </div>
+
+    <script>
+      const filtersBtnEl = document.querySelector('.filters');
+      const showPlaylistBtnEl = document.querySelector('.btn--show-playlist');
+      const formEl = document.querySelector('#playlist-filters');
+      const playlistListEls = document.querySelectorAll('#playlist > li');
+      const playlistEl = document.querySelector('#playlist');
+      const containerEl = document.querySelector('.container');
+      const playlistCopy = playlistEl.cloneNode(true);
+
+      playlistCopy.id = 'playlist-copy';
+      playlistCopy.classList.add('mb-5', 'hidden');
+      const playlistCopyLiElements = [...playlistCopy.children];
+      containerEl.insertBefore(playlistCopy, containerEl.children[2]);
+
+      // Functions
+      const addHiddenClassToLiElements = () => {
+        playlistListsArr.forEach((li) => {
+          if (!li.classList.contains('hidden')) {
+            return li.classList.add('hidden');
+          }
+        });
+      };
+
+      // Logic
+      const playlistListsArr = Array.from(playlistListEls);
+
+      addHiddenClassToLiElements();
+
+      filtersBtnEl.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        addHiddenClassToLiElements();
+
+        const formData = new FormData(formEl);
+
+        const genre = formData.get('genre');
+        const grammy = formData.get('grammy');
+
+        playlistListsArr.forEach((li) => {
+          if (genre === li.dataset.genre && grammy === li.dataset.grammy)
+            li.classList.remove('hidden');
+        });
+      });
+
+      showPlaylistBtnEl.addEventListener('click', () => {
+        playlistCopy.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
