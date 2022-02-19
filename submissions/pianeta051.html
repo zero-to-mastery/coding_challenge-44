@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Rock Paper Scissors Lizard Spock</title>
+</head>
+<style>
+  html {
+    font-family: sans-serif;
+  }
+  
+  body {
+    background: #2c2c2c;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+    margin: 1rem 0.5rem;
+  }
+  
+  progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 80%;
+    height: 2rem;
+    color: #ff0062;
+    border: 1px solid #a927f5;
+  }
+  
+  progress[value]::-webkit-progress-bar,
+  progress[value] {
+    background-color: #eee;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+  
+  progress[value]::-webkit-progress-value {
+    background-color: #a927f5;
+    transition: all 0.2s ease-out;
+  }
+  
+  progress[value]::-moz-progress-bar {
+    background-color: #a927f5;
+    transition: all 0.2s ease-out;
+  }
+  
+  button {
+    font: inherit;
+    background: #ff0062;
+    border: 1px solid #ff0062;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 0.5rem;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  button:hover,
+  button:active {
+    background: #a927f5;
+    border-color: #a927f5;
+  }
+  
+  #goodbye {
+    width: 84rem;
+    height: 160px;
+    margin: 1rem auto;
+    color: white;
+    position: fixed;
+    text-align: center;
+    left: auto;
+    bottom: 100px;
+  }
+  
+  #btn-start {
+    background-color: blue;
+    position: fixed;
+    left: 400px;
+  }
+  
+  #btn-end {
+    background-color: red;
+    position: fixed;
+    right: 400px;
+  }
+  
+  #record,
+  #choice {
+    margin: 1rem auto;
+    width: 30rem;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background: white;
+  }
+  
+  #container-result {
+    width: 20rem;
+    height: 160px;
+    margin: 1rem auto;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background: white;
+  }
+  
+  #machine-screen,
+  #player-screen {
+    position: fixed;
+    text-align: center;
+    width: 15%;
+    height: 30%;
+    bottom: 320px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background: white;
+  }
+  
+  #machine-screen {
+    left: 180px;
+  }
+  
+  #player-screen {
+    right: 180px;
+  }
+  
+  #record {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #machine-life,
+  #player-life {
+    font-weight: bold;
+    color: white;
+    background: #ff0062;
+    border: 1px solid #ff0062;
+    padding: 0.15rem 0.5rem;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 0.5rem;
+  }
+  
+  #titleScreen {
+    margin: 1rem auto;
+    width: 30rem;
+    text-align: center;
+    border-radius: 10px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    background: white;
+  }
+  
+  img {
+    width: 60px;
+    height: 60px;
+  }
+</style>
+
+<body>
+
+  <section id='titleScreen'>
+    <h2 id="title">Rock Paper Scissors Lizard Spock </h2>
+  </section>
+
+  <section id="screen-game">
+    <section id="machine-screen">
+      <h2>Machine<span id="machine-life" value="5"></span></h2>
+      <p id="text-machine-screen"></p>
+    </section>
+
+    <section id="container-result">
+      <button id="btn-start">Keep Playin</button>
+      <button id="btn-end">End Game</button>
+    </section>
+    <section id="player-screen">
+      <h2>Player<span id="player-life" value="5"></span< /h2>
+      </h2>
+      <p id="text-player-screen"></p>
+    </section>
+
+    <section id="choice">
+      <button id="btn-rock">ROCK</button>
+      <button id="btn-paper">PAPER</button>
+      <button id="btn-scissor">SCISSORS</button>
+      <button id="btn-lizard">LIZARD</button>
+      <button id="btn-spock">SPOCK</button>
+    </section>
+    <section id="record">
+      <button id="btn-record">RECORD</button>
+    </section>
+  </section>
+  <script>
+    const spanPlayerLife = document.getElementById("player-life");
+    const spanMachineLife = document.getElementById("machine-life");
+    const containerResult = document.getElementById("container-result");
+    const textScreenMachine = document.getElementById('text-machine-screen');
+    const textScreenPlayer = document.getElementById('text-player-screen')
+    const textTitle = document.getElementById('title');
+    const btnRock = document.getElementById("btn-rock");
+    const btnPaper = document.getElementById("btn-paper");
+    const btnScissor = document.getElementById("btn-scissor");
+    const btnLizard = document.getElementById("btn-lizard");
+    const btnSpock = document.getElementById("btn-spock");
+    const btnRecord = document.getElementById("btn-record");
+    const btnStart = document.getElementById("btn-start");
+    const btnEnd = document.getElementById("btn-end");
+    const screenGame = document.getElementById('screen-game');
+    const sectionRecord = document.getElementById('record');
+    btnStart.style.visibility = "hidden";
+    btnEnd.style.visibility = "hidden";
+
+    const ROCK = 'ROCK';
+    const PAPER = 'PAPER';
+    const SCISSOR = 'SCISSOR';
+    const LIZARD = 'LIZARD';
+    const SPOCK = 'SPOCK';
+    const PLAYER_WIN = 'PLAYER_WIN';
+    const MACHINE_WIN = 'MACHINE_WIN';
+    const TIE = 'TIE';
+    const options = [ROCK, PAPER, SCISSOR, LIZARD, SPOCK];
+    const CONSECUTIVE_LIVES = 3;
+    let livesGame;
+
+    const initLives = () => {
+      try {
+        livesGame = livesNumbers();
+      } catch (e) {
+        alert(e.message);
+        alert("User Entered " + e.received);
+      }
+    }
+
+    const livesNumbers = () => {
+      let lives = {};
+      lives.player = parseInt(prompt('Enter player lives(must be positive number)', '5'));
+      lives.machine = parseInt(prompt('Enter Machine lives(must be positive number)', '5'));
+
+      if (isNaN(lives.player) || (lives.player < 0)) {
+        const error = {
+          message: 'Lives number must be positive',
+          received: lives
+        };
+        throw error;
+      }
+      else if (isNaN(lives.machine) || (lives.machine < 0)) {
+        const error = {
+          message: 'Lives number must be positive',
+          received: lives
+        };
+        throw error;
+      }
+      else {
+        return lives;
+      }
+    }
+
+    const continueOrEnd = () => {
+      continueGame = document.createElement("BUTTON");
+      const showContinue = document.createTextNode("Continue");
+      endGAme = document.createElement("BUTTON");
+      const showEnd = document.createTextNode("endGAme");
+      continueGame.id = "btn-start";
+      endGAme.id = "btn-end";
+      continueGame.appendChild(showContinue);
+      document.body.appendChild(continueGame);
+      endGAme.appendChild(showEnd);
+      document.body.appendChild(endGAme);
+      continueGame.addEventListener('click', event => {
+        initLives();
+        startRound();
+      });
+
+      endGAme.addEventListener('click', event => {
+        containerResult.style.visibility = 'visible';
+        EndGame();
+        const h1goodbye = document.createElement("H1");
+        h1goodbye.id = 'goodbye';
+        btnDisableContinueEnd();
+        const textGoodBye = document.createTextNode("THANKS FOR PLAYING ");
+        h1goodbye.appendChild(textGoodBye);
+        document.body.appendChild(h1goodbye);
+      });
+    }
+
+    const disableGame = () => {
+      screenGame.style.visibility = 'hidden';
+    }
+
+    const enableGame = () => {
+      screenGame.style.visibility = 'visible';
+    }
+
+    const btnDisableContinueEnd = () => {
+      continueGame.parentNode.removeChild(continueGame);
+      endGAme.parentNode.removeChild(endGAme);
+    }
+    const btnEnableContinueEnd = () => {
+      continueGame.style.visibility = 'visible';
+      endGAme.style.visibility = 'visible';
+    }
+
+    const updateGame = (player, machine) => {
+      showText(player, machine);
+      showLives();
+      endGameRound();
+    }
+
+    const addRecord = (lives, whoWon, player, machine) => {
+      const entry = {
+        initialPlayerLife: livesGame.player,
+        initialMachineLife: livesGame.machine,
+        playerChoose: player,
+        machineChoose: machine,
+        playerLive: playerLive,
+        machineLive: machineLive,
+        whoWon: whoWon
+      };
+      switch (whoWon) {
+        case PLAYER_WIN:
+          entry.whoWon = whoWon;
+          entry.playerChoose = player;
+          entry.machineChoose = machine;
+          entry.playerLive = playerLive;
+          entry.machineLive = machineLive;
+        case MACHINE_WIN:
+          break;
+        case TIE:
+          entry.whoWon = TIE;
+          entry.playerChoose = player;
+          entry.machineChoose = machine;
+          entry.playerLive = playerLive;
+          entry.machineLive = machineLive;
+          break;
+      }
+      record.push(entry);
+    }
+
+    const machineChoose = () => {
+      const MAX = options.length - 1;
+      const machineResponse = Math.ceil(Math.random() * MAX);
+      return options[machineResponse];
+    }
+
+    const startRound = () => {
+      enableGame();
+      textScreenMachine.innerHTML = "";
+      textScreenPlayer.innerHTML = "";
+      containerResult.innerHTML = "";
+      playerLive = livesGame.player;
+      machineLive = livesGame.machine;
+      updateGame("", "");
+      btnDisableContinueEnd();
+    }
+
+    const showLives = () => {
+      spanPlayerLife.innerHTML = playerLive;
+      spanMachineLife.innerHTML = machineLive;
+    }
+    const isOnRoll = (whoWon) => {
+      streak.push(whoWon);
+      if (streak.length >= CONSECUTIVE_LIVES) {
+        for (let i = streak.length - 1; i >= 0; i--) {
+          if (streak[i] === whoWon) {
+            streakCounter++;
+          } else {
+            streakCounter = 0;
+            streak = [];
+            showTitle();
+          }
+        }
+      }
+      if (streakCounter >= CONSECUTIVE_LIVES) {
+        if (whoWon === PLAYER_WIN) {
+          textTitle.innerHTML = "Player is on a roll";
+          titleScreen.style.background = '#3399ff';
+        } else {
+          textTitle.innerHTML = "Machine is on a roll";
+          titleScreen.style.background = '#ff8566';
+        }
+      }
+    }
+
+
+
+    const EndGame = () => {
+      containerResult.innerHTML = "<h2>Machine Games : </h2>" + victoryMachine + "<br>" + "<h2>Player Games : </h2>" + victoryPlayer
+    }
+
+    const endGameRound = () => {
+      if (machineLive === 0 || playerLive === 0) {
+        if (machineLive) {
+          containerResult.innerHTML = "<h2> S O R R Y!!!! YOU LOST </h2>"
+          victoryMachine += 1;
+        } else {
+          containerResult.innerHTML = "<h2> C O N G R A T S !!!! YOU WON </h2>"
+          victoryPlayer += 1;
+        }
+        cleanGame();
+      }
+    }
+
+    const playRound = (choice) => {
+      playerSelect = choice;
+      machineSelect = machineChoose();
+      isOnRoll(whoWin(playerSelect, machineSelect));
+      showResultRound(whoWin(playerSelect, machineSelect));
+      updateGame(playerSelect, machineSelect);
+      addRecord(livesGame, whoWin(playerSelect, machineSelect), playerSelect, machineSelect);
+    }
+    const cleanGame = () => {
+      playerLive = "";
+      machineLive = "";
+      victoryMachine = 0;
+      textScreenMachine.innerHTML = "";
+      textScreenPlayer.innerHTML = "";
+      showTitle();
+      showLives();
+      disableGame();
+      containerResult.style.visibility = 'visible';
+      continueOrEnd();
+    }
+
+    const showResultRound = (result) => {
+      if (result === PLAYER_WIN) {
+        containerResult.innerHTML = "<h2>YOU WON !...</h2>" + "<h2>" + playerSelect + "</h2>" + "<h2>" + "WIN TO" + "</h2>" + "<h2>" + machineSelect + "</h2>";
+        if (streakCounter >= CONSECUTIVE_LIVES) {
+          machineLive -= 2;
+        } else {
+          machineLive -= 1;
+        }
+
+      } else if (result === MACHINE_WIN) {
+        containerResult.innerHTML = "<h2> You Lost  !...</h2>" + "<h2>" + playerSelect + "</h2>" + "<h2>" + "lost with" + "</h2>" + "<h2>" + machineSelect + "</h2>";;
+        if (streakCounter >= CONSECUTIVE_LIVES) {
+          playerLive -= 2;
+        } else {
+          playerLive -= 1;
+        }
+
+      } else {
+        containerResult.innerHTML = "<h2>TIE</h2>";
+      }
+    }
+
+    const showText = (player, machine) => {
+      // textScreenMachine.innerHTML = machine;
+      // textScreenPlayer.innerHTML = player;
+     textScreenPlayer.innerHTML ='';
+     textScreenMachine.innerHTML = '';
+      textScreenMachine.append(insertImage(machine));
+      textScreenPlayer.append(insertImage(player));
+    }
+
+    const insertImage =(player) =>{
+      const createImage = url =>{
+        const imag = document.createElement('IMG');
+        imag.setAttribute('src',url);
+        return imag;
+      }
+      switch (player) {
+        case ROCK:
+        return createImage('https://www.seekpng.com/png/detail/101-1011471_dwayne-douglas-johnson-mais-conhecido-como-dwayne-dwayne.png');
+          break;
+        case PAPER:
+        return createImage('https://thumbs.dreamstime.com/b/blank-old-ancient-scroll-papyrus-paper-cartoon-isolated-white-background-blank-retro-papyrus-sheet-flat-style-102859089.jpg');
+          break;
+        case SCISSOR:
+        return  createImage('https://gallery.kissclipart.com/20180829/lq/kissclipart-scissors-cartoon-clipart-clip-art-a0b4376fd48d4f66.png');
+          break;
+        case LIZARD:
+        return  createImage('https://wallpaperaccess.com/full/7164105.jpg');
+          break;
+        case SPOCK:
+        return  createImage('https://blenderartists.org/uploads/default/original/4X/1/0/3/103cbe6454f9a1bd286a77ecc53bc056c6991160.jpeg');
+          break;   
+        default:
+          break;
+      }
+    }
+    const showTitle = () => {
+      titleScreen.style.background = 'white';
+      textTitle.innerHTML = "ROCK, PAPER, SCISSOR, LIZARD AND SPOCK";
+    }
+
+
+
+    const whoWin = (selectPlayer, machineChoose) => {
+      if (selectPlayer === machineChoose) {
+        return TIE;
+      } else if (selectPlayer === SCISSOR) {
+        if ((machineChoose === PAPER) || (machineChoose === LIZARD)) {
+          return PLAYER_WIN;
+        }
+        else {
+          return MACHINE_WIN;
+        }
+      }
+      else if (selectPlayer === PAPER) {
+        if ((machineChoose === ROCK) || (machineChoose === SPOCK)) {
+          return PLAYER_WIN;
+        }
+        else {
+          return MACHINE_WIN;
+        }
+      }
+      else if (selectPlayer == ROCK) {
+        if ((machineChoose === SCISSOR) || (machineChoose === LIZARD)) {
+          return PLAYER_WIN;
+        }
+        else {
+          return MACHINE_WIN;
+        }
+      }
+      else if (selectPlayer == LIZARD) {
+        if ((machineChoose === PAPER) || (machineChoose === SPOCK)) {
+          return PLAYER_WIN;
+        }
+        else {
+          return MACHINE_WIN;
+        }
+      }
+      else {
+        if ((machineChoose === SCISSOR) || (machineChoose === ROCK)) {
+          return PLAYER_WIN;
+        }
+        else {
+          return MACHINE_WIN;
+        }
+      }
+    }
+
+    initLives();
+    let continueGame;
+    let endGAme;
+    let playerSelect;
+    let machineSelect;
+    let machineLive = livesGame.machine;
+    let playerLive = livesGame.player;
+    let victoryPlayer = 0;
+    let victoryMachine = 0;
+    let streak = [];
+    let streakCounter = 0;
+    let record = [];
+    let unreadFirstEntry = 0;
+    showLives();
+
+    btnRock.addEventListener('click', event => {
+      playRound(ROCK);
+    });
+
+    btnPaper.addEventListener('click', event => {
+      playRound(PAPER);
+    });
+
+    btnScissor.addEventListener('click', event => {
+      playRound(SCISSOR);
+    });
+
+    btnLizard.addEventListener('click', event => {
+      playRound(LIZARD);
+    });
+
+    btnSpock.addEventListener('click', event => {
+      playRound(SPOCK);
+    });
+
+    btnRecord.addEventListener('click', event => {
+      for (let i = unreadFirstEntry; i < record.length; i++) {
+        const entry = record[i];
+        let textEntry = `[Entry ${i}]\n`;
+        for (const data in entry) {
+          textEntry += `${data}: ${entry[data]}\n`;
+        }
+        const divRecord = document.createElement('div');
+        divRecord.innerHTML = textEntry;
+        sectionRecord.append(divRecord);
+      }
+      unreadFirstEntry = record.length;
+    });
+
+  </script>
+</body>
+
+</html>
