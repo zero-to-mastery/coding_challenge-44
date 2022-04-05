@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beat Procrastination</title>
+</head>
+<style>
+
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    background-color: #1c1b1b;
+}
+
+body{
+    min-width: 600px;
+}
+.goDown{
+    margin-top: 100px;
+    margin-bottom: 60px;
+}
+
+#title1 {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-family: monospace;
+    font-weight: 900;
+    color:#F28705;
+    cursor: default;
+}
+
+#title2 {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-family: monospace;
+    font-weight: 900;
+    color:#F28705;
+    cursor: default;
+}
+
+#title3 {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-family: monospace;
+    font-weight: 900;
+    color:#F28705;
+    cursor: default;
+    position: relative;
+}
+
+
+
+.enterArea{
+display: flex;
+justify-content: center;
+height: 45px;
+margin-bottom: 20px;
+}
+
+
+#user{
+    background-color: white;
+    border: 3px solid rgb(163, 151, 151);
+    border-radius: 5px;
+    margin-right: 30px;
+    margin-left: 40px;
+    text-align: center;
+    font-size: large;
+}
+
+#press{
+width: 80px;
+height: 45px;
+border-radius: 5px;
+font-size: large;
+border:#D95204 ;
+background-color: #d95204;
+color: white;
+font-weight: 900;
+transition: transform .2s;
+cursor: pointer;
+}
+
+#press:hover{
+    background-color: #D92B04;
+    border: #D92B04;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#list{
+    position: relative;
+    max-width: 100%;
+    color: white;
+    font-size: 25px;
+}
+
+ul{
+    position:absolute;
+    left: 30%;
+}
+
+.done{
+    text-decoration: line-through 2px red;
+}
+
+.deleteButton{
+background-color: #72A603;
+border: 2px solid #72A603;
+border-radius: 5px;
+margin-left: 15px;
+height: 30px;
+width: 60px;
+color: white;
+font-size: 20px;
+transition: transform .2s;
+}
+
+.deleteButton:hover{
+    transform: scale(1.2);
+    background-color: #467302;
+    color: white;
+    border: #467302;
+    cursor: pointer;
+}
+
+</style>
+<body>
+    <div class="goDown">
+<div id="title1">beat procrastination</div>
+<div id="title2">with</div>
+<div id="title3">just a simple to-do list</div>
+    </div>
+    <div class="hr"></div>
+<div>
+    <div class="enterArea"><input id="user" type="text" placeholder="Please enter your to-do items" size="45">
+    <button id="press">Enter</button>  
+</div>
+<div id="list">
+    <ul>
+    </ul>
+    </div> 
+
+<script>
+// Cache variables
+const userinput = document.getElementById("user");
+const button = document.getElementById("press");
+const ul = document.querySelector("ul");
+
+//Set actions -> "click" & "keypress"
+button.addEventListener("click", addNewListAfterClick)
+
+userinput.addEventListener("keypress", addNewListAfterKeypress)
+
+// Refactor functions
+
+function inputLength (){
+    return userinput.value.length
+}
+
+function addNewListAfterClick(){
+    if(inputLength () > 0 ){
+        let li = document.createElement("li");
+        createNewElement()
+    } else if (inputLength () === 0 ){
+        alert("Please enter your to-do items")
+    }
+    }
+
+function addNewListAfterKeypress(event, keyCode){
+    if(inputLength () > 0 && event.keyCode === 13){
+        createNewElement();
+    } else if (inputLength () === 0 && event.keyCode === 13){
+        alert("Please enter your to-do items");
+    }
+    }
+
+function createNewElement(){
+    let li = document.createElement("li");
+        li.appendChild(document.createTextNode(userinput.value));
+        ul.appendChild(li);
+
+
+        li.addEventListener("click", function(){
+            let finished = li.classList.toggle("done");
+            if (finished){
+
+                let removeButton = document.createElement("button")
+                removeButton.classList = "deleteButton"
+                li.appendChild(removeButton);
+                removeButton.appendChild(document.createTextNode("done"));
+
+                removeButton.addEventListener("click", function(){
+                    this.parentElement.remove();
+                })
+            } else {
+                this.getElementsByClassName("deleteButton")[0].remove();
+            }
+        })
+        userinput.value = ""
+}
+</script>
+</body>
+</html>
