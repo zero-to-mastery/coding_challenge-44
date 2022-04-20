@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notion Page Layout</title>
+  <style>
+    body {
+      margin: 0;
+      box-sizing: border-box;
+      font-family: inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: rgb(73, 73, 73);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      padding-bottom: 0;
+      font-weight: 800;
+      color: rgb(48, 47, 47);
+    }
+
+    h5 {
+      margin: 0;
+      font-weight: 500;
+    }
+    
+    p::selection {
+      background: #c0e5f4;
+    }
+    h1::selection {
+      background: #c0e5f4;
+    }
+    .container {
+      /* display: grid;
+      grid-template-columns: 240px 1fr; */
+      grid-template-rows: 1fr;
+      gap: 0px 0px;
+    }
+
+    .hov:hover {
+      background-color: blueviolet;
+    }
+
+
+    /* Middle content */
+
+    main {
+      background-color: dodgerblue;
+      margin-left: 240px;
+      display: grid;
+      grid-template-rows: 50px 30% 70%;
+    }
+
+    nav {
+      background-color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-left > .breadcrumb {
+      width: 300px;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .breadcrumb {
+      font-size: .9rem;
+      color: gray;
+      line-height: 0;
+      padding: 15px;
+      cursor: pointer;
+   
+    }
+    .breadcrumb:hover {
+      background-color: rgba(128, 128, 128, 0.151);
+      border-radius: 5px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+    .nav-right > p {
+      margin-right: 10px;
+    }
+
+    .circle {
+      height: 5px;
+      width: 5px;
+      background-color: rgb(75, 75, 75);
+      border-radius: 10px;
+    }
+
+    .circle-wrapper {
+      display: grid;
+      column-gap: 1px;
+      grid-auto-flow: column;
+      margin-left: 10px;
+    }
+
+    header {
+      background-color: #378F21;
+      position: relative;
+    }
+
+    .thumbnail-edit-menu {
+      background-color: white;
+      position: absolute;
+      bottom: 15px;
+      right: 275px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 170px;
+      height: 25px;
+      border-radius: 5px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .thumbnail-edit-menu > div {
+      width: 100%;
+      font-size: .7rem;
+      border: 0;
+      padding: 0;
+      text-align: center;
+      cursor: pointer;
+      padding: 0 5px;
+    }
+
+    .thumbnail-edit-menu div:first-child {
+      border-right: 1px solid rgba(133, 133, 133, 0.199);
+    }
+
+    .thumbnail-edit-menu > div:hover {
+      background-color: rgba(128, 128, 128, 0.151);
+    }
+
+    .thumbnail-edit-menu > div > p {
+      font-size: .7rem;
+      color: rgb(73, 73, 73);
+    }
+
+    section {
+      background-color: white;
+    }
+
+    .title {
+      width: 75ch;
+      margin: 70px auto 40px;
+      position: relative;
+    }
+
+    .page-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 40px;
+      background-color: red;
+      margin: 0;
+      position: absolute;
+      top: -110px;
+    }
+
+    .page-content {
+      width: 75ch;
+      margin: 0 auto;
+      padding-bottom: 50px;
+    }
+
+    /* Sidebare  */
+
+    aside {
+      background-color: #f7f6f3;
+      height: 100vh;
+      width: 240px;
+      position: fixed;
+      top: 0;
+      /* padding: 0 20px 20px; */
+    }
+    .user {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      padding: 0 20px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .user:hover {
+      background-color: rgba(175, 175, 175, 0.301);
+    }
+
+    .settings {
+      margin-bottom: 50px;
+    }
+    .settings > div {
+      display: flex;
+      align-items: center;
+    }
+
+    .icon-bg {
+      height: 15px;
+      width: 15px;
+      background-color: blue;
+      border-radius: 5px;
+      margin-right: 7px;
+    }
+    .icon-sm {
+      height: 15px;
+      width: 15px;
+      background-color: rgb(128, 128, 128);
+      border-radius: 10px;
+      margin-right: 7px;
+    }
+
+    .icotext {
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+    }
+    .icotext:hover {
+      background-color: rgba(175, 175, 175, 0.301);
+      cursor: pointer;
+    }
+ 
+    .subtitle {
+      margin-bottom: 50px;
+    }
+    .sub-sections {
+      margin-bottom: 40px;
+    }
+    .sub-sections > h5 {
+      text-transform: uppercase;
+      font-weight: 300;
+      margin-bottom: 5px;
+      color: gray;
+      padding: 0 20px;
+      cursor: pointer;
+    }
+    .menu-item {
+      font-size: .9rem;
+      color: gray;
+      line-height: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <aside>
+      <div class="user">
+        <div class="icon-bg"></div>
+        <h5>Arsene Rurangiza</h5>
+      </div>
+      <div class="settings">
+        <div class="icotext">
+          <div class="icon-sm"></div>
+          <p class="menu-item">Quick Find</p>
+        </div>
+        <div class="icotext">
+          <div class="icon-sm"></div>
+          <p class="menu-item">All Updates</p>
+        </div>        
+        <div class="icotext">
+          <div class="icon-sm"></div>
+          <p class="menu-item">Settings & Members</p>
+        </div>
+
+        
+      </div>
+      <div>
+      <div class="sub-sections">
+        <h5 class="subtitle">Favorites</h5>
+        <div class="icotext">
+          <div class="icon-sm"></div>
+          <p class="menu-item">Marketing</p>
+        </div>        
+        <div class="icotext">
+          <div class="icon-sm"></div>
+          <p class="menu-item">Business</p>
+        </div>        
+        <div class="icotext">
+          <div class="icon-sm"></div>
+          <p class="menu-item">Deisgn & Branding</p>
+        </div>        
+        <div class="icotext">
+          <div class="icon-sm"></div>
+          <p class="menu-item">Customer Service</p>
+        </div>
+        
+        
+        
+        
+      </div>
+      <div class="sub-sections">
+        <h5 class="subtitle">Private</h5>
+        <div class="icotext">
+          <div class="icon-sm"></div>
+          <p class="menu-item">Personal blog</p>
+        </div>
+        <div class="icotext">
+          <div class="icon-sm"></div>
+          <p class="menu-item">Weekly Review: Arsene</p>
+        </div>
+        <div class="icotext">
+          <div class="icon-sm"></div>
+          <p class="menu-item">To-do list</p>
+        </div>
+        
+        
+        
+      </div>
+    </aside>
+    <main>
+      <nav>
+        <div class="nav-left">
+          <p class="breadcrumb">Xerox Alto: The first computer with a graphical operating system</p>
+        </div>
+        <div class="nav-right">
+          <p class="menu-item breadcrumb">Share</p>
+          <div class="icon-sm"></div>
+          <div class="icon-sm"></div>
+          <div class="icon-sm"></div>
+          <div class="circle-wrapper">
+            <div class="circle"></div>
+            <div class="circle"></div>            
+            <div class="circle"></div>
+          </div>
+        </div>
+      </nav>
+      <header>
+        <div class="thumbnail-edit-menu">
+          <div><p>Change cover</p></div>
+          <div><p>Reposition</p></div>
+        </div>
+      </header>
+      <section>
+        <div class="title">
+          <div class="page-icon"></div>
+          <h1>Xerox Alto: The first computer with a graphical operating system</h1>
+        </div>
+        <div class="page-content">
+          <p>It was conceived in 1972 in a memo written by Butler Lampson, inspired by the oN-Line System (NLS)
+            developed by Douglas Engelbart and Dustin Lindberg at SRI International (SRI). Of further influence was the
+            PLATO education system developed at the Computer-based Education Research Laboratory at the University of
+            Illinois.[11] The Alto was designed mostly by Charles P. Thacker. Industrial Design and manufacturing was
+            sub-contracted to Xerox, whose Special Programs Group team included Doug Stewart as Program Manager, Abbey
+            Silverstone Operations, Bob Nishimura, Industrial Designer. An initial run of 30 units was produced by Xerox
+            El Segundo (Special Programs Group), working with John Ellenby at PARC and Doug Stewart and Abbey
+            Silverstone at El Segundo, who were responsible for re-designing the Alto's electronics. Due to the success
+            of the pilot run, the team went on to produce approximately 2,000 units over the next ten years.</p>
+          <p>Several Xerox Alto chassis are now on display at the Computer History Museum in Mountain View, California,
+            one is on display at the Computer Museum of America in Roswell, Georgia, and several are in private hands.
+            Running systems are on display at the System Source Computer Museum in Hunt Valley, Maryland. Charles P.
+            Thacker was awarded the 2009 Turing Award of the Association for Computing Machinery on March 9, 2010, for
+            his pioneering design and realization of the Alto.[13] The 2004 Charles Stark Draper Prize was awarded to
+            Thacker, Alan C. Kay, Butler Lampson, and Robert W. Taylor for their work on Alto.</p>
+          <p>On October 21, 2014, Xerox Alto's source code and other resources were released from the Computer History
+            Museum.[15]
+
+          </p>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+</body>
+
+</html>
