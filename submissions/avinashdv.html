@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Zen+Kurenaido&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Fashion</title>
+
+    <style>
+      body {
+        background-color: #f1f1f1;
+        font-family: "Zen Kurenaido", sans-serif;
+      }
+      .nav-link {
+        padding: 0;
+      }
+      .navbar {
+        padding: 4px;
+      }
+      .banner {
+        position: relative;
+      }
+      .banner__block {
+        position: absolute;
+        left: 0;
+        top: 40%;
+        color: white;
+        padding-left: 2%;
+      }
+      .comments {
+        display: none;
+      }
+      .commentsVisible {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark d-none d-md-block">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-light px-3" href="#"
+                ><i style="font-size: 16px" class="fa">&#xf230;</i></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light px-3" href="#"
+                ><i style="font-size: 16px" class="fa">&#xf16d;</i></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light px-3" href="#"
+                ><i style="font-size: 16px" class="fa">&#xf2ab;</i></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light px-3" href="#"
+                ><i style="font-size: 16px" class="fa">&#xf1e8;</i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light px-3" href="#"
+                ><i style="font-size: 16px" class="fa">&#xf232;</i></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light px-3" href="#"
+                ><i style="font-size: 16px" class="fa">&#xf081;</i></a
+              >
+            </li>
+          </ul>
+        </div>
+        <a class="nav-link nav-item text-light px-3 float-end" href="#"
+          ><i style="font-size: 16px" class="fa">&#xf002;</i></a
+        >
+      </div>
+    </nav>
+
+    <div class="text-center py-5 bg-light">
+      <h1>JANE BLOGLIFE</h1>
+      <p>
+        Welcome to the blog of
+        <span class="bg-dark text-white px-2 py-1">Jane's world</span>
+      </p>
+    </div>
+
+    <div class="banner">
+      <img
+        src="https://www.w3schools.com/w3images/jane.jpg"
+        alt="Jane posing for her fashion blog"
+        class="img-fluid"
+      />
+      <div class="banner__block">
+        <h1 class="lead display-6">Jane's</h1>
+        <h1 class="display-4 fw-bold">FASHION BLOG</h1>
+        <button class="btn btn-light opacity-50 p-1">SUBSCRIBE</button>
+      </div>
+    </div>
+
+    <div class="content container-lg my-3">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="bg-light p-4 my-3">
+            <h4 class="display-6 text-center">TITLE HEADING</h4>
+            <h6 class="lead text-center">Title description, May 2, 2016</h6>
+            <img
+              src="https://www.w3schools.com/w3images/girl_hat.jpg"
+              alt="A lady enjoying sunset"
+              class="img-fluid my-2 mx-auto"
+            />
+            <p>
+              More Hats! I am crazy about hats these days. Some text about this
+              blog entry. Fashion fashion and mauris neque quam, fermentum ut
+              nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem
+              euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor
+              cursus at. Phasellus sed ultricies mi non congue ullam corper.
+              Praesent tincidunt sedtellus ut rutrum. Sed vitae justo
+              condimentum, porta lectus vitae, ultricies congue gravida diam non
+              fringilla.
+            </p>
+            <p>
+              Sunt in culpa qui officia deserunt mollit anim id est laborum
+              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+              nostrud exercitation ullamco.
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-light border">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                Like
+              </button>
+              <button class="btn btn-dark" id="postOne">
+                Replies <span class="bg-light px-2 mx-1 text-dark">1</span>
+              </button>
+            </div>
+            <hr class="container" />
+            <div class="comments" id="postOneComments">
+              <div class="row my-2">
+                <div class="col-3">
+                  <img
+                    src="https://www.w3schools.com/w3images/avatar_smoke.jpg"
+                    alt="Man smoking cigarette"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-9">
+                  <p>
+                    <span class="lead">George</span>
+                    <span class="text-secondary">May 3, 2015, 6:32 PM</span>
+                  </p>
+                  <p>Greate blog post! Following</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-light p-4 my-3">
+            <h4 class="display-6 text-center">TITLE HEADING</h4>
+            <h6 class="lead text-center">Title description, May 2, 2016</h6>
+            <img
+              src="https://www.w3schools.com/w3images/man_hat.jpg"
+              alt="A lady enjoying sunset"
+              class="img-fluid my-2 mx-auto"
+            />
+            <p>
+              More Hats! I am crazy about hats these days. Some text about this
+              blog entry. Fashion fashion and mauris neque quam, fermentum ut
+              nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem
+              euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor
+              cursus at. Phasellus sed ultricies mi non congue ullam corper.
+              Praesent tincidunt sedtellus ut rutrum. Sed vitae justo
+              condimentum, porta lectus vitae, ultricies congue gravida diam non
+              fringilla.
+            </p>
+            <p>
+              Sunt in culpa qui officia deserunt mollit anim id est laborum
+              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+              nostrud exercitation ullamco.
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-light border">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                Like
+              </button>
+              <button class="btn btn-dark" id="postTwo">
+                Replies <span class="bg-light px-2 mx-1 text-dark">2</span>
+              </button>
+            </div>
+            <hr class="container" />
+            <div class="comments" id="postTwoComments">
+              <div class="row my-2">
+                <div class="col-3">
+                  <img
+                    src="https://www.w3schools.com/w3images/girl_train.jpg"
+                    alt="Young lady looking for a cab"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-9">
+                  <p>
+                    <span class="lead">Amber</span>
+                    <span class="text-secondary">April 26, 2015, 10:52 PM</span>
+                  </p>
+                  <p>
+                    Love your blog page! Simply the best! Lorem ipsum dolor sit
+                    amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.
+                  </p>
+                </div>
+              </div>
+              <div class="row my-2">
+                <div class="col-3">
+                  <img
+                    src="https://www.w3schools.com/w3images/girl.jpg"
+                    alt="Woman enjoying her boating"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-9">
+                  <p>
+                    <span class="lead">Angie</span>
+                    <span class="text-secondary">April 23, 2015, 9:12 PM</span>
+                  </p>
+                  <p>Love hats!!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-light p-4 my-3">
+            <h4 class="display-6 text-center">TITLE HEADING</h4>
+            <h6 class="lead text-center">Title description, May 2, 2016</h6>
+            <img
+              src="https://www.w3schools.com/w3images/runway.jpg"
+              alt="Models walking on fashion parade"
+              class="img-fluid my-2 mx-auto"
+            />
+            <p>
+              <strong>Dont miss!</strong> The runway in New York City this
+              weekend is gonna be legendary!
+            </p>
+            <p>
+              Some text about this blog entry. Fashion fashion and mauris neque
+              quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis
+              nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac
+              accumsan tortor cursus at. Phasellus sed ultricies mi non congue
+              ullam corper. Praesent tincidunt sedtellus ut rutrum. Sed vitae
+              justo condimentum, porta lectus vitae, ultricies congue gravida
+              diam non fringilla.
+            </p>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-light border">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Like
+              </button>
+              <button class="btn btn-dark" id="postThree">
+                Replies <span class="bg-light px-2 mx-1 text-dark">3</span>
+              </button>
+            </div>
+            <hr class="container" />
+            <div class="comments" id="postThreeComments">
+              <div class="row my-2">
+                <div class="col-3">
+                  <img
+                    src="https://www.w3schools.com/w3images/girl_mountain.jpg"
+                    alt="Young girl enjoying the sunset on a hill"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-9">
+                  <p>
+                    <span class="lead">Jane </span>
+                    <span class="text-secondary">April 10, 2015, 7:22 PM</span>
+                  </p>
+                  <p>That was a great runway show! Thanks for everything.</p>
+                </div>
+              </div>
+              <div class="row my-2">
+                <div class="col-3">
+                  <img
+                    src="https://www.w3schools.com/w3images/boy.jpg"
+                    alt="Image of a man facing the sea"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-9">
+                  <p>
+                    <span class="lead">John</span>
+                    <span class="text-secondary">April 8, 2015, 10:32 PM</span>
+                  </p>
+                  <p>
+                    Keep up the GREAT work! I am cheering for you!! Lorem ipsum
+                    dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt.
+                  </p>
+                </div>
+              </div>
+              <div class="row my-2">
+                <div class="col-3">
+                  <img
+                    src="https://www.w3schools.com/w3images/girl_hood.jpg"
+                    alt="Young man facing a mountain covered with fog"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-9">
+                  <p>
+                    <span class="lead">Anja</span>
+                    <span class="text-secondary">April 7, 2015, 9:12 PM</span>
+                  </p>
+                  <p>Cant wait for the runway to start!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 my-3">
+          <div class="card">
+            <img
+              class="card-img-top"
+              src="https://www.w3schools.com/w3images/avatar_girl2.jpg"
+              alt="Card image"
+            />
+            <div class="card-body bg-dark text-white">
+              <h4 class="card-title">My Name</h4>
+              <p class="card-text">
+                Just me, myself and I, exploring the universe of uknownment. I
+                have a heart of love and a interest of lorem ipsum and mauris
+                neque quam blog. I want to share my world with you.
+              </p>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <p class="lead bg-dark text-white p-2 m-0">Popular Posts</p>
+            <div class="bg-light p-1" style="width: 100%; height: auto">
+              <div class="row p-2">
+                <div class="col-3 border border-0 border-bottom">
+                  <img
+                    src="https://www.w3schools.com/w3images/avatar_smoke.jpg"
+                    alt="Man smoking cigarette"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-9 border border-0 border-bottom">
+                  <h4>Denim</h4>
+                  <p>Sed mattis nunc</p>
+                </div>
+              </div>
+              <div class="row p-2">
+                <div class="col-3 border border-0 border-bottom">
+                  <img
+                    src="https://www.w3schools.com/w3images/bandmember.jpg"
+                    alt="Man smoking cigarette"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-9 border border-0 border-bottom">
+                  <h4>Denim</h4>
+                  <p>Sed mattis nunc</p>
+                </div>
+              </div>
+              <div class="row p-2">
+                <div class="col-3 border border-0 border-bottom">
+                  <img
+                    src="https://www.w3schools.com/w3images/workshop.jpg"
+                    alt="Man smoking cigarette"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-9 border border-0 border-bottom">
+                  <h4>Denim</h4>
+                  <p>Sed mattis nunc</p>
+                </div>
+              </div>
+              <div class="row p-2">
+                <div class="col-3">
+                  <img
+                    src="https://www.w3schools.com/w3images/avatar_smoke.jpg"
+                    alt="Man smoking cigarette"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-9">
+                  <h4>Denim</h4>
+                  <p>Sed mattis nunc</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <p class="lead bg-dark text-white p-2 m-0">Advertise</p>
+            <div
+              class="bg-light p-1 d-flex justify-content-center align-items-center"
+              style="width: 100%; height: 200px"
+            >
+              <div class="bg-secondary w-75 h-75"></div>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <p class="lead bg-dark text-white p-2 m-0">Inspiration</p>
+            <div class="bg-light p-2" style="width: 100%; height: auto">
+              <div class="row m-2">
+                <div class="col-6">
+                  <img
+                    src="https://www.w3schools.com/w3images/jeans.jpg"
+                    alt="cow boy"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-6">
+                  <img
+                    src="https://www.w3schools.com/w3images/avatar_hat.jpg"
+                    alt="cow boy"
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+              <div class="row m-2">
+                <div class="col-6">
+                  <img
+                    src="https://www.w3schools.com/w3images/team1.jpg"
+                    alt="cow boy"
+                    class="img-fluid"
+                  />
+                </div>
+                <div class="col-6">
+                  <img
+                    src="https://www.w3schools.com/w3images/team4.jpg"
+                    alt="cow boy"
+                    class="img-fluid"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <p class="lead bg-dark text-white p-2 m-0">Follow Me</p>
+            <div
+              class="bg-light p-1 d-flex justify-content-evenly p-4"
+              style="width: 100%; height: auto"
+            >
+              <i style="font-size: 20px" class="fa">&#xf230;</i>
+              <i style="font-size: 20px" class="fa">&#xf16d;</i>
+              <i style="font-size: 20px" class="fa">&#xf2ab;</i>
+              <i style="font-size: 20px" class="fa">&#xf1e8;</i>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <p class="lead bg-dark text-white p-2 m-0">Subscribe</p>
+            <div class="bg-light p-3" style="width: 100%; height: auto">
+              <p>
+                Enter your e-mail below and get notified on the latest blog
+                posts.
+              </p>
+              <div class="text-center">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter e-mail"
+                />
+                <br />
+                <button class="btn btn-danger form-control">Subscribe</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-secondary w-100 p-5" style="height: 200px">
+      <button class="btn btn-dark p-2 mt-2 mb-5">To the top</button>
+      <p class="text-white">
+        Powered by <span class="text-decoration-underline">BS5</span>
+        <kbd>Avinash</kbd>
+      </p>
+    </div>
+  </body>
+
+  <script type="text/javascript">
+    document.getElementById("postOne").addEventListener("click", function () {
+      document
+        .getElementById("postOneComments")
+        .classList.toggle("commentsVisible");
+    });
+    document.getElementById("postTwo").addEventListener("click", function () {
+      document
+        .getElementById("postTwoComments")
+        .classList.toggle("commentsVisible");
+    });
+    document.getElementById("postThree").addEventListener("click", function () {
+      document
+        .getElementById("postThreeComments")
+        .classList.toggle("commentsVisible");
+    });
+  </script>
+</html>
