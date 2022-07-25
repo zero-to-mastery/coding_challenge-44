@@ -49,12 +49,18 @@
                 border-radius: 50%;
                 background-color: red;
             }
+            #circle:hover {
+                transform: translate(-25px,25px);
+            }
             #circle-section {
                 background-color: lightcoral;
 
             }
             #square {
                 background-color: blue;
+            }
+            #square:hover {
+                transform: scale(2,3);
             }
             #square-section {
                 background-color: lightblue;
@@ -65,12 +71,18 @@
                 border-radius: 85%;
                 background-color: #00e039;
             }
+            #oval:hover {
+                transform: scale(1,.5);
+            }
             #oval-section {
                 background-color: lightseagreen;
             }
             #rectangle {
                 width: 15vw;
                 background-color: yellow;
+            }
+            #rectangle:hover {
+                transform: skew(20deg, 10deg);
             }
             #rectangle-section {
                 background-color: lightgoldenrodyellow;
@@ -81,6 +93,9 @@
                 border: 10vh solid transparent;
                 border-top: 0;
                 border-bottom: 10vw solid black ;
+            }
+            #triangle:hover {
+                transform: rotateZ(90deg);
             }
             #triangle-section, #triangle {
                 background-color: lightgray;
@@ -133,10 +148,18 @@
         <footer></footer>
         <script async defer>
         const liItems =  document.getElementsByTagName("li")
-        for(let i=0; i<liItems.length; i++){
+        const parts = document.getElementsByTagName("section")
+
+        for(let i=0, y=1; y<liItems.length, i <parts.length; i++, y++){
             liItems[i].addEventListener("mouseover", overMe = () => {
                 liItems[i].classList.add("li:hover")
                 console.log("over")
+            })
+            liItems[y].addEventListener("click", clickMe = () => {
+                if(true) {
+                    parts[i].scrollIntoView(false)
+                    console.log("clicked",liItems[y],parts[i] )
+                }
             })
         }
         </script>
