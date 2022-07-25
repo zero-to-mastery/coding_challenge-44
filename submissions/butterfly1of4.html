@@ -26,7 +26,7 @@
             li {
                 list-style: none;
             }
-            li:hover {
+            li:hover, footer:hover {
                 text-decoration: underline;
                 font-weight: bolder;
             }
@@ -101,6 +101,25 @@
                 background-color: lightgray;
 
             }
+            footer {
+                text-align: center;
+                position: fixed;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2vh;
+                padding: 2vh;
+                margin: 3%;
+            }
+            hr {
+                margin: 0;
+                padding: 0;
+                border: solid black;
+            }
         </style> 
     <body>
         <nav>
@@ -145,11 +164,13 @@
             <h2>Triangle</h2>
             <div id="triangle" class="shape"></div>
         </section>
-        <footer></footer>
+        <footer id="foot">
+            <div>Home</div>
+        </footer>
         <script async defer>
         const liItems =  document.getElementsByTagName("li")
         const parts = document.getElementsByTagName("section")
-
+        const toHome = document.getElementById("foot")
         for(let i=0, y=1; y<liItems.length, i <parts.length; i++, y++){
             liItems[i].addEventListener("mouseover", overMe = () => {
                 liItems[i].classList.add("li:hover")
@@ -157,10 +178,13 @@
             })
             liItems[y].addEventListener("click", clickMe = () => {
                 if(true) {
-                    parts[i].scrollIntoView(false)
+                    parts[i].scrollIntoView()
                     console.log("clicked",liItems[y],parts[i] )
                 }
             })
+            toHome.addEventListener("click", goHome = () => {
+                liItems[0].scrollIntoView(true)
+            } )
         }
         </script>
     </body>
