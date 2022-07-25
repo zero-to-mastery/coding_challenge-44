@@ -26,7 +26,7 @@
             li {
                 list-style: none;
             }
-            li :hover {
+            li:hover {
                 text-decoration: underline;
                 font-weight: bolder;
             }
@@ -131,12 +131,14 @@
             <div id="triangle" class="shape"></div>
         </section>
         <footer></footer>
-        <script src="" async defer>
-            let liItem = [...document.querySelectorAll("li")]
-            const listItems = () => {
-                
-            }
-            hoverOn()
+        <script async defer>
+        const liItems =  document.getElementsByTagName("li")
+        for(let i=0; i<liItems.length; i++){
+            liItems[i].addEventListener("mouseover", overMe = () => {
+                liItems[i].classList.add("li:hover")
+                console.log("over")
+            })
+        }
         </script>
     </body>
 </html>
