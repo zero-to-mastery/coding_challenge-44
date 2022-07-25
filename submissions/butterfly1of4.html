@@ -23,19 +23,120 @@
                 justify-content: space-evenly;
 
             }
+            li {
+                list-style: none;
+            }
+            li :hover {
+                text-decoration: underline;
+                font-weight: bolder;
+            }
+            header {
+                text-align: center;
+                padding: 10%;
+            }
+            .shape {
+                height: 10vh;
+                width: 10vw;
+                border: 1px solid black;
+            }
+            section {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 10%;
+            }
+            #circle {
+                border-radius: 50%;
+                background-color: red;
+            }
+            #circle-section {
+                background-color: lightcoral;
+
+            }
+            #square {
+                background-color: blue;
+            }
+            #square-section {
+                background-color: lightblue;
+
+            }
+            #oval {
+                width: 15vw;
+                border-radius: 85%;
+                background-color: #00e039;
+            }
+            #oval-section {
+                background-color: lightseagreen;
+            }
+            #rectangle {
+                width: 15vw;
+                background-color: yellow;
+            }
+            #rectangle-section {
+                background-color: lightgoldenrodyellow;
+            }
+            #triangle {
+                width: 0; 
+                height: 0; 
+                border: 10vh solid transparent;
+                border-top: 0;
+                border-bottom: 10vw solid black ;
+            }
+            #triangle-section, #triangle {
+                background-color: lightgray;
+
+            }
         </style> 
     <body>
         <nav>
             <ul>
-                <li>Home</li>
-                <li>Circle</li>
-                <li>Square</li>
-                <li>Rectangle</li>
-                <li>Oval</li>
+                <li id="home-link" href="#home">Home</li>
+                <li id="circle-link" href="#circle">Circle</li>
+                <li id="square-link" href="#square">Square</li>
+                <li id="rectangle-link" href="#rectangle">Rectangle</li>
+                <li id="oval-link" href="#oval">Oval</li>
+                <li id="triangle-link" href="#triangle">Triangle</li>
+
             </ul>
         </nav>
-        <div>Testing</div>
-        
-        <script src="" async defer></script>
+        <header href="#home">
+            <h1>A GALLERY OF CSS SHAPES</h1>
+            <div>Each section contains a different shape completely made and styled with CSS. Hover over the shapes to see them move!</div>
+        </header>
+        <section id="circle-section" href="#circle">
+            <h2>Circle</h2>
+            <div id="circle" class="shape"></div>
+        </section>
+        <hr />
+
+        <section id="square-section" href="#square">
+            <h2>Square</h2>
+            <div id="square" class="shape"></div>
+        </section>
+        <hr />
+
+        <section id="rectangle-section" href="#rectangle">
+            <h2>Rectangle</h2>
+            <div id="rectangle" class="shape"></div>
+        </section>
+        <hr />
+
+        <section id="oval-section" href="#oval">
+            <h2>Oval</h2>
+            <div id="oval" class="shape"></div>
+        </section>
+        <hr />
+        <section id="triangle-section" href="#triangle">
+            <h2>Triangle</h2>
+            <div id="triangle" class="shape"></div>
+        </section>
+        <footer></footer>
+        <script src="" async defer>
+            let liItem = [...document.querySelectorAll("li")]
+            const listItems = () => {
+                
+            }
+            hoverOn()
+        </script>
     </body>
 </html>
