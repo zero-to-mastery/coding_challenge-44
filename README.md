@@ -13,7 +13,7 @@ The project you build can be as simple or as complex as you like, so this challe
 
 ## The Rules
 The rules are simple:
-- The code you write must be your own. Using articles and resources to guide you is fine, but copy and pasting large chunks of code will not help imporve your skills.
+- The code you write must be your own. Using articles and resources to guide you is fine, but copy and pasting large chunks of code will not help improve your skills.
 - All your code **MUST** be written in a single HTML file **within** the submissions directory of this repo.
 - You **cannot** utilize any external resources such as API's, Images, Libraries etc
 - Push your boundaries, try something new or add a twist.
