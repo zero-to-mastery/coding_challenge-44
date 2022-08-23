@@ -4,27 +4,56 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>My card Portfolio</title>
 </head>
 <style>
-  //Here the style
+  *{
+      margin : 0;
+      padding : 0;
+      box-sizing : border-box;
+      font-family : sans-serif;
+  }
+  .ecran{
+    width: 100%;
+    heigth: 100vh;
+    back-ground-image : ;
+    back-ground-position : center;
+    back-ground-size : cover;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card{
+    width: 90%;
+    max-width: 440px;
+    color : aliceblue;
+    text-align: center;
+    padding: 50px 30px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .card img{
+    width: 150px;
+    border-radius: 50%;
+  }
+  .card h2{
+    font-size: 50px;
+    font-weigth: 600px;
+    margin-top: 20px;
+  }
+  .card p{
+    font-size: 20px;
+    margin: 10px auto;
+    max-width: 330px;
+  }
 </style>
 <body>
-  <nav>
-    <ul class="nav">
-      <li><a href="#Navbar">Navbar</a></li>
-    </ul>
-  </nav>
-  <header>
-    <section >
-    </section>
-  </header>
-    <section >
-    </section>
-  <footer class="footer">
-    <h4>2022</h4>
-    <a href="#home" style="text-decoration: none; color: white"><p>Back to Top</p></a>
-  </footer>
+  <div class="ecran">
+    <div class="card">
+      <img src="CREATE HERE AN SVG FILE">
+      <h2>Thierry Rak</h2>
+      <p>Tell us more abut you, dont't be shame</p>
+    </div>
+  </div>
   <script>
     //Here the script
   </script>
