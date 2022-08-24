@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +8,7 @@
   <title>My card Portfolio</title>
 </head>
 <style>
-  *{
+  * {
       margin : 0;
       padding : 0;
       box-sizing : border-box;
@@ -16,7 +17,6 @@
   .ecran{
     width: 100%;
     heigth: 100vh;
-    back-ground-image : ;
     back-ground-position : center;
     back-ground-size : cover;
     display : flex;
@@ -26,13 +26,14 @@
   .card{
     width: 90%;
     max-width: 440px;
-    color : aliceblue;
+    background-color : darkslateblue;
+    color : peru;
     text-align: center;
     padding: 50px 30px;
     border: 1px solid rgba(255,255,255,0.3);
   }
-  .card img{
-    width: 150px;
+  .card svg{
+    width: 200px;
     border-radius: 50%;
   }
   .card h2{
@@ -45,13 +46,46 @@
     margin: 10px auto;
     max-width: 330px;
   }
+  .gingerbread .body {
+    fill: #cd803d;
+  }
+
+  .gingerbread .eye {
+    fill: white;
+  }
+
+  .gingerbread .mouth {
+    fill: none;
+    stroke: white;
+    stroke-width: 2px;
+  }
+
+  .gingerbread .limb {
+    stroke: #cd803d;
+    stroke-width: 35px;
+    stroke-linecap: round;
+  }
+  
 </style>
 <body>
   <div class="ecran">
     <div class="card">
-      <img src="CREATE HERE AN SVG FILE">
+      <svg class="gingerbread" width="200" height="200" viewBox="-100 -100 200 200">
+        <circle class="body" cx="0" cy="-50" r="30" />
+
+        <circle class="eye" cx="-12" cy="-55" r="3" />
+        <circle class="eye" cx="12" cy="-55" r="3" />
+        <rect class="mouth" x="-10" y="-40" width="20" height="5" rx="2" />
+
+        <line class="limb" x1="-40" y1="-10" x2="40" y2="-10" />
+        <line class="limb" x1="-25" y1="50" x2="0" y2="-15" />
+        <line class="limb" x1="25" y1="50" x2="0" y2="-15" />
+
+        <circle class="button" cx="0" cy="-10" r="5" />
+        <circle class="button" cx="0" cy="10" r="5" />
+      </svg>
       <h2>Thierry Rak</h2>
-      <p>Tell us more abut you, dont't be shame</p>
+      <p>I am JavaScript developer and Ilove coding</p>
     </div>
   </div>
   <script>
