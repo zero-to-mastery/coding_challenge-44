@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Crypto Hover Effect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        #cont{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+        #img1{
+            width: 145px;
+        }
+        #img2{
+            width: 145px;
+        }
+        .white{
+            color: white !important;
+        }
+        .btn12{
+            background-color: #f7921b !important;
+            border: none !important;
+        }
+        .btn11{
+            background-color: #355c9d !important;
+            border: none !important;
+        }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <div class="container-fluid" id="cont">
+        <div class="row">
+            <div class="col-md-4 m-5">
+                <div class="card text-center" style="width: 18rem;" id="card1">
+                    <h5 class="text-center">
+                    <img src="https://cryptologos.cc/logos/litecoin-ltc-logo.png" class="card-img-top m-3" id="img1" alt="LTC">
+                </h5>
+                    <div class="card-body">
+                      <h5 class="card-title" id="h5_1">Litecoin</h5>
+                      <p class="card-text" id="para_1">Buy Litecoin Now</p>
+                      <a href="https://litecoin.org/" class="btn btn-primary" id="btn1">Litecoin.org</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4 m-5">
+                <div class="card text-center" style="width: 18rem;" id="card2">
+                    <h5 class="text-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1024px-Bitcoin.svg.png" id="img2" class="card-img-top m-3" alt="BTC">
+                </h5>
+                    <div class="card-body">
+                        <h5 class="card-title" id="h5_2">Bitcoin</h5>
+                        <p class="card-text" id="para_2">Buy Bitcoin Now</p>
+                      <a href="https://bitcoin.org/hi/" class="btn btn-primary" id="btn2">Bitcoin.org</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script>
+        let card1 = document.getElementById("card1")
+        let h5=document.getElementById("h5_1")
+        let para=document.getElementById("para_1")
+
+        let btn1=document.getElementById("btn1")
+        let btn2=document.getElementById("btn2")
+
+        card1.addEventListener("mouseover", function () {
+            btn1.classList.add('btn11')
+            h5.classList.add("white")
+            para.classList.add("white")
+            card1.style.transitionDuration="400ms"
+            card1.style.backgroundColor="#355c9d"
+        })
+        
+        card1.addEventListener("mouseout", function () {
+            btn1.classList.remove('btn11')
+            h5.classList.remove("white")
+            para.classList.remove("white")
+            card1.style.transitionDuration="400ms"
+            card1.style.backgroundColor="white"
+        })
+
+        let card2 = document.getElementById("card2")
+        let h52=document.getElementById("h5_2")
+        let para2=document.getElementById("para_2")
+
+        card2.addEventListener("mouseover", function () {
+            btn2.classList.add('btn12')
+            h52.classList.add("white")
+            para2.classList.add("white")
+            card2.style.transitionDuration="400ms"
+            card2.style.backgroundColor="#f7921b"
+        })
+
+        card2.addEventListener("mouseout", function () {
+            btn2.classList.remove('btn12')
+            h52.classList.remove("white")
+            para2.classList.remove("white")
+            card2.style.transitionDuration="400ms"
+            card2.style.backgroundColor="white"
+        })
+    </script>
+  </body>
+</html>
