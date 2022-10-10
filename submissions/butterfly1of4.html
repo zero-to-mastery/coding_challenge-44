@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Shape Gallery</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+    
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+
+            }
+            li {
+                list-style: none;
+            }
+            li:hover, footer:hover {
+                text-decoration: underline;
+                font-weight: bolder;
+            }
+            header {
+                text-align: center;
+                padding: 10%;
+            }
+            .shape {
+                height: 10vh;
+                width: 10vw;
+                border: 1px solid black;
+            }
+            section {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 10%;
+            }
+            #circle {
+                border-radius: 50%;
+                background-color: red;
+            }
+            #circle:hover {
+                transform: translate(-25px,25px);
+            }
+            #circle-section {
+                background-color: lightcoral;
+
+            }
+            #square {
+                background-color: blue;
+            }
+            #square:hover {
+                transform: scale(2,3);
+            }
+            #square-section {
+                background-color: lightblue;
+
+            }
+            #oval {
+                width: 15vw;
+                border-radius: 85%;
+                background-color: #00e039;
+            }
+            #oval:hover {
+                transform: scale(1,.5);
+            }
+            #oval-section {
+                background-color: lightseagreen;
+            }
+            #rectangle {
+                width: 15vw;
+                background-color: yellow;
+            }
+            #rectangle:hover {
+                transform: skew(20deg, 10deg);
+            }
+            #rectangle-section {
+                background-color: lightgoldenrodyellow;
+            }
+            #triangle {
+                width: 0; 
+                height: 0; 
+                border: 10vh solid transparent;
+                border-top: 0;
+                border-bottom: 10vw solid black ;
+            }
+            #triangle:hover {
+                transform: rotateZ(90deg);
+            }
+            #triangle-section, #triangle {
+                background-color: lightgray;
+
+            }
+            footer {
+                text-align: center;
+                position: fixed;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2vh;
+                padding: 2vh;
+                margin: 3%;
+            }
+            hr {
+                margin: 0;
+                padding: 0;
+                border: solid black;
+            }
+        </style> 
+    <body>
+        <nav>
+            <ul>
+                <li id="home-link" href="#home">Home</li>
+                <li id="circle-link" href="#circle">Circle</li>
+                <li id="square-link" href="#square">Square</li>
+                <li id="rectangle-link" href="#rectangle">Rectangle</li>
+                <li id="oval-link" href="#oval">Oval</li>
+                <li id="triangle-link" href="#triangle">Triangle</li>
+
+            </ul>
+        </nav>
+        <header href="#home">
+            <h1>A GALLERY OF CSS SHAPES</h1>
+            <div>Each section contains a different shape completely made and styled with CSS. Hover over the shapes to see them move!</div>
+        </header>
+        <section id="circle-section" href="#circle">
+            <h2>Circle</h2>
+            <div id="circle" class="shape"></div>
+        </section>
+        <hr />
+
+        <section id="square-section" href="#square">
+            <h2>Square</h2>
+            <div id="square" class="shape"></div>
+        </section>
+        <hr />
+
+        <section id="rectangle-section" href="#rectangle">
+            <h2>Rectangle</h2>
+            <div id="rectangle" class="shape"></div>
+        </section>
+        <hr />
+
+        <section id="oval-section" href="#oval">
+            <h2>Oval</h2>
+            <div id="oval" class="shape"></div>
+        </section>
+        <hr />
+        <section id="triangle-section" href="#triangle">
+            <h2>Triangle</h2>
+            <div id="triangle" class="shape"></div>
+        </section>
+        <footer id="foot">
+            <div>Home</div>
+        </footer>
+        <script async defer>
+        const liItems =  document.getElementsByTagName("li")
+        const parts = document.getElementsByTagName("section")
+        const toHome = document.getElementById("foot")
+        for(let i=0, y=1; y<liItems.length, i <parts.length; i++, y++){
+            liItems[i].addEventListener("mouseover", overMe = () => {
+                liItems[i].classList.add("li:hover")
+                console.log("over")
+            })
+            liItems[y].addEventListener("click", clickMe = () => {
+                if(true) {
+                    parts[i].scrollIntoView()
+                    console.log("clicked",liItems[y],parts[i] )
+                }
+            })
+            toHome.addEventListener("click", goHome = () => {
+                liItems[0].scrollIntoView(true)
+            } )
+        }
+        </script>
+    </body>
+</html>
