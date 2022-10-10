@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dice Game - Refresh Me!</title>
+  <style>
+    .container {
+      width: 100%;
+      margin: auto;
+      text-align: center;
+    }
+
+    .dice {
+      text-align: center;
+      display: inline-block;
+    }
+
+    body {
+      background-color: #212121;
+    }
+
+    h1 {
+      margin: 30px;
+      font-family: "Lobster", cursive;
+      text-shadow: 5px 0 #0f0f0f;
+      font-size: 8rem;
+      color: #fa9bc4;
+    }
+
+    p {
+      font-size: 2rem;
+      color: #ffc8f0;
+      font-family: "Lobster", cursive;
+    }
+
+    img {
+      width: 70%;
+    }
+
+    footer {
+      margin-top: 10%;
+      color: #eeeeee;
+      text-align: center;
+      font-family: "Indie Flower", cursive;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Refresh Me</h1>
+
+    <div class="dice">
+      <p>Player 1</p>
+      <img class="img1" src="https://i.ibb.co/VS51tYN/dice6.png">
+    </div>
+
+    <div class="dice">
+      <p>Player 2</p>
+      <img class="img2" src="https://i.ibb.co/VS51tYN/dice6.png">
+    </div>
+
+  </div>
+
+  <script>
+    var randomNumber1 = Math.floor(Math.random() * 6) + 1; //Generates a random number between 1-6
+    var randomDiceImage1 = "dice" + randomNumber1 +
+      ".png"; //This variable stores the dice image corresponding to the random number generated
+    if (randomNumber1 == 1) {
+      var randomSource1 = "https://i.ibb.co/hHwvZGt/" +
+        randomDiceImage1; //This variable stores the final address of the image
+    } else if (randomNumber1 == 2) {
+      var randomSource1 = "https://i.ibb.co/6JJBKJv/" +
+        randomDiceImage1; //This variable stores the final address of the image
+    } else if (randomNumber1 == 3) {
+      var randomSource1 = "https://i.ibb.co/tLGcY9r/" +
+        randomDiceImage1; //This variable stores the final address of the image
+    } else if (randomNumber1 == 4) {
+      var randomSource1 = "https://i.ibb.co/vQQgZXC/" +
+        randomDiceImage1; //This variable stores the final address of the image
+    } else if (randomNumber1 == 5) {
+      var randomSource1 = "https://i.ibb.co/8gw4KBX/" +
+        randomDiceImage1; //This variable stores the final address of the image
+    } else if (randomNumber1 == 6) {
+      var randomSource1 = "https://i.ibb.co/VS51tYN/" +
+        randomDiceImage1; //This variable stores the final address of the image
+    }
+    var player1 = document
+      .querySelectorAll("img")[0]
+      .setAttribute("src",
+        randomSource1); //This will set the src attribute of the img element to our random dice image that we generated
+
+    var randomNumber2 = Math.floor(Math.random() * 6) + 1; //Generates a random number between 1-6
+    var randomDiceImage2 = "dice" + randomNumber2 +
+      ".png"; //This variable stores the dice image corresponding to the random number generated
+    if (randomNumber2 == 1) {
+      var randomSource2 = "https://i.ibb.co/hHwvZGt/" +
+        randomDiceImage2; //This variable stores the final address of the image
+    } else if (randomNumber2 == 2) {
+      var randomSource2 = "https://i.ibb.co/6JJBKJv/" +
+        randomDiceImage2; //This variable stores the final address of the image
+    } else if (randomNumber2 == 3) {
+      var randomSource2 = "https://i.ibb.co/tLGcY9r/" +
+        randomDiceImage2; //This variable stores the final address of the image
+    } else if (randomNumber2 == 4) {
+      var randomSource2 = "https://i.ibb.co/vQQgZXC/" +
+        randomDiceImage2; //This variable stores the final address of the image
+    } else if (randomNumber2 == 5) {
+      var randomSource2 = "https://i.ibb.co/8gw4KBX/" +
+        randomDiceImage2; //This variable stores the final address of the image
+    } else if (randomNumber2 == 6) {
+      var randomSource2 = "https://i.ibb.co/VS51tYN/" +
+        randomDiceImage2; //This variable stores the final address of the image
+    }
+    var player2 = document
+      .querySelectorAll("img")[1]
+      .setAttribute("src",
+        randomSource2); //This will set the src attribute of the img element to our random dice image that we generated
+
+    //Here, we use if-else condition to change the h1 tag to display certain content depending on which player wins the dice game
+    if (randomNumber1 > randomNumber2) {
+      document.querySelector("h1").innerHTML = "🎀 Player 1 wins!";
+    } else if (randomNumber1 === randomNumber2) {
+      document.querySelector("h1").innerHTML = "It is a Draw!";
+    } else {
+      document.querySelector("h1").innerHTML = "Player 2 wins! 🎀";
+    }
+  </script>
+</body>
+
+<footer>
+  🎲 Created by Preetal Nilang Shah 2022 🎲
+</footer>
+
+</html>
