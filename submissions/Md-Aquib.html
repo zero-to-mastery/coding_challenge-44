@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Portfolio</title>
+
+    <style>
+        body{
+            background-color: #000;
+        }
+
+        center{
+            padding:10px;
+        }
+
+        a{
+            text-decoration: none;
+            color:#fff;
+            font-weight:500;
+            margin-left:80px;
+            font-family: Biotif-Regular,Helvetica Neue,Helvetica,Arial,sans-serif;
+            font-size:large;
+            animation: appear ease-in 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        a:hover{
+            text-decoration: 3px #E80F88  underline;
+            text-underline-offset:10px;
+        }
+
+        .sections{
+            height:100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .intro{
+            background: linear-gradient(to right, #a0e9ff 30%,#a162e8 50%,#f093b0 70%,#edca85 94%);      
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            animation: appear ease-in 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        h3,h1 {
+            font-family: Bogart,Recoleta,Helvetica Neue,Helvetica,Arial,sans-serif;
+            font-size:3.5em;
+        }
+
+        .head{
+            color: white;
+            font-size:2.5em;
+            font-weight: 300;
+        }
+
+        ::-webkit-scrollbar{
+            background-color: #000;
+            width:8px;
+        }
+
+        ::-webkit-scrollbar-track{
+            background: #000;
+            border: 4px solid transparent;
+            background-clip: content-box;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background:white;
+            border-radius: 10px;
+            height:10px;
+            border: 1px solid #000;
+        }
+
+        .box{
+            width:90%;
+            height:fit-content;
+            padding:20px;
+            display: flex;
+            align-items:center;
+            border:solid #191919;
+            background: #191919;
+            border-radius:20px;
+        }
+
+        @keyframes appear {
+            0%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+
+        @media(max-width:760px){
+            nav{
+                display: none;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    <!-- Demo Portfolio -->
+
+    <nav>
+        <center>
+            <a href="#about-me">About Me</a>
+            <a href="#my-projects">My Projects</a>
+            <a href="#contact-me">Contact Me</a>
+        </center>
+    </nav>
+
+    <div class="sections">
+        <div>
+            <h3 class="intro">Hi I am</h3>
+            <h1 class="intro">[Your Name]</h1>
+            <strong class="intro">An [Your Job Title]</strong>
+        </div>
+    </div>
+
+    <div class="sections" id=" about-me">
+        <div class="box">
+            <div>
+                <h3 class="head">About Me</h3>
+                <p style="font-size:large; color:white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis lorem ac aliquet 
+                    aliquet. Integer egestas neque augue, sed imperdiet erat dignissim quis. Cras dapibus eleifend 
+                    velit a venenatis. Donec augue nulla, molestie accumsan enim ac, efficitur pulvinar nisl. Mauris 
+                    aliquam maximus facilisis. Duis sodales arcu sit amet nisi congue accumsan. Sed a erat pretium, 
+                    tristique ante ac, efficitur dolor. Sed at sagittis sapien. Praesent hendrerit neque at ante malesuada  
+                    aliquam maximus facilisis. Duis sodales arcu sit amet nisi congue accumsan. Sed a erat pretium, 
+                    tristique ante ac, efficitur dolor. Sed at sagittis sapien. Praesent hendrerit neque at ante malesuada 
+                    tristique ante ac, efficitur dolor. Sed at sagittis sapien. Praesent hendrerit neque at ante malesuada  
+                    aliquam maximus facilisis. Duis sodales arcu sit amet nisi congue accumsan. Sed a erat pretium, 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sections" id="my-projects">
+        <div class="box">
+            <div>
+                <h3 class="head">My Projects</h3>
+                <p style="font-size:large; color:white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis lorem ac aliquet 
+                    aliquet. Integer egestas neque augue, sed imperdiet erat dignissim quis. Cras dapibus eleifend 
+                    velit a venenatis. Donec augue nulla, molestie accumsan enim ac, efficitur pulvinar nisl. Mauris 
+                    aliquam maximus facilisis. Duis sodales arcu sit amet nisi congue accumsan. Sed a erat pretium, 
+                    tristique ante ac, efficitur dolor. Sed at sagittis sapien. Praesent hendrerit neque at ante malesuada  
+                    aliquam maximus facilisis. Duis sodales arcu sit amet nisi congue accumsan. Sed a erat pretium, 
+                    tristique ante ac, efficitur dolor. Sed at sagittis sapien. Praesent hendrerit neque at ante malesuada  
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sections" id="contact-me">
+        <div class="box">
+            <div>
+                <h3 class="head">Contact Me</h3>
+                <p style="font-size:large; color:white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis lorem ac aliquet 
+                    aliquet. Integer egestas neque augue, sed imperdiet erat dignissim quis. Cras dapibus eleifend 
+                    velit a venenatis. Donec augue nulla, molestie accumsan enim ac, efficitur pulvinar nisl. Mauris 
+                    aliquam maximus facilisis. Duis sodales arcu sit amet nisi congue accumsan. Sed a erat pretium, 
+                    tristique ante ac, efficitur dolor. Sed at sagittis sapien. Praesent hendrerit neque at ante malesuada  
+                    aliquam maximus facilisis. Duis sodales arcu sit amet nisi congue accumsan. Sed a erat pretium, 
+                    tristique ante ac, efficitur dolor. Sed at sagittis sapien. Praesent hendrerit neque at ante malesuada  
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
