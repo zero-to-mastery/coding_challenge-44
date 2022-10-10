@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch&display=swap" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <style>
+        body {
+            background-color: rgb(15, 61, 42); 
+            text-align: center;
+            margin-top: auto;
+            font-family: 'Cabin Sketch', cursive;
+        }
+
+        h1 {
+            text-decoration: underline;
+        }
+
+        #dayoftheweek, #dayNum, #theYear {
+            font-size: 10em;
+            margin: 0 0.5rem;
+        }
+
+        #month, #dayNum, #theYear {
+            display: inline-block;
+            font-size: 12em;
+            font-weight: bold;
+        }
+
+        #dayoftheweek, #dayNum, #theYear, #month {
+            margin: 0 0.5rem;
+            animation: bounce; 
+            animation-duration: 2s; 
+        }
+
+        #Clock {
+            font-size: 6em;
+        }
+
+        .text {
+            color: rgb(192, 135, 66);
+        }
+    </style>
+ 
+</head>
+<body>
+    <div>
+        <h1 class="text">Todays Date:</h1>
+        <div id="dayoftheweek" class="text animate__animated animate__bounce">today is</div>
+        <div id="month" class="text animate__animated animate__bounce">Month</div>
+        <div id="dayNum" class="text animate__animated animate__bounce">day</div>
+        <div id="theYear" class="text animate__animated animate__bounce">year</div>
+        <div id="Clock" class="text">00:00:00</div>
+     </div>
+</body>
+
+<script>
+    /*code reference: https://www.section.io/engineering-education/build-digital-clock-using-javascript/*/
+   setInterval(displayTime, 1000);
+
+   function displayTime() {
+       const currentTime = new Date();
+
+        let hour = currentTime.getHours();
+        let minutes = currentTime.getMinutes();
+        let seconds = currentTime.getSeconds();
+        let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        let allMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+        let today = daysOfWeek[currentTime.getDay()];
+        let months = currentTime.toLocaleString("default", { month: "long" });
+        let year = currentTime.getFullYear();
+        let date = currentTime.getDate();
+        let period = "AM";
+    
+
+        if (hour > 12) {
+            hour -= 12;
+            period = "PM";
+        }
+        if (hour == 0) {
+            hour = 12;
+            period = "AM";
+        }
+
+        hour = hour < 10 ? "0" + hour : hour;
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        let time = hour + ":" + minutes + ":" + seconds + " " + period;
+
+        document.getElementById('Clock').innerHTML = `Time: ${time}`;
+        document.getElementById('dayoftheweek').innerHTML = today;
+        document.getElementById('month').innerHTML = months;
+        document.getElementById('theYear').innerHTML = year;
+        document.getElementById('dayNum').innerHTML = date + ",";
+
+   }
+   displayTime();
+</script>
+
+</html>
