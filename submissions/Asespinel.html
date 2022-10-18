@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>FarmacoVigilancia</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="/static/jquery/dist/jquery.min.js"></script>
+
+    <script src="/static/css/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="/static/css/DataTablesLib/datatables.js"></script>
+<link rel="stylesheet" href="/static/css/DataTablesLib/datatables.min.css" />
+<style media="screen">
+body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #B0BEC5;
+    background-repeat: no-repeat
+}
+
+.card0 {
+    box-shadow: 0px 4px 8px 0px #757575;
+    border-radius: 0px
+}
+
+.card2 {
+    margin: 0px 40px
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+    margin-left: 35px;
+}
+
+.image {
+    width: 360px;
+    height: 280px
+}
+
+.border-line {
+    border-right: 1px solid #EEEEEE
+}
+
+.facebook {
+    background-color: #3b5998;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.twitter {
+    background-color: #1DA1F2;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.linkedin {
+    background-color: #2867B2;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer
+}
+
+.line {
+    height: 1px;
+    width: 45%;
+    background-color: #E0E0E0;
+    margin-top: 10px
+}
+
+.or {
+    width: 10%;
+    font-weight: bold
+}
+
+.text-sm {
+    font-size: 14px !important
+}
+
+::placeholder {
+    color: #BDBDBD;
+    opacity: 1;
+    font-weight: 300
+}
+
+:-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+}
+
+::-ms-input-placeholder {
+    color: #BDBDBD;
+    font-weight: 300
+}
+
+input,
+textarea {
+    padding: 10px 12px 10px 12px;
+    border: 1px solid lightgrey;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 14px;
+    letter-spacing: 1px
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #304FFE;
+    outline-width: 0
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+a {
+    color: inherit;
+    cursor: pointer
+}
+
+.btn-blue {
+    background-color: #1A237E !important;
+    width: 150px !important;
+    color: #fff !important;
+    border-radius: 2px !important;
+}
+
+.btn-blue:hover {
+    background-color: #000;
+    cursor: pointer
+}
+
+.bg-blue {
+    color: #fff;
+    background-color: #1A237E
+}
+
+@media screen and (max-width: 991px) {
+    .logo {
+        margin-left: 0px
+    }
+
+    .image {
+        width: 300px;
+        height: 220px
+    }
+
+    .border-line {
+        border-right: none
+    }
+
+    .card2 {
+        border-top: 1px solid #EEEEEE !important;
+        margin: 0px 15px
+    }
+}
+</style>
+
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow ">
+
+
+
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/farmacoVigilancia/IPS/">Informe Periodico de Seguridad</a></li>
+          <li class="nav-item"><a class="nav-link" href="/farmacoVigilancia/PSM/">Analisis Riesgo Beneficio</a></li>
+          <li class="nav-item"><a class="nav-link" href="/farmacoVigilancia/RSEA/">RAM</a></li>
+          <li class="nav-item"><a class="nav-link" href="/farmacoVigilancia/Revistasmedicas/">Revistas</a></li>
+
+
+          <li class="nav-item"><a class="nav-link" href="/farmacoVigilancia/user_login/">Login</a></li>
+
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-xxl">
+
+
+  <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+      <div class="card card0 border-0">
+          <div class="row d-flex">
+              <div class="col-lg-6">
+                  <div class="card1 pb-5">
+                      <div class="row px-3 justify-content-center mt-4 mb-5"> <img src="data:image/png;base64,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" alt="logo" class="logo" > </div>
+                      <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
+                        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/blogs/31115/images/b0qlzF7SuOWwSVzq6Kiy_Atraer-clientes-a-tu-farmacia-1080x675.jpg" class="image"> </div>
+                  </div>
+              </div>
+              <div class="col-lg-6">
+                  <div class="card2 card border-0 px-4 py-5">
+                      <div class="row px-3"> <label class="mb-1">
+                        <form action="" method="post">
+                          <input type="hidden" name="csrfmiddlewaretoken" value="cZCSNemzTmwtF08qDEfZqHjKnz3nUWzMUezaVESgoHovA2UW8r23BQJ8ZybldUs9">
+                              <h6 class="mb-0 text-sm">Nombre de Usuario</h6>
+                          </label> <input class="mb-4" type="text" name="username" placeholder="Ingrese su usuario de Windows"> </div>
+                      <div class="row px-3"> <label class="mb-1">
+                              <h6 class="mb-0 text-sm">Contraseña</h6>
+                          </label> <input type="password" name="password" placeholder="Intorduzca su contraseña"> </div>
+                       <div class="row mb-3 px-3"> </div>
+                      <div class="row mb-3 px-3"> <button type="submit" name="logQP" class="btn btn-blue text-center">Login QP</button> </div>
+                        <div class="row mb-3 px-3"> <button type="submit" name="logET" class="btn btn-blue text-center">Login ET</button> </div>
+                    </form>
+                  </div>
+              </div>
+          </div>
+          <div class="bg-blue py-4">
+              <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2021. All rights reserved.</small>
+                  <div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span class="fa fa-google-plus mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span> <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+    </div>
+
+    <!--    AnonymousUser
+        -->
+
+  </body>
+</html>
