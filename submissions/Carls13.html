@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://carls13.github.io/loopstudios/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Loopstudios landing page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+li {
+  font-family: Montserrat, sans-serif;
+  margin: 0;
+  font-weight: 200;
+}
+
+p {
+  font-family: Josefin Sans, sans-serif;
+}
+
+.mobile-menu {
+  background-color: black;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  padding: 20px 40px;
+  display: none;
+}
+
+.mobile-menu .row {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: -10%;
+  width: 80%;
+  align-items: center;
+}
+
+.row span {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-transform: uppercase;
+  font-size: 40px;
+  padding: 0;
+}
+
+.hero {
+  background-image: url("https://carls13.github.io/loopstudios/images/desktop/image-hero.jpg");
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  padding: 60px 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo,
+footer .logo {
+  width: auto;
+  height: 50px;
+}
+
+header ul,
+footer ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+header ul li,
+footer ul li {
+  font-family: Josefin Sans, sans-serif;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+header ul li hr,
+footer ul li hr {
+  visibility: hidden;
+  width: 50%;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+header ul li:hover hr,
+footer ul li:hover hr {
+  visibility: visible;
+}
+
+header .burger {
+  display: none;
+}
+
+.hero .hero-title {
+  margin: 10% 0;
+  width: 50%;
+  border: 1px solid white;
+}
+
+.hero .hero-title h1 {
+  font-size: 4.2em;
+  color: white;
+  text-transform: uppercase;
+  line-height: 70px;
+  padding: 30px;
+}
+
+.presentation {
+  padding: 60px 100px;
+  display: flex;
+  position: relative;
+}
+
+.presentation img {
+  width: 60%;
+}
+
+.presentation div {
+  width: 50%;
+  background-color: white;
+  position: absolute;
+  padding: 60px 100px;
+  left: 40%;
+  bottom: 0;
+  z-index: 4;
+}
+
+.presentation div h2 {
+  font-size: 3.2em;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 70px;
+  text-align: left;
+}
+
+.presentation div p {
+  width: 70%;
+  font-weight: bold;
+  letter-spacing: 5px;
+}
+
+.creations {
+  padding: 60px 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.creations-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.creations-header h2 {
+  font-size: 2em;
+  font-weight: 100;
+  color: black;
+  text-transform: uppercase;
+}
+
+.creations button {
+  color: black;
+  border: 1px solid black;
+  background: white;
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px 20px;
+  letter-spacing: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.creations button:hover {
+  background: black;
+  color: white;
+}
+
+.creations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 15px;
+  column-gap: 15px;
+}
+
+.creation {
+  height: 60vh;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+
+.creation:nth-child(1) {
+  background-image: url("https://carls13.github.io/loopstudios/images/desktop/image-deep-earth.jpg");
+}
+.creation:nth-child(2) {
+  background-image: url("https://carls13.github.io/loopstudios/images/desktop/image-night-arcade.jpg");
+}
+.creation:nth-child(3) {
+  background-image: url("https://carls13.github.io/loopstudios/images/desktop/image-soccer-team.jpg");
+}
+.creation:nth-child(4) {
+  background-image: url("https://carls13.github.io/loopstudios/images/desktop/image-grid.jpg");
+}
+.creation:nth-child(5) {
+  background-image: url("https://carls13.github.io/loopstudios/images/desktop/image-from-above.jpg");
+}
+.creation:nth-child(6) {
+  background-image: url("https://carls13.github.io/loopstudios/images/desktop/image-pocket-borealis.jpg");
+}
+.creation:nth-child(7) {
+  background-image: url("https://carls13.github.io/loopstudios/images/desktop/image-curiosity.jpg");
+}
+.creation:nth-child(8) {
+  background-image: url("https://carls13.github.io/loopstudios/images/desktop/image-fisheye.jpg");
+}
+
+.creation span {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  font-size: 2.4em;
+  font-weight: 200;
+  font-family: Montserrat, sans-serif;
+  text-transform: uppercase;
+  line-height: 1em;
+  color: white;
+  z-index: 10;
+}
+
+.creation:hover {
+  filter: opacity(0.7);
+}
+
+.mobile-button {
+  display: none;
+}
+
+footer {
+  display: flex;
+  padding: 60px 100px;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-row span {
+  margin-top: -15px;
+}
+
+footer ul {
+  padding: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .hero {
+    padding: 10px 30px;
+    background-image: url("https://carls13.github.io/loopstudios/images/mobile/image-hero.jpg");
+    height: 100vh;
+  }
+
+  header .burger {
+    display: block;
+    height: 20px;
+  }
+
+  .show {
+    display: flex;
+  }
+
+  header .logo {
+    width: 50%;
+    height: auto;
+  }
+
+  header ul {
+    display: none;
+  }
+
+  .hero .hero-title {
+    width: 100%;
+    margin: 50% 0;
+  }
+
+  .hero .hero-title h1 {
+    font-size: 2.2em;
+    line-height: 1em;
+    padding: 30px;
+  }
+
+  .creations {
+    padding: 10px 30px;
+  }
+
+  .creations-header {
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  .creations-header h2 {
+    font-size: 2em;
+  }
+
+  .creations-header button {
+    display: none;
+  }
+
+  .creations-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .creation {
+    height: 20vh;
+  }
+
+  .creation:nth-child(1) {
+    background-image: url("https://carls13.github.io/loopstudios/images/mobile/image-deep-earth.jpg");
+  }
+  .creation:nth-child(2) {
+    background-image: url("https://carls13.github.io/loopstudios/images/mobile/image-night-arcade.jpg");
+  }
+  .creation:nth-child(3) {
+    background-image: url("https://carls13.github.io/loopstudios/images/mobile/image-soccer-team.jpg");
+  }
+  .creation:nth-child(4) {
+    background-image: url("https://carls13.github.io/loopstudios/images/mobile/image-grid.jpg");
+  }
+  .creation:nth-child(5) {
+    background-image: url("https://carls13.github.io/loopstudios/images/mobile/image-from-above.jpg");
+  }
+  .creation:nth-child(6) {
+    background-image: url("https://carls13.github.io/loopstudios/images/mobile/image-pocket-borealis.jpg");
+  }
+  .creation:nth-child(7) {
+    background-image: url("https://carls13.github.io/loopstudios/images/mobile/image-curiosity.jpg");
+  }
+  .creation:nth-child(8) {
+    background-image: url("https://carls13.github.io/loopstudios/images/mobile/image-fisheye.jpg");
+  }
+  .creation span {
+    font-size: 1.4em;
+  }
+
+  .mobile-button {
+    display: block;
+    margin: 40px auto;
+  }
+
+  .footer-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-row ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .footer-row span {
+    text-align: center;
+  }
+
+  .presentation {
+    padding: 10px 30px;
+    position: unset;
+    flex-direction: column;
+  }
+
+  .presentation img {
+    width: 100%;
+  }
+
+  .presentation div {
+    width: 100%;
+    background-color: white;
+    padding: unset;
+    position: unset;
+    left: unset;
+    bottom: unset;
+    z-index: unset;
+    margin-top: 20px;
+  }
+
+  .presentation div h2 {
+    font-size: 3.2em;
+    color: black;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 70px;
+    text-align: center;
+  }
+
+  .presentation div p {
+    width: 80%;
+    margin: 20px auto;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+  }
+}
+
+  </style>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300&family=Montserrat:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="row">
+      <img src="https://carls13.github.io/loopstudios/images/logo.svg" class="logo" alt="Loopstudios logo"/>
+      <span id="x">X</span>
+      </ul>
+    </div>
+    <ul>
+      <li>About
+      </li>
+      <li>Careers
+      </li>
+      <li>Events
+      </li>
+      <li>Products
+      </li>
+      <li>Support
+      </li>
+    </ul>
+  </div>
+  <section class="hero">
+    <header>
+      <img src="https://carls13.github.io/loopstudios/images/logo.svg" class="logo" alt="Loopstudios logo"/>
+      <ul>
+        <li>About
+          <hr/>
+        </li>
+        <li>Careers
+          <hr/>
+        </li>
+        <li>Events
+          <hr/>
+        </li>
+        <li>Products
+          <hr/>
+        </li>
+        <li>Support
+          <hr/>
+        </li>
+      </ul>
+      <img src="https://carls13.github.io/loopstudios/images/icon-hamburger.svg" class="burger" alt="Hamburger icon" id="burger"/>
+    </header>
+    <div class="hero-title">
+      <h1>Immersive experiences that deliver</h1>
+    </div>
+  </section>
+  <section class="presentation">
+    <img src="https://carls13.github.io/loopstudios/images/desktop/image-interactive.jpg" alt="Image"/>
+    <div>
+      <h2>The leader in interactive VR</h2>
+      <p>Founded in 2011, Loopstudios has been producing world-class virtual reality 
+        projects for some of the best companies around the globe. Our award-winning 
+        creations have transformed businesses through digital experiences that bind 
+        to their brand.</p>
+    </div>
+  </section>
+  <section class="creations">
+    <div class="creations-header">
+      <h2>Our creations</h2>
+      <button>See all</button>
+    </div>
+    <div class="creations-grid">
+      <div class="creation">
+        <span>Deep earth</span> 
+      </div> 
+      <div class="creation">
+        <span>Night arcade</span> 
+      </div> 
+      <div class="creation">
+        <span>Soccer team VR</span> 
+      </div> 
+      <div class="creation">
+        <span>The grid</span> 
+      </div> 
+      <div class="creation">
+        <span>From up above VR</span> 
+      </div> 
+      <div class="creation">
+        <span>Pocket borealis</span> 
+      </div> 
+      <div class="creation">
+        <span>The curiosity</span> 
+      </div> 
+      <div class="creation">
+        <span>Make it fisheye</span> 
+      </div>
+    </div>
+    <button class="mobile-button">See all</button>
+  </section>
+  <footer>
+    <div class="footer-row">
+      <img src="https://carls13.github.io/loopstudios/images/logo.svg" class="logo" alt="Loopstudios logo"/>
+      <ul>
+        <li><img src="https://carls13.github.io/loopstudios/images/icon-facebook.svg" alt="Icon">
+          <hr/>
+        </li>
+        <li><img src="https://carls13.github.io/loopstudios/images/icon-instagram.svg" alt="Icon">
+          <hr/>
+        </li>
+        <li><img src="https://carls13.github.io/loopstudios/images/icon-pinterest.svg" alt="Icon">
+          <hr/>
+        </li>
+        <li><img src="https://carls13.github.io/loopstudios/images/icon-twitter.svg" alt="Icon">
+          <hr/>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-row">
+      <ul>
+        <li>About
+          <hr/>
+        </li>
+        <li>Careers
+          <hr/>
+        </li>
+        <li>Events
+          <hr/>
+        </li>
+        <li>Products
+          <hr/>
+        </li>
+        <li>Support
+          <hr/>
+        </li>
+      </ul>
+      <span>© 2021 Loopstudios. All rights reserved.</span>
+    </div>
+  </footer>
+  <script>
+    const x = document.getElementById("x");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const burger = document.getElementById("burger");
+
+    const toggleMenu = () => {
+        mobileMenu.classList.toggle("show");
+    }
+
+    x.addEventListener("click", toggleMenu);
+    burger.addEventListener("click", toggleMenu);
+  </script>
+</body>
+</html>
