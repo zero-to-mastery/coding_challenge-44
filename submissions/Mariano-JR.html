@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+
+    <style>
+        * {
+            margin: 0 auto;
+            font-family: sans-serif;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 144px;
+            font-weight: 300;
+        }
+
+        h2 {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1></h1>
+    <h2></h2>
+
+
+    <script>
+        const currentTime = () => {
+            const h1 = document.querySelector('h1');
+
+            let date = new Date();
+            let hh = date.getHours();
+            let mm = date.getMinutes();
+            let ss = date.getSeconds();
+
+            hh = hh < 10 ? `0${hh}` : hh;
+            mm = mm < 10 ? `0${mm}` : mm;
+            ss = ss < 10 ? `0${ss}` : ss;
+
+            let time = `${hh}:${mm}:${ss}`;
+            h1.innerHTML = time;
+        };
+
+        const currentDate = () => {
+            const h2 = document.querySelector('h2');
+
+            let date = new Date();
+            let dd = date.getDate();
+            let mm = date.getMonth() +1;
+            let yy = date.getFullYear();
+
+            dd = dd < 10 ? `0${dd}`: dd;
+            mm = mm < 10 ? `0${mm}`: mm;
+
+            let cal = `${dd}/${mm}/${yy}`;
+            h2.innerHTML = cal;
+        }
+
+        currentTime();
+        currentDate();
+        setInterval(currentTime, 1000);
+    </script>
+</body>
+</html>
