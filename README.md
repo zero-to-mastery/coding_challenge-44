@@ -13,7 +13,6 @@ The project you build can be as simple or as complex as you like, so this challe
 The rules are simple:
 
 - The code you write must be your own. Using articles and resources to guide you is fine, but copy and pasting large chunks of code will not help improve your skills.
-- The code you write must be your own. Using articles and resources to guide you is fine, but copy and pasting large chunks of code will not help imporve your skills.
 - All your code **MUST** be written in a single HTML file **within** the submissions directory of this repo.
 - You **cannot** utilize any external resources such as API's, Images, Libraries etc
 - Push your boundaries, try something new or add a twist.
@@ -47,6 +46,9 @@ Now, once you've forked this repo and got a local version up on your computer, f
 - [ROCK PAPER SCISSOR LIZARD SPOCK](/submissions/pianeta051.html) - By: [CARLOS PIANETA](https://github.com/pianeta051)
 - [Checkbox Filters](/submissions/dimitarradulov.html) - By: [Dimitar Radulov](https://github.com/dimitarradulov)
 - [Portfolio-Landingpage](/submissions/salvo9107.html) - By: [Salvatore Marotta](https://github.com/Salvo9107)
+- [Agency Landing Page](/submissions/Carls13.html) - By: [Carlos Hernandez](https://github.com/Carls13)
+- [Digital Clock](./submissions/Mariano-JR.html) - By: [Mariano-JR](https://github.com/Mariano-JR)
+
 
 ## One Last Thing!
 
