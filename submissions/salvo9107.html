@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    *{
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    body{
+        height: 100vh;
+        width: 100vw;
+    }
+
+    h1{
+        margin-bottom: 30px;
+    }
+
+    section{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+        background: linear-gradient(45deg, #01041a, #608ca8);
+        animation: animate 5s linear infinite;
+        background-size: 115% 100%;
+    }
+
+    section a {
+        display: inline-block;
+        text-decoration: none;
+        color:#ebdb00;
+        font-weight: bold;
+        animation: shake 0.25s linear infinite;
+    }
+
+    body .flex-center{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media (min-width: 1px) and (max-width: 550px){
+        section{
+            font-size: 2rem;
+            padding: 30px;
+        }
+    }
+    @media (min-width: 551px){
+        section{
+            font-size: 1.5rem;
+            padding: 60px;
+        }
+
+        p{
+            width: 500px;
+        }
+    }
+
+    @keyframes animate{
+        0%{background-position: 0 50%;}
+        50%{background-position: 100% 100%;}
+        100%{background-position: 0 50%;}
+    }
+
+    @keyframes shake {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(8deg); }
+        50% { transform: rotate(0eg); }
+        75% { transform: rotate(-8deg); }
+        100% { transform: rotate(0deg); }
+}
+
+    </style>
+    <title>Salvo9107 | Portfolio-Landingpage</title>
+</head>
+<body>
+    <section class="flex-center">
+        <div class="text-section">
+            <h1>Hello, my name is Salvatore</h1>
+            <p>Since the beginning of the pandemic I decided to learn web-development (HTML, CSS, JAVASCRIPT).<br>
+            If you would like to see what I have achieved, feel free to click this <span><a href="https://salvo9107.github.io/portfolio/">link</a></span>.</p>
+        </div>
+       
+    </section>
+</body>
+</html>

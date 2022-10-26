@@ -45,6 +45,7 @@ Now, once you've forked this repo and got a local version up on your computer, f
 - [Portfolio](/submissions/Md-Aquib.html) - By: [Md-Aquib](https://github.com/Md-Aquib)
 - [ROCK PAPER SCISSOR LIZARD SPOCK](/submissions/pianeta051.html) - By: [CARLOS PIANETA](https://github.com/pianeta051)
 - [Checkbox Filters](/submissions/dimitarradulov.html) - By: [Dimitar Radulov](https://github.com/dimitarradulov)
+- [Portfolio-Landingpage](/submissions/salvo9107.html) - By: [Salvatore Marotta](https://github.com/Salvo9107)
 - [Agency Landing Page](/submissions/Carls13.html) - By: [Carlos Hernandez](https://github.com/Carls13)
 - [Digital Clock](./submissions/Mariano-JR.html) - By: [Mariano-JR](https://github.com/Mariano-JR)
 
