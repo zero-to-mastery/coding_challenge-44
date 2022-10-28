@@ -48,6 +48,7 @@ Now, once you've forked this repo and got a local version up on your computer, f
 - [Portfolio-Landingpage](/submissions/salvo9107.html) - By: [Salvatore Marotta](https://github.com/Salvo9107)
 - [Agency Landing Page](/submissions/Carls13.html) - By: [Carlos Hernandez](https://github.com/Carls13)
 - [Digital Clock](./submissions/Mariano-JR.html) - By: [Mariano-JR](https://github.com/Mariano-JR)
+- [Pricing Page](/submissions/mohakgupt.html) - By: [Mohak](https://github.com/mohakgupt)
 
 
 ## One Last Thing!
