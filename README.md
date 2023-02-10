@@ -50,6 +50,7 @@ Now, once you've forked this repo and got a local version up on your computer, f
 - [Digital Clock](./submissions/Mariano-JR.html) - By: [Mariano-JR](https://github.com/Mariano-JR)
 - [Pricing Page](/submissions/mohakgupt.html) - By: [Mohak](https://github.com/mohakgupt)
 - [Typewriter Effect](/submissions/alexwindy0.html) - By: [Alex](https://github.com/Alexwindy0)
+- [Satoshi's Converter](/submissions/Almopt.html) - By: [Almopt](https://github.com/Almopt)
 
 
 ## One Last Thing!
