@@ -46,11 +46,11 @@ Now, once you've forked this repo and got a local version up on your computer, f
 - [ROCK PAPER SCISSOR LIZARD SPOCK](/submissions/pianeta051.html) - By: [CARLOS PIANETA](https://github.com/pianeta051)
 - [Checkbox Filters](/submissions/dimitarradulov.html) - By: [Dimitar Radulov](https://github.com/dimitarradulov)
 - [Portfolio-Landingpage](/submissions/salvo9107.html) - By: [Salvatore Marotta](https://github.com/Salvo9107)
+- [Poke Ball Product Card](/submissions/leslielopez.html) - By: [Leslie Lopez](https://github.com/LeslieLopez25)
 - [Agency Landing Page](/submissions/Carls13.html) - By: [Carlos Hernandez](https://github.com/Carls13)
 - [Digital Clock](./submissions/Mariano-JR.html) - By: [Mariano-JR](https://github.com/Mariano-JR)
 - [Pricing Page](/submissions/mohakgupt.html) - By: [Mohak](https://github.com/mohakgupt)
 - [Typewriter Effect](/submissions/alexwindy0.html) - By: [Alex](https://github.com/Alexwindy0)
-
 
 ## One Last Thing!
 
