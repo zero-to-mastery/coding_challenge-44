@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Omotesando1</title>
+	<style>
+		* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif, sans-serif
+}
+
+/* Title of page */
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px 30px;
+}
+
+/* Buttons */
+.container1 {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    margin: 20px 30px;
+    justify-content: center;
+}
+.button  {
+    margin: 0 10px;
+    border-radius: 10px;
+    width: 100px;
+    height: 33px;
+}
+.button:hover{
+    background-color: rgb(218, 199, 199);
+    opacity:1;
+}
+
+.button:active{
+    background-color: rgb(218, 199, 199);
+    opacity:0.7;
+}
+
+.activated {
+    border-color: rgb(15, 176, 168);
+}
+
+.inactive {
+    border-color: rgba(255, 255, 255, 0);
+}
+
+
+/* Date today */
+.datetoday{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Announcer */
+.announce{
+    margin: 10px 30px;
+    padding: 8px;
+    border: 5px solid #f20055;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.smalltitle{
+    font-size: 0.7rem;
+}
+.content{
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.thisweekpart{
+    width: 50vw;
+    margin: 10px;
+}
+.prevnextweekpart {
+    width: 30vw;
+    margin: 10px;
+}
+ul{
+    list-style: none;
+}
+li {
+    font-size: 0.9rem;
+}
+.noncombustible{
+    color: rgb(0, 149, 255);
+}
+.combustible{
+    color: rgb(235, 151, 5);
+}
+.petbottle{
+    color: rgb(190, 62, 254);
+}
+.aluminumcan{
+    color: rgb(121, 121, 121);
+}
+.glassbottle{
+    color: rgb(16, 194, 0);
+}
+.cardboard{
+    color: rgb(112, 71, 0);
+}
+.tomorrow{
+    color:rgb(218, 0, 138);
+}
+.tonight{
+    color:rgb(255, 0, 0);
+    font-weight: 800;
+    letter-spacing: 1.4pt;
+    font-size: 1rem;
+}
+
+
+/* List of rooms */
+.houselist{
+    display: flex;
+    justify-content: space-around;
+    /* border: 2px solid blue; */
+    margin: 10px 30px;
+}
+.house{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin: 5px 0;
+    align-items: center
+}
+
+.houselist .A{
+    border: 3px solid rgb(76, 103, 117);
+}
+.houselist .A .room{
+    border: 1px solid #228f72;
+}
+
+.houselist .B{
+    border: 3px solid rgb(76, 103, 117);
+}
+.houselist .B .room {
+    border: 1px solid #07A9D7;
+}
+
+.room {
+    display: flex;
+
+    border-radius: 10px;
+    width: 38vw;
+    flex-direction: column;
+    align-items: center;
+    margin: 3px 3px;
+    background-color: rgba(181, 213, 254, 0.189);
+}
+
+.nameKanji{
+    font-size: 0.75rem;
+}
+.invalid{
+    color: red;
+}
+.now{
+    font-size: 0.65rem;
+    color: red;
+    font-weight: 500;
+}
+.next{
+    font-size: 0.55rem;
+    color: green;
+    font-style: italic;
+}
+.last{
+    font-size: 0.55rem;
+    color: rgba(71, 86, 108, 0.638);
+    font-style: italic;
+}
+
+/* Login Button */
+.login{
+    margin: 0 10px;
+    width: 170px;
+    height: 33px;
+    font-size: 1.2rem;
+}
+
+
+/* Footer of the page */
+.foot{
+    display: flex;
+    justify-content: center;
+    font-size: 0.7rem;
+}
+
+/* Animations */
+#daygarbage{
+    width: max-content;
+}
+	</style>
+</head>
+<body>
+	<div class="title">
+		<h1>Omotesando 1</h1>
+		<p>House Companion</p>	
+	</div>
+
+	<div class="container1">	
+		<input id="english" type="button" class="button activated" value="English">
+	</div>
+
+	<div class= "datetoday">
+		<h4 id="date"></h4>	
+	</div>
+
+	<div class="announce">
+		<div class="thisweekpart">
+			<p class="smalltitle">Responsible of garbage this week :</p>
+			<p class="content" id = "weekresp"></p><br>
+			<p class="smalltitle">Next garbage day :</p>
+			<p class="content" id="typegarbage"></p>
+			<p class="smalltitle">Take out before :</p>
+			<p class="content" id="daygarbage"></p>
+		</div>
+		<div class="prevnextweekpart">
+			<p class="smalltitle">Last week duo:</p>
+			<p class="content" id="lastweekresp"></p><br>
+			<p class="smalltitle">Next week duo:</p>
+			<p class="content" id="nextweekresp"></p>
+		</div>
+	</div>
+
+	<div class="houselist">
+		<div class="house A">
+			<h4>A house</h4>
+			<div class="room">	
+				<p class="smalltitle">A101</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">A102-1</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">A102-2</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">A201</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">A202</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">A203</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">A204</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">A205</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">A206-1</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">A206-2</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+
+		</div>	
+		<div class="house B">
+			<h4>B house</h4>	
+			<div class="room">	
+				<p class="smalltitle">B101</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">B102</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">B103</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">B104</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">B201</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">B202</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">B203</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+			<div class="room">	
+				<p class="smalltitle">B204</p>
+				<p class="content name"></p>
+				<p class="content nameKanji"></p>
+				<p class="turn"></p>
+			</div>
+
+		</div>	
+	</div>
+	<div class="foot">
+		<p>Made by Florian Budniewski</p>
+		<a href="https://www.facebook.com/florian.budniewski/" target="_blank">Contact</a>
+	</div>
+
+	<script>
+		let rooms = {
+    A101:{
+        residentName: 'Gregory',
+        residentNameKanji: 'グレゴリー',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    A1021:{
+        residentName: 'Yuta',
+        residentNameKanji: '優太',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    A1022:{
+        residentName: 'Florian',
+        residentNameKanji: 'フロリアン',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    A201:{
+        residentName: 'Yusei',
+        residentNameKanji: '勇成',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    A202:{
+        residentName: 'Yuka',
+        residentNameKanji: '由佳',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    A203:{
+        residentName: 'Shonosuke',
+        residentNameKanji: '祥之介',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    A204:{
+        residentName: 'Siyun',
+        residentNameKanji: 'シユン',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    A205:{
+        residentName: 'Diana',
+        residentNameKanji: 'ダヤナ',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    A2061:{
+        residentName: 'Aika',
+        residentNameKanji: '愛香',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    A2062:{
+        residentName: 'Revy',
+        residentNameKanji: 'レヴィ',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    B101:{
+        residentName: 'Hiro',
+        residentNameKanji: '大和',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    B102:{
+        residentName: 'Markus',
+        residentNameKanji: 'マーカス',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    B103:{
+        residentName: 'Ricky',
+        residentNameKanji: 'リッキー',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    B104:{
+        residentName: 'Aya',
+        residentNameKanji: 'アヤ',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    B201:{
+        residentName: 'Hanna',
+        residentNameKanji: 'ハンナ',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    B202:{
+        residentName: 'Marina',
+        residentNameKanji: 'まりな',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    B203:{
+        residentName: 'Astrid',
+        residentNameKanji: 'アスター',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    },
+    B204:{
+        residentName: 'Haruki',
+        residentNameKanji: '春貴',
+        isLastTimeGarbage: false,
+        isNextTimeGarbage: false,
+        isLineLinked: false,
+        isGarbageWeek: false
+    }
+};
+
+//////////Room management functions/////////
+const addNewResident = (room, newResidentName, newResidentNameKanji) => {
+    rooms[room].residentName = newResidentName;
+    rooms[room].residentNameKanji = newResidentNameKanji;
+    rooms[room].isLastTimeGarbage = false;
+    rooms[room].isNextTimeGarbage = false;
+    rooms[room].isLineLinked = false;
+    rooms[room].isGarbageWeek = false;
+
+    addNamesToHTML();
+}
+const changeResidentName = (room, newResidentName) =>{
+    rooms[room].residentName = newResidentName;
+    addNamesToHTML();
+}
+const changeResidentThisWeekGarbageStatus = (room) =>{
+    rooms[room].isGarbageWeek = !rooms[room].isGarbageWeek;
+    updateHTMLGarbageTurn();
+}
+const changeResidentLastWeekGarbageStatus = (room) =>{
+    rooms[room].isLastTimeGarbage = !rooms[room].isLastTimeGarbage;
+    updateHTMLGarbageTurn();
+}
+const changeResidentNextWeekGarbageStatus = (room) =>{
+    rooms[room].isNextTimeGarbage = !rooms[room].isNextTimeGarbage;
+    updateHTMLGarbageTurn();
+}
+const changeResidentLineStatus = (room) =>{
+    rooms[room].isLineLinked = !rooms[room].isLineLinked;
+}
+
+// Buttons
+
+    // //English Button
+    // const buttonEnglish = document.getElementById("english");
+    // buttonEnglish.addEventListener("click", 
+    //     function englishVersion(){
+    //         location.replace("https://fly0w.github.io/Omotesando1/");
+    //     }
+    // );
+    
+//Home page Room names
+const addNamesToHTML = () => {
+    let HTMLnames = document.getElementsByClassName("name");
+    let HTMLnamesKanji = document.getElementsByClassName("nameKanji");
+    let names = [];
+    let namesKanji = [];
+
+
+    Object.entries(rooms).forEach(value => {
+        names.push(value[1].residentName);
+        namesKanji.push(value[1].residentNameKanji);
+    });
+
+    for (let i = 0; i < HTMLnames.length; i++){
+        HTMLnames[i].innerHTML = names[i];
+        HTMLnamesKanji[i].innerHTML = namesKanji[i];
+    }
+};
+
+addNamesToHTML();
+
+
+//Garbage turn status
+const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+const updateDuoGarbage = () => {
+    const now = new Date();
+    const startDateMs = Date.parse("January 1, 2023");
+    const nowDateMs = now.getTime();
+        // [CHANGE DATE MANUALLY] 
+    // const nowDateMs = Date.parse("January 8, 2023");
+    let difDateMs = nowDateMs-startDateMs ; //Number of ms between January 1st 2023 and now
+    const weekMs = 1000 * 60 * 60 * 24 * 7; 
+    const difDateWeek = Math.floor(difDateMs / weekMs); //Number of weeks since Sunday 1st of January 2023
+    
+    
+    //Definition of the key for the array
+    let modulo = difDateWeek % 9; 
+    let moduloPlus = modulo + 1; //For next week key
+    let moduloMinus = modulo - 1; //For last week key
+    //The key can't be more than 8 or less than 0
+    if (modulo === 8){
+        moduloPlus = 0;
+        moduloMinus = 7;
+    } else if (modulo === 0){
+        moduloPlus = 1;
+        moduloMinus = 8;
+    };
+
+// Create list of duo, the duos are always the same
+    const duoRooms = [
+        ['B104', 'B201'],
+        ['B202', 'B203'],
+        ['B204', 'A101'],
+        ['A1021', 'A1022'],
+        ['A201', 'A202'],
+        ['A203', 'A204'],
+        ['A205', 'B101'],
+        ['A2061', 'A2062'],
+        ['B102', 'B103'],
+    ];
+
+
+// Changes properties in the rooms objects
+// This week
+    let thisWeek1 = duoRooms[modulo][0];
+    let thisWeek2 = duoRooms[modulo][1];
+
+    rooms[thisWeek1].isGarbageWeek = true;
+    rooms[thisWeek1].isNextTimeGarbage = false;
+    rooms[thisWeek1].isLastTimeGarbage = false;
+
+    rooms[thisWeek2].isGarbageWeek = true;
+    rooms[thisWeek2].isNextTimeGarbage = false;
+    rooms[thisWeek2].isLastTimeGarbage = false;
+
+// Next week
+    let nextWeek1 = duoRooms[moduloPlus][0];
+    let nextWeek2 = duoRooms[moduloPlus][1];
+
+    rooms[nextWeek1].isGarbageWeek = false;
+    rooms[nextWeek1].isNextTimeGarbage = true;
+    rooms[nextWeek1].isLastTimeGarbage = false;
+    
+    rooms[nextWeek2].isGarbageWeek = false;
+    rooms[nextWeek2].isNextTimeGarbage = true;
+    rooms[nextWeek2].isLastTimeGarbage = false;
+
+// Last Week
+    let lastWeek1 = duoRooms[moduloMinus][0];
+    let lastWeek2 = duoRooms[moduloMinus][1];
+
+    rooms[lastWeek1].isGarbageWeek = false;
+    rooms[lastWeek1].isNextTimeGarbage = false;
+    rooms[lastWeek1].isLastTimeGarbage = true;
+    
+    rooms[lastWeek2].isGarbageWeek = false;
+    rooms[lastWeek2].isNextTimeGarbage = false;
+    rooms[lastWeek2].isLastTimeGarbage = true;
+}
+
+const updateListGarbageTurn = () => {
+    const dateNow = new Date();
+    let today = weekday[dateNow.getDay()];
+        // [CHANGE DAY MANUALLY]
+    // let today = "Wednesday";
+    let fulldate = dateNow.toLocaleDateString();
+
+    let HTMLannounceTypeGarbage = document.getElementById("typegarbage");
+    let HTMLannounceDayGarbage = document.getElementById("daygarbage");
+    let HTMLannounceDayToday = document.getElementById("date");
+
+
+    // Changes the innerHTML for type of garbage and alos when to take them out
+    switch (today){
+        case "Monday":
+            HTMLannounceTypeGarbage.innerHTML = '<ul><li class="combustible">COMBUSTIBLE</li></ul>';
+            HTMLannounceDayGarbage.className = "content tonight"
+            HTMLannounceDayGarbage.innerHTML = 'TONIGHT';
+            HTMLannounceDayToday.innerHTML = 'MONDAY - ' + fulldate;
+            break;
+        case "Tuesday":
+            HTMLannounceTypeGarbage.innerHTML = '<ul><li class="noncombustible">NON-COMBUSTIBLE</li><li class="petbottle">PET BOTTLES</li><li class="glassbottle">GLASS BOTTLES</li><li class="aluminumcan">ALUMINUM CANS</li><li class="cardboard">CARDBOARD</li></ul>';
+            HTMLannounceDayGarbage.className = "content tomorrow"
+            HTMLannounceDayGarbage.innerHTML = 'TOMORROW NIGHT';
+            HTMLannounceDayToday.innerHTML = 'TUESDAY - ' + fulldate;
+            break;
+        case "Wednesday":
+            HTMLannounceTypeGarbage.innerHTML = '<ul><li class="noncombustible">NON-COMBUSTIBLE</li><li class="petbottle">PET BOTTLES</li><li class="glassbottle">GLASS BOTTLES</li><li class="aluminumcan">ALUMINUM CANS</li><li class="cardboard">CARDBOARD</li></ul>';
+            HTMLannounceDayGarbage.className = "content tonight"
+            HTMLannounceDayGarbage.innerHTML = 'TONIGHT';
+            HTMLannounceDayToday.innerHTML = 'WEDNESDAY - ' + fulldate;
+            break;
+        case "Thursday":
+            HTMLannounceTypeGarbage.innerHTML = '<ul><li class="combustible">COMBUSTIBLE</li></ul>';
+            HTMLannounceDayGarbage.className = "content tonight"
+            HTMLannounceDayGarbage.innerHTML = 'TONIGHT';
+            HTMLannounceDayToday.innerHTML = 'THURSDAY - ' + fulldate;
+            break;
+        case "Friday":
+            HTMLannounceTypeGarbage.innerHTML = '<ul><li class="combustible">COMBUSTIBLE</li></ul>';
+            HTMLannounceDayGarbage.className = "content"
+            HTMLannounceDayGarbage.innerHTML = 'MONDAY NIGHT';
+            HTMLannounceDayToday.innerHTML = 'FRIDAY - ' + fulldate;
+            break;
+        case "Saturday":
+            HTMLannounceTypeGarbage.innerHTML = '<ul><li class="combustible">COMBUSTIBLE</li></ul>';
+            HTMLannounceDayGarbage.className = "content"
+            HTMLannounceDayGarbage.innerHTML = 'MONDAY NIGHT';
+            HTMLannounceDayToday.innerHTML = 'SATURDAY - ' + fulldate;
+            break;
+        case "Sunday":
+            HTMLannounceTypeGarbage.innerHTML = '<ul><li class="combustible">COMBUSTIBLE</li></ul>';
+            HTMLannounceDayGarbage.className = "content tomorrow"
+            HTMLannounceDayGarbage.innerHTML = 'TOMORROW NIGHT';
+            HTMLannounceDayToday.innerHTML = 'SUNDAY - ' + fulldate;
+            break;
+        default:
+            HTMLannounceTypeGarbage.innerHTML = "Error";
+    }
+}
+
+
+// Main function that will display the changes automatically by changing the innerHTML
+const updateHTMLGarbageTurn = () => {
+    updateListGarbageTurn();
+    updateDuoGarbage();
+    let HTMLturn = document.getElementsByClassName("turn");
+    let HTMLannounceThisWeek = document.getElementById("weekresp");
+    let HTMLannounceLastWeek = document.getElementById("lastweekresp");
+    let HTMLannounceNextWeek = document.getElementById("nextweekresp");
+    
+
+    let thisWeekResp = [];
+    let lastWeekResp = [];
+    let nextWeekResp = [];
+
+    let turnsNow = [];
+    let turnsLastWeek = [];
+    let turnsNextWeek = [];
+
+    //Loop that adds names in the arrays depending on the garbage turn
+    Object.entries(rooms).forEach(value => {
+        turnsNow.push(value[1].isGarbageWeek);
+        turnsLastWeek.push(value[1].isLastTimeGarbage);
+        turnsNextWeek.push(value[1].isNextTimeGarbage);
+        if (value[1].isGarbageWeek === true){
+            thisWeekResp.push(value[1].residentName)
+        } else if (value[1].isLastTimeGarbage === true){
+            lastWeekResp.push(value[1].residentName)
+        } else if (value[1].isNextTimeGarbage === true){
+            nextWeekResp.push(value[1].residentName)
+        }
+    });
+        
+    //Loop that adds text and style in the room boxes depending on the garbage turn
+    for (let i = 0; i < HTMLturn.length; i++){ 
+        if (turnsNow[i] === true){
+            HTMLturn[i].innerHTML = "It's your turn !";
+            HTMLturn[i].classList.add("now");
+        } else if (turnsLastWeek[i] === true){
+            HTMLturn[i].innerHTML = "Was last turn";
+            HTMLturn[i].classList.add("last");
+        } else if (turnsNextWeek[i] === true){
+            HTMLturn[i].innerHTML = "Is next turn";
+            HTMLturn[i].classList.add("next");
+        } else {
+            HTMLturn[i].innerHTML = "";
+            HTMLturn[i].className = ("turn");
+        }  
+    } 
+
+    // Add the names in the main annoucement panel
+    HTMLannounceThisWeek.innerHTML = `${thisWeekResp[0]} & ${thisWeekResp[1]}`; 
+    HTMLannounceLastWeek.innerHTML = `${lastWeekResp[0]} & ${lastWeekResp[1]}`;
+    HTMLannounceNextWeek.innerHTML = `${nextWeekResp[0]} & ${nextWeekResp[1]}`;
+}
+
+updateHTMLGarbageTurn();
+	</script>
+</body>
+</html>
