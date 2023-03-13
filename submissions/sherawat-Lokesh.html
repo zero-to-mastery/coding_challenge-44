@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tic tac toe</title>
+    
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--second-color);
+}
+
+:root {
+  --main-background: black;
+  --second-color: white;
+  --game-win-color: rgb(19, 149, 19);
+  --font-1: "Poppins", sans-serif;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+.b{
+outline: 3px solid var(--second-color);
+}
+body {
+  background-color: var(--main-background);
+}
+
+.second-main{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+td{
+  text-align: center;
+  height: 10vw;
+  width:10vw;
+  font-size: 5vw;
+  font-weight: 600;
+  font-family: var(--font-1);
+}
+
+
+.score{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.score{
+font-size: 2.5vw;
+font-family: var(--font-1);
+display: flex;
+justify-content: center;
+justify-items: center;
+
+}
+
+.score div{
+  padding: .5vw;
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+#text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.new-game {
+  background: var(--game-win-color);
+  color: var(--second-color);
+  margin: 0;
+  border: 0;
+  padding: 15px;
+  font-size: 1rem;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+@media  screen and (max-width:500px) {
+  td{
+    height: 35vw;
+    min-width: 30vw;
+    font-size: 15vw;
+  }
+  .score{
+    font-size: 7vw;
+    margin-top: 5vw;
+  }
+  
+}
+@media screen and (max-width:950px ) {
+
+  td{
+    height: 30vw;
+    min-width: 30vw;
+    font-size: 15vw;
+  }
+  .score{
+    font-size: 7vw;
+    margin-top: 5vw;
+  }
+  
+  #text{
+    font-size:8vw ;
+  }
+  .new-game{
+    font-size: 4vw;
+  }
+  
+}
+    </style>
+    
+
+</head>
+
+<body>
+    <div class="container ">
+        <table class="second-main flex">
+            <tr>
+                <td class="grid b " id="0"></td>
+                <td class="grid b " id="1"></td>
+                <td class="grid b " id="2"></td>
+            </tr>
+            <tr>
+                <td class="grid b " id="3"></td>
+                <td class="grid b " id="4"></td>
+                <td class="grid b " id="5"></td>
+            </tr>
+            <tr>
+                <td class="grid b " id="6"></td>
+                <td class="grid b " id="7"></td>
+                <td class="grid b " id="8"></td>
+            </tr>
+        </table>
+
+        <div class="score    ">
+            <div class="your-score">You : 0</div>
+            <div>|</div>
+            <div class="draw">Draw : 0</div>
+            <div>|</div>
+            <div class="pc-score">Pc : 0</div>
+        </div>
+    </div>
+
+    <div id="overlay" class="hidden">
+        <div id="text">
+            <h3 class="what-happend">Game Over</h3>
+            <button class="new-game">New Game</button>
+        </div>
+
+    </div>
+</body>
+<script>
+    const gridAll = document.querySelectorAll('.grid');
+        const pc_score = document.querySelector('.pc-score');
+        const your_score = document.querySelector('.your-score');
+        const draw = document.querySelector('.draw');
+        const new_game = document.querySelector('.new-game');
+        const overlay = document.getElementById('overlay');
+        const matchCondition = [{ id1: '0', id2: '1', id3: '2' }, { id1: '0', id2: '3', id3: '6' }, { id1: '0', id2: '4', id3: '8' }, { id1: '3', id2: '4', id3: '5' }, { id1: '1', id2: '4', id3: '7' }, { id1: '2', id2: '5', id3: '8' }, { id1: '2', id2: '4', id3: '6' }, { id1: '6', id2: '7', id3: '8' }];
+        let rndm, result = false, pcScore = 0, yourScore = 0, Draw = 0, checkId = [];
+
+        function run() {
+            gridAll.forEach(element => {
+                element.addEventListener('click', function insert(e) {
+                    e.preventDefault();
+                    ////////////////////////////////////////////////////////////////////////'
+                    if (e.target.textContent !== '') return
+                    e.target.textContent = 'O';
+                    e.target.removeEventListener('click', insert);
+                    checkId.push({ text: e.target.textContent, id: e.target.id });
+
+                    // console.log(checkId);// logging checkID 
+
+                    match();
+
+                    ////////////////////////////////////////////////////////////////////////
+                    checkId.length < 9 ? random() : '';
+                    checkId.push({ text: 'X', id: `${rndm}` });
+                    const id = document.getElementById(`${rndm}`);
+                    id.innerHTML = 'X';
+                    // const aud2=new Audio('./sounds/player2.aiff')
+                    // aud2.play()
+                    // id.replaceWith(id.cloneNode(true));
+
+                    ////////////////////////////////////////////////////////////////////////
+                    result === false ? match() : ''
+                    pc_score.textContent = `Pc : ${pcScore}`;
+                    your_score.textContent = `You : ${yourScore}`;
+                    if (checkId.length >= 9 && result === false) {
+                        Draw += 1
+                        draw.textContent = `Draw : ${Draw}`
+                        overlay.classList.remove('hidden')
+                        setTimeout(() => {
+
+                            overlay.classList.remove('hidden')
+                        }, 500);
+                        new_game.addEventListener('click', (e) => {
+                            newGame()
+                        })
+                    }
+                    navigator.vibrate(60);
+
+                })
+            })
+
+        } run()
+
+
+        function match() {
+            matchCondition.forEach(val => {
+                const id1 = document.getElementById(val.id1);
+                const id2 = document.getElementById(val.id2);
+                const id3 = document.getElementById(val.id3);
+                if (id1.textContent == '' && id2.textContent == '' && id3.textContent == '') return
+                if (id1.textContent === id2.textContent && id1.textContent === id3.textContent && id2.textContent === id3.textContent) {
+                    // console.log('you win ')
+                    // console.log(id2.textContent)
+
+                    ////////////////////////////////////////////////////////////////////////
+                    id1.textContent === 'O' ? yourScore += 1 : pcScore += 1;
+                    result = true;
+                    // gridAll.forEach(val=>{
+                    //     val.replaceWith(val.cloneNode(true))
+                    // })
+
+                    setTimeout(() => {
+
+
+                        overlay.classList.remove('hidden')
+                    }, 500);
+                    ////////////////////////////////////////////////////////////////////////
+
+                    new_game.addEventListener('click', (e) => {
+                        newGame()
+                    })
+                }
+            })
+        }
+
+        function random() {
+            if (checkId.length === 9) return;
+            rndm = Math.floor(Math.random() * 9);
+            checkId.sort((a, b) => a.id - b.id).map(val => {
+                if (checkId.length < 9) {
+                    if (+val.id === rndm) {
+                        random()
+                    }
+                }
+            })
+        }
+
+
+
+        function newGame() {
+
+            checkId.forEach(function elem(element) {
+                const ele = document.getElementById(element.id);
+                ele.innerHTML = '';
+            });
+            overlay.classList.add('hidden');
+            checkId = [];
+            result = false;
+            run();
+        }
+</script>
+
+</html>
+
+<!-- sherawat-Lokesh    <-----Github username ////-->
