@@ -51,6 +51,8 @@ Now, once you've forked this repo and got a local version up on your computer, f
 - [Pricing Page](/submissions/mohakgupt.html) - By: [Mohak](https://github.com/mohakgupt)
 - [Typewriter Effect](/submissions/alexwindy0.html) - By: [Alex](https://github.com/Alexwindy0)
 - [Satoshi's Converter](/submissions/Almopt.html) - By: [Almopt](https://github.com/Almopt)
+- [Tic tac toe](./submissions/sherawat-Lokesh.html) -By: [sherawat-Lokesh](https://github.com/sherawat-Lokesh)
+- [House Garbage Management website](/submissions/Fly0w.html) - By: [Fly0w](https://github.com/Fly0w)
 
 
 ## One Last Thing!
