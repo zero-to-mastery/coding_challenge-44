@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Trivia</title>
+</head>
+<body>
+    <main>
+    <style>
+        html {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: rgb(187, 187, 191);
+        }
+        main {
+            margin: 0rem auto 1rem auto;
+            max-width: 630px;
+        }
+        h1 {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 4rem;
+            text-align: center;
+        }
+        h2 {
+            font-weight:700;
+            text-align: center;
+        }
+        h3 {
+            text-align: center;
+        }
+        div {
+            padding: 10px 0 15px 0;
+        }
+        p {
+            font-size: 22px;
+            font-weight: 700;
+        }
+        input {
+            margin-left: 15px;
+        }
+        label {
+            font-size: 18px;
+        }
+        button {
+            background: white;
+            border-color: black;
+            border-radius: 1rem;
+            border-width: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            line-height: 3rem;
+            margin-top: 2rem;
+            padding: 0 7px;
+        }
+        button:hover {
+            color: white;
+            background: black;
+            border-color: white;
+            border-width: 5px;
+        }
+        #reset {
+            float: right;
+        }
+        #appendToMe {
+            margin-bottom: 20px;
+        }
+        #submit {
+            margin: 2% 0 0% 0%;
+        }
+        #backToTop {
+            float: right;
+            margin: 2% 0% 0% 2%;
+        }
+        .message {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 4rem;
+            padding: 5% 0% 5% 0%;
+        }
+        .results {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+        }
+        footer {
+            font-family:fantasy;
+            font-size: 2rem;
+            font-style: oblique;
+            margin-top: 3rem;
+            text-align: center;
+        }
+    </style>
+    <h1>Ultimate Trivia</h1>
+    <h2>Welcome to the ultimate trivia challenge.</h2>
+    <h3>Test your knowledge with 20 random trivia questions.</h3>
+    <button type="button" id="reset" onclick="location.reload()">Reset Answers</button>
+    <button onclick="randomButton()">Choose Background</button>
+    <form id="triviaForm">
+        <div>
+            <p>1. What state is propane in at standard temperature and pressure?</p>
+            <input type="radio" id="1a" name="q1" value="A"><label for="1a">A) Liquid</label>
+            <input type="radio" id="1b" name="q1" value="B"><label for="1b">B) Gas</label>
+            <input type="radio" id="1c" name="q1" value="C"><label for="1c">C) Solid</label>
+            <input type="radio" id="1d" name="q1" value="D"><label for="1d">D) Plasma</label>
+        </div>
+        <div>
+            <p>2. Pi, the mathematical constant equal to approx 3.14159, is what kind of number?</p>
+            <input type="radio" id="2a" name="q2" value="A"><label for="2a">A) Rational</label>
+            <input type="radio" id="2b" name="q2" value="B"><label for="2b">B) Natural</label>
+            <input type="radio" id="2c" name="q2" value="C"><label for="2c">C) Complex</label>
+            <input type="radio" id="2d" name="q2" value="D"><label for="2d">D) Irrational</label>
+        </div>
+        <div>
+            <p>3. What is the only food that cannot go bad?</p>
+            <input type="radio" id="3a" name="q3" value="A"><label for="3a">A) Dark chocolate</label>
+            <input type="radio" id="3b" name="q3" value="B"><label for="3b">B) Canned tuna</label>
+            <input type="radio" id="3c" name="q3" value="C"><label for="3c">C) Honey</label>
+            <input type="radio" id="3d" name="q3" value="D"><label for="3d">D) Peanut butter</label>
+        </div>
+        <div>
+            <p>4. Where in your body is the deltoid muscle situated?</p>
+            <input type="radio" id="4a" name="q4" value="A"><label for="4a">A) Shoulder</label>
+            <input type="radio" id="4b" name="q4" value="B"><label for="4b">B) Lower back</label>
+            <input type="radio" id="4c" name="q4" value="C"><label for="4c">C) Brain</label>
+            <input type="radio" id="4d" name="q4" value="D"><label for="4d">D) Legs</label>
+        </div>
+        <div>
+            <p>5. What is the most visited tourist attraction in the world?</p>
+            <input type="radio" id="5a" name="q5" value="A"><label for="5a">A) Colosseum</label>
+            <input type="radio" id="5b" name="q5" value="B"><label for="5b">B) Statue of Liberty</label>
+            <input type="radio" id="5c" name="q5" value="C"><label for="5c">C) Eiffel Tower</label>
+            <input type="radio" id="5d" name="q5" value="D"><label for="5d">D) Great Wall of China</label>
+        </div>
+        <div>
+            <p>6. In the medical term arthritis, what does the suffix -itis mean?</p>
+            <input type="radio" id="6a" name="q6" value="A"><label for="6a">A) Abnormality</label>
+            <input type="radio" id="6b" name="q6" value="B"><label for="6b">B) Infection or Inflammation</label>
+            <input type="radio" id="6c" name="q6" value="C"><label for="6c">C) Painful</label>
+            <input type="radio" id="6d" name="q6" value="D"><label for="6d">D) Difficulty</label>
+        </div>
+        <div>
+            <p>7. What element does the chemical symbol Au stand for?</p>
+            <input type="radio" id="7a" name="q7" value="A"><label for="7a">A) Gold</label>
+            <input type="radio" id="7b" name="q7" value="B"><label for="7b">B) Magnesium</label>
+            <input type="radio" id="7c" name="q7" value="C"><label for="7c">C) Silver</label>
+            <input type="radio" id="7d" name="q7" value="D"><label for="7d">D) Salt</label>
+        </div>
+        <div>
+            <p>8. Which fast food restaurant has the largest number of retail locations in the world?</p>
+            <input type="radio" id="8a" name="q8" value="A"><label for="8a">A) KFC</label>
+            <input type="radio" id="8b" name="q8" value="B"><label for="8b">B) McDonald's</label>
+            <input type="radio" id="8c" name="q8" value="C"><label for="8c">C) Wendy's</label>
+            <input type="radio" id="8d" name="q8" value="D"><label for="8d">D) Subway</label>
+        </div>
+        <div>
+            <p>9. What is the longest line of constant latitude of the Earth?</p>
+            <input type="radio" id="9a" name="q9" value="A"><label for="9a">A) Prime Meridian</label>
+            <input type="radio" id="9b" name="q9" value="B"><label for="9b">B) Tropic of Cancer</label>
+            <input type="radio" id="9c" name="q9" value="C"><label for="9c">C) Arctic Circle</label>
+            <input type="radio" id="9d" name="q9" value="D"><label for="9d">D) Equator</label>
+        </div>
+        <div>
+            <p>10. Which Asian country has the only non-rectangular flag in the world?</p>
+            <input type="radio" id="10a" name="q10" value="A"><label for="10a">A) Pakistan</label>
+            <input type="radio" id="10b" name="q10" value="B"><label for="10b">B) Brunei</label>
+            <input type="radio" id="10c" name="q10" value="C"><label for="10c">C) Nepal</label>
+            <input type="radio" id="10d" name="q10" value="D"><label for="10d">D) Myanmar</label>
+        </div>
+        <div>
+            <p>11. What is the oldest soft drink in the United States?</p>
+            <input type="radio" id="11a" name="q11" value="A"><label for="11a">A) Dr. Pepper</label>
+            <input type="radio" id="11b" name="q11" value="B"><label for="11b">B) 7-Up</label>
+            <input type="radio" id="11c" name="q11" value="C"><label for="11c">C) Pepsi</label>
+            <input type="radio" id="11d" name="q11" value="D"><label for="11d">D) Coca Cola</label>
+        </div>
+        <div>
+            <p>12. What US president was elected to office for a record 4 terms?</p>
+            <input type="radio" id="12a" name="q12" value="A"><label for="12a">A) John Fitzgerald Kennedy</label>
+            <input type="radio" id="12b" name="q12" value="B"><label for="12b">B) Franklin Delano Roosevelt</label>
+            <input type="radio" id="12c" name="q12" value="C"><label for="12c">C) Thomas Woodrow Wilson</label>
+            <input type="radio" id="12d" name="q12" value="D"><label for="12d">D) Richard Milhous Nixon</label>
+        </div>
+        <div>
+            <p>13. What is the highest-grossing video game franchise to date?</p>
+            <input type="radio" id="13a" name="q13" value="A"><label for="13a">A) Call of Duty</label>
+            <input type="radio" id="13b" name="q13" value="B"><label for="13b">B) Mario</label>
+            <input type="radio" id="13c" name="q13" value="C"><label for="13c">C) Pokemon</label>
+            <input type="radio" id="13d" name="q13" value="D"><label for="13d">D) Final Fantasy</label>
+        </div>
+        <div>
+            <p>14. What is the name of the coffee shop in the sitcom Friends?</p>
+            <input type="radio" id="14a" name="q14" value="A"><label for="14a">A) Central Park Coffee</label>
+            <input type="radio" id="14b" name="q14" value="B"><label for="14b">B) Java Park</label>
+            <input type="radio" id="14c" name="q14" value="C"><label for="14c">C) Central Perk</label>
+            <input type="radio" id="14d" name="q14" value="D"><label for="14d">D) Central Park Roastery</label>
+        </div>
+        <div>
+            <p>15. Which three U.S. Presidents passed away on the 4th of July?</p>
+            <input type="radio" id="15a" name="q15" value="A"><label for="15a">A) None died on the 4th of July</label>
+            <input type="radio" id="15b" name="q15" value="B"><label for="15b">B) Washington, Adams and Lincoln</label>
+            <input type="radio" id="15c" name="q15" value="C"><label for="15c">C) Madison, Hayes and Ford</label>
+            <input type="radio" id="15d" name="q15" value="D"><label for="15d">D) Jefferson, Adams and Monroe</label>
+        </div>
+        <div>
+            <p>16. “Cirque du Soleil” started in what country?</p>
+            <input type="radio" id="16a" name="q16" value="A"><label for="16a">A) Russia</label>
+            <input type="radio" id="16b" name="q16" value="B"><label for="16b">B) Canada</label>
+            <input type="radio" id="16c" name="q16" value="C"><label for="16c">C) France</label>
+            <input type="radio" id="16d" name="q16" value="D"><label for="16d">D) USA</label>
+        </div>
+        <div>
+            <p>17. Is the Tasmanian Devil living, extinct, mythological or a folk tale?</p>
+            <input type="radio" id="17a" name="q17" value="A"><label for="17a">A) Living</label>
+            <input type="radio" id="17b" name="q17" value="B"><label for="17b">B) Folk tale</label>
+            <input type="radio" id="17c" name="q17" value="C"><label for="17c">C) Extinct</label>
+            <input type="radio" id="17d" name="q17" value="D"><label for="17d">D) Mythological</label>
+        </div>
+        <div>
+            <p>18. Which country's national animal is a unicorn?</p>
+            <input type="radio" id="18a" name="q18" value="A"><label for="18a">A) Denmark</label>
+            <input type="radio" id="18b" name="q18" value="B"><label for="18b">B) Wales</label>
+            <input type="radio" id="18c" name="q18" value="C"><label for="18c">C) Scotland</label>
+            <input type="radio" id="18d" name="q18" value="D"><label for="18d">D) New Zealand</label>
+        </div>
+        <div>
+            <p>19. What sport has been played on the moon?</p>
+            <input type="radio" id="19a" name="q19" value="A"><label for="19a">A) Football</label>
+            <input type="radio" id="19b" name="q19" value="B"><label for="19b">B) Golf</label>
+            <input type="radio" id="19c" name="q19" value="C"><label for="19c">C) Frisbee</label>
+            <input type="radio" id="19d" name="q19" value="D"><label for="19d">D) Soccer</label>
+        </div>
+        <div id="appendToMe">
+            <p>20. Mycology is the scientific study of what?</p>
+            <input type="radio" id="20a" name="q20" value="A"><label for="20a">A) Blood</label>
+            <input type="radio" id="20b" name="q20" value="B"><label for="20b">B) Flowers</label>
+            <input type="radio" id="20c" name="q20" value="C"><label for="20c">C) Cancer Cells</label>
+            <input type="radio" id="20d" name="q20" value="D"><label for="20d">D) Fungi</label>
+        </div>
+        <button id="submit" type="button" onclick="submitAnswers();scrollToBottom()">Submit</button>
+        <button id="backToTop" type="button" onclick="scrollToTop()">Back to Top</button>
+        </form>
+        </main>
+    <script>
+        // VARIABLE DECLARATIONS
+        const body = document.querySelector('body'),
+            answerKey = ['B', 'D', 'C', 'A', 'C', 
+                        'B', 'A', 'D', 'D', 'C', 
+                        'A', 'B', 'A', 'C', 'D', 
+                        'B', 'A', 'C', 'B', 'D'];
+        let wrongArr = [], message, numWrong;
+        // SUBMIT BUTTON FUNCTION
+        const submitAnswers = () => {
+            const input1 = document.forms.triviaForm.elements.q1.value;
+            const input2 = document.forms.triviaForm.elements.q2.value;
+            const input3 = document.forms.triviaForm.elements.q3.value;
+            const input4 = document.forms.triviaForm.elements.q4.value;
+            const input5 = document.forms.triviaForm.elements.q5.value;
+            const input6 = document.forms.triviaForm.elements.q6.value;
+            const input7 = document.forms.triviaForm.elements.q7.value;
+            const input8 = document.forms.triviaForm.elements.q8.value;
+            const input9 = document.forms.triviaForm.elements.q9.value;
+            const input10 = document.forms.triviaForm.elements.q10.value;
+            const input11 = document.forms.triviaForm.elements.q11.value;
+            const input12 = document.forms.triviaForm.elements.q12.value;
+            const input13 = document.forms.triviaForm.elements.q13.value;
+            const input14 = document.forms.triviaForm.elements.q14.value;
+            const input15 = document.forms.triviaForm.elements.q15.value;
+            const input16 = document.forms.triviaForm.elements.q16.value;
+            const input17 = document.forms.triviaForm.elements.q17.value;
+            const input18 = document.forms.triviaForm.elements.q18.value;
+            const input19 = document.forms.triviaForm.elements.q19.value;
+            const input20 = document.forms.triviaForm.elements.q20.value;
+        // USERS ANSWERS ARRAY
+        const usersAnswers = [input1, input2, input3, input4,
+                            input5, input6, input7, input8, 
+                            input9, input10, input11, input12,
+                            input13, input14, input15, input16,
+                            input17, input18, input19, input20]
+        // CREATE WRONG ANSWERS ARRAY
+        for (let i=0; i<20; i++) {
+            if (usersAnswers[i] !== answerKey[i]) {
+                wrongArr.push([` QUESTION ${i+1}. Your Answer: ${usersAnswers[i]}; Correct Answer: ${answerKey[i]}`]);
+            }
+        }
+        // # OF INCORRECT ANSWERS === WRONGARR LENGTH
+        numWrong = wrongArr.length;
+        // 20 POSSIBLE RESULT MESSAGES
+        switch (numWrong) {
+        case (20):
+            message = document.createTextNode("Score: 0%! You're as smart as a mosquito.");
+            break;
+        case (19):
+            message = document.createTextNode("Score: 5%! You're as smart as a cow.");
+            break;
+        case (18):
+            message = document.createTextNode("Score: 10%! You're as smart as a giraffe.");
+            break;
+        case 17:
+            message = document.createTextNode("Score: 15%! You're as smart as a honey badger.");
+            break;
+        case 16:
+            message = document.createTextNode("Score: 20%! You're as smart as a squirrel.");
+            break;
+        case 15:
+            message = document.createTextNode("Score: 25%! You're as smart as a goat.");
+            break;
+        case 14:
+            message = document.createTextNode("Score: 30%! You're as smart as an alpaca.");
+            break;
+        case 13:
+            message = document.createTextNode("Score: 35%! You're as smart as a horse.");
+            break;
+        case 12:
+            message = document.createTextNode("Score: 40%! You're as smart as a cat.");
+            break;
+        case 11:
+            message = document.createTextNode("Score: 45%! You're as smart as a dog.");
+            break;
+        case 10:
+            message = document.createTextNode("Score: 50%! You're as smart as a raccoon.");
+            break;
+        case 9:
+            message = document.createTextNode("Score: 55%! You're as smart as a rat.");
+            break;
+        case 8:
+            message = document.createTextNode("Score: 60%! You're as smart as a pigeon.");
+            break;
+        case 7:
+            message = document.createTextNode("Score: 65%! You're as smart as a crow.");
+            break;
+        case 6:
+            message = document.createTextNode("Score: 70%! You're as smart as a pig.");
+            break;
+        case 5:
+            message = document.createTextNode("Score: 75%! You're as smart as an octopus.");
+            break;
+        case 4:
+            message = document.createTextNode("Score: 80%! You're as smart as a parrot.");
+            break;
+        case 3:
+            message = document.createTextNode("Score: 85%! You're as smart as an elephant.");
+            break;
+        case 2:
+            message = document.createTextNode("Score: 90%! You're as smart as a chimpanzee.");
+            break;
+        case 1:
+            message = document.createTextNode("Score: 95%! You're as smart as a dolphin.");
+            break;
+        case 0:
+            message = document.createTextNode("Score: 100%! You're as smart as an orangutan!");
+            break;
+        default:
+            message = document.createTextNode("Please answer all the questions before submitting.");
+            break;
+      }
+        // APPEND RESULTS + MESSAGE
+        let divMessage = document.createElement('div');
+        let classMessage = divMessage.setAttribute('class', 'message');
+        let appendDiv = document.querySelector('#appendToMe')
+        divMessage.appendChild(message);
+        appendDiv.appendChild(divMessage);
+        // APPEND INCORRECT ANSWERS
+        let divResults = document.createElement('div');
+        let classResults = divResults.setAttribute('class', 'results');
+        let userResults = document.createTextNode("Incorrect Answers: " + wrongArr);
+        divResults.appendChild(userResults);
+        appendDiv.appendChild(divResults);
+        // APPEND FOOTER THANKS MESSAGE
+        let footerThanks = document.createElement('footer');
+        let classThanks = footerThanks.setAttribute('class', 'thanks');
+        let messageThanks = document.createTextNode("Thanks for playing!");
+        footerThanks.appendChild(messageThanks);
+        appendDiv.appendChild(footerThanks);
+    }
+    // SCROLL MESSAGE INTO VIEW
+    const scrollToBottom = () => {
+        window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+    }
+    // SCROLL BACK TO TOP
+    const scrollToTop = () => {
+        window.scrollTo({ left: 0, top:0, behavior: "smooth" });
+    }
+    // RANDOM BACKGROUND GENERATOR BUTTON
+    const componentToHex = (c) => {
+    let hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+    }
+    const rgbToHex = (r,g,b) => {
+        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    }
+    const randomButton =() => {
+        function randomNum(maxLimit = 256) {
+            let num = Math.random()*maxLimit;
+            num = Math.floor(num);
+            return num;
+        }
+        let rhex1 = rgbToHex(randomNum(),randomNum(),randomNum());
+        let rhex2 = rgbToHex(randomNum(),randomNum(),randomNum());
+        color1 = rhex1;
+        color2 = rhex2;
+        randomGradient(color1,color2);
+    };
+    const randomGradient = (c1,c2) => {
+        body.style.background = 'linear-gradient(to right, ' + c1 + ',' + c2 + ')';
+    }
+    </script>
+</body>
+</html>
