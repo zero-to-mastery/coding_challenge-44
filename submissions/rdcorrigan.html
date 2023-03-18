@@ -16,7 +16,7 @@
             background-color: rgb(187, 187, 191);
         }
         main {
-            margin: 0rem auto 1rem auto;
+            margin: 0rem auto 2rem auto;
             max-width: 630px;
         }
         h1 {
@@ -87,7 +87,7 @@
             font-family:fantasy;
             font-size: 2rem;
             font-style: oblique;
-            margin-top: 3rem;
+            margin-top: 2rem;
             text-align: center;
         }
     </style>
@@ -95,8 +95,8 @@
     <h1>Ultimate Trivia</h1>
     <h2>Welcome to the ultimate trivia challenge.</h2>
     <h3>Test your knowledge with 20 random trivia questions.</h3>
-    <button type="button" id="reset" onclick="location.reload()">Reset Answers</button>
-    <button onclick="randomButton()">Choose Background</button>
+    <button type="button" id="reset">Reset Answers</button>
+    <button type="button" id="random">Choose Background</button>
     <form id="triviaForm">
         <div>
             <p>1. What state is propane in at standard temperature and pressure?</p>
@@ -238,13 +238,17 @@
             <input type="radio" id="20c" name="q20" value="C"><label for="20c">C) Cancer Cells</label>
             <input type="radio" id="20d" name="q20" value="D"><label for="20d">D) Fungi</label>
         </div>
-        <button id="submit" type="button" onclick="submitAnswers();scrollToBottom()">Submit</button>
-        <button id="backToTop" type="button" onclick="scrollToTop()">Back to Top</button>
+        <button id="submit" type="button">Submit</button>
+        <button id="backToTop" type="button">Back to Top</button>
         </form>
         </main>
     <script>
         // VARIABLE DECLARATIONS
         const body = document.querySelector('body'),
+            submit = document.getElementById('submit'),
+            toTop = document.getElementById('backToTop'),
+            reset = document.getElementById("reset"),
+            random = document.getElementById("random"),
             answerKey = ['B', 'D', 'C', 'A', 'C', 
                         'B', 'A', 'D', 'D', 'C', 
                         'A', 'B', 'A', 'C', 'D', 
@@ -286,7 +290,7 @@
         }
         // # OF INCORRECT ANSWERS === WRONGARR LENGTH
         numWrong = wrongArr.length;
-        // 20 POSSIBLE RESULT MESSAGES
+        // 20 POSSIBLE SCORE MESSAGES
         switch (numWrong) {
         case (20):
             message = document.createTextNode("Score: 0%! You're as smart as a mosquito.");
@@ -392,9 +396,9 @@
     const rgbToHex = (r,g,b) => {
         return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }
-    const randomButton =() => {
+    const randomButton = () => {
         function randomNum(maxLimit = 256) {
-            let num = Math.random()*maxLimit;
+            let num = Math.random() * maxLimit;
             num = Math.floor(num);
             return num;
         }
@@ -407,6 +411,11 @@
     const randomGradient = (c1,c2) => {
         body.style.background = 'linear-gradient(to right, ' + c1 + ',' + c2 + ')';
     }
+    random.addEventListener('click', randomButton);
+    reset.addEventListener('click', location.reload.bind(location));
+    submit.addEventListener('click', submitAnswers);
+    submit.addEventListener('click', scrollToBottom);
+    toTop.addEventListener('click', scrollToTop);
     </script>
 </body>
 </html>
