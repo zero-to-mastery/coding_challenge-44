@@ -7,7 +7,6 @@
     <title>Ultimate Trivia</title>
 </head>
 <body>
-    <main>
     <style>
         html {
             font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Arial, sans-serif;
@@ -92,6 +91,7 @@
             text-align: center;
         }
     </style>
+    <main>
     <h1>Ultimate Trivia</h1>
     <h2>Welcome to the ultimate trivia challenge.</h2>
     <h3>Test your knowledge with 20 random trivia questions.</h3>
@@ -356,21 +356,23 @@
             break;
       }
         // APPEND RESULTS + MESSAGE
-        let divMessage = document.createElement('div');
-        let classMessage = divMessage.setAttribute('class', 'message');
-        let appendDiv = document.querySelector('#appendToMe')
+        const divMessage = document.createElement('div');
+        const classMessage = divMessage.setAttribute('class', 'message');
+        const appendDiv = document.querySelector('#appendToMe')
         divMessage.appendChild(message);
         appendDiv.appendChild(divMessage);
         // APPEND INCORRECT ANSWERS
-        let divResults = document.createElement('div');
-        let classResults = divResults.setAttribute('class', 'results');
-        let userResults = document.createTextNode("Incorrect Answers: " + wrongArr);
-        divResults.appendChild(userResults);
-        appendDiv.appendChild(divResults);
+        const divResults = document.createElement('div');
+        const classResults = divResults.setAttribute('class', 'results');
+        const userResults = document.createTextNode("Incorrect Answers: " + wrongArr);
+        if (numWrong > 0) {
+            divResults.appendChild(userResults);
+            appendDiv.appendChild(divResults);
+        }
         // APPEND FOOTER THANKS MESSAGE
-        let footerThanks = document.createElement('footer');
-        let classThanks = footerThanks.setAttribute('class', 'thanks');
-        let messageThanks = document.createTextNode("Thanks for playing!");
+        const footerThanks = document.createElement('footer');
+        const classThanks = footerThanks.setAttribute('class', 'thanks');
+        const messageThanks = document.createTextNode("Thanks for playing!");
         footerThanks.appendChild(messageThanks);
         appendDiv.appendChild(footerThanks);
     }
@@ -384,7 +386,7 @@
     }
     // RANDOM BACKGROUND GENERATOR BUTTON
     const componentToHex = (c) => {
-    let hex = c.toString(16);
+    const hex = c.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
     }
     const rgbToHex = (r,g,b) => {
@@ -396,8 +398,8 @@
             num = Math.floor(num);
             return num;
         }
-        let rhex1 = rgbToHex(randomNum(),randomNum(),randomNum());
-        let rhex2 = rgbToHex(randomNum(),randomNum(),randomNum());
+        const rhex1 = rgbToHex(randomNum(),randomNum(),randomNum());
+        const rhex2 = rgbToHex(randomNum(),randomNum(),randomNum());
         color1 = rhex1;
         color2 = rhex2;
         randomGradient(color1,color2);
