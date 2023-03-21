@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Satoshis Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Maven Pro', sans-serif;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Itim', cursive;
+            color: #f79412;
+        }
+
+        .container {
+            max-width: 35rem;
+            min-height: 30rem;
+            margin: auto;
+        }
+
+        .main-border {
+            min-height: 30rem;
+            background-color: rgb(250, 248, 248);
+            border: solid 1.5px #f79412;
+            border-radius: 5px;
+            padding: 1rem 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .convert-title {
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        .currencies-inputs {
+            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .currency-borders {
+            border: solid 1.5px gainsboro;
+            background-color: aliceblue;
+            border-radius: 8px;
+            min-width: 20rem;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding: 5px 2px;
+        }
+
+        .currency-header {
+            margin: 5px 10px;
+            opacity: 0.6;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .currency-main-container {
+            margin: 2px 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .currency-logo-symbol {
+            display: flex;
+            gap: 10px;
+            max-width: 60px;
+        }
+
+        .currency-symbol {
+            opacity: 0.6;
+        }
+
+        .currency-symbol-name {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .currency-amount {
+            align-self: center;
+            font-size: 24px;
+        }
+
+        .sats-amount {
+            align-self: center;
+            font-size: 24px;
+        }
+
+        .currency-logo {
+            align-self: center;
+        }
+
+        .buttons-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .icon-swap-currency-button {
+            font-size: 1.5em;
+            align-self: center;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .icon-swap-currency-button:hover {
+            color: #f79412;
+        }
+
+        .button {
+            font-family: 'Itim', cursive;
+            font-size: 20px;
+            font-weight: 500;
+            display: inline-flex;
+            height: 50px;
+            padding: 0;
+            background: #f79412;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background: #ee8e0f;
+        }
+
+        .button:active {
+            background: #ab6203;
+        }
+
+        .button-text,
+        .button-icon {
+            display: inline-flex;
+            align-items: center;
+            padding: 0 24px;
+            color: white;
+            height: 100%;
+        }
+
+        .button-icon {
+            font-size: 1.5em;
+            background-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .currency-input {
+            border: none;
+            background: none;
+            font-size: 24px;
+            border: none transparent;
+            outline: none;
+            text-align: right;
+            max-width: 180px;
+        }
+
+        footer {
+            text-align: center;
+        }
+
+        .disclaimer {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .disclaimer p {
+            font-size: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Satoshi's Converter</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="main-border">
+
+                <h2 class="convert-title">Convert EUR/USD into BTC and Satoshis</h2>
+
+                <div class="currencies-inputs">
+
+                    <div class="currency-borders">
+
+                        <div class="currency-header">
+                            <p>Currency</p>
+                            <p>Amount</p>
+                        </div>
+
+                        <div class="currency-main-container">
+
+                            <div class="currency-logo-symbol">
+                                <div class="currency-logo">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/126/126252.png?w=826&t=st=1675967593~exp=1675968193~hmac=505745616d456816c7063dfa588892bfb33f9fd7d0053167fcbe57c0ea977bd6" id="fiat-logo" width="30" height="30">
+                                </div>
+                                <div class="currency-symbol-name">
+                                    <p id="currency-name">Euro</p>    
+                                    <p class="currency-symbol" id="fiat-currency-symbol">EUR</p>
+                                </div>
+                                <button class="icon-swap-currency-button" id="swap-button">
+                                    <ion-icon name="swap-vertical-outline"></ion-icon>
+                                </button>
+                            </div>
+
+                            <div class="currency-amount">
+                                <input class="currency-input" type="text" value="20000" maxlength='10'>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="currency-borders">
+                        <div class="currency-header">
+                            <p>Currency</p>
+                            <p>Amount</p>
+                        </div>
+
+                        <div class="currency-main-container">
+
+                            <div class="currency-logo-symbol">
+                                <div class="currency-logo">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg" width="30" height="30">
+                                </div>
+                                <div class="currency-symbol-name">
+                                    <div>
+                                        Bitcoin
+                                    </div>
+                                    <div class="currency-symbol">
+                                        BTC
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="currency-amount" id="btc-amount">
+                                1
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="currency-borders">
+                        <div class="currency-header">
+                            <p>Currency</p>
+                            <p>Amount</p>
+                        </div>
+
+                        <div class="currency-main-container">
+
+                            <div class="currency-logo-symbol">
+                                <div class="currency-logo">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg" width="30" height="30">
+                                </div>
+                                <div class="currency-symbol-name">
+                                    <div>
+                                        Satoshis
+                                    </div>
+                                    <div class="currency-symbol">
+                                        SATS
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sats-amount" id="sat-amount">
+                                100000000
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="buttons-container">
+                    <button type="button" class="button">
+                        <span class="button-text">Convert</span>
+                        <span class="button-icon">
+                            <ion-icon name="sync-outline"></ion-icon>
+                        </span>
+                    </button>
+                </div>
+
+                <div class="disclaimer">
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                    <p>
+                        BTC values for EUR and USD currencies <br>are not up to date. This project has one <br>purpose only and that is to practice.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <h4>Made by Almopt</h4>
+    </footer>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+
+        const btcPriceEUR = 20000;
+        const btcPriceUSD = 23000;
+        const oneBtcInSats = 100000000;
+        const EURImg = "https://cdn-icons-png.flaticon.com/512/126/126252.png?w=826&t=st=1675967593~exp=1675968193~hmac=505745616d456816c7063dfa588892bfb33f9fd7d0053167fcbe57c0ea977bd6";
+        const USDImg = "https://cdn-icons-png.flaticon.com/512/117/117626.png?w=826&t=st=1675967862~exp=1675968462~hmac=8075584ec0c311d1304ca9c3ca8578dc359ff9675d74a3710ff8303d522824b0";
+        const euroSymbol = "EUR";
+        const dollarSymbol = "USD";
+        const euroName = "Euro";
+        const dollarName = "Dollar";
+
+        let swapButton = document.getElementById("swap-button");
+        let amountInput = document.querySelector(".currency-input");
+        let btcAmount = document.getElementById("btc-amount");
+        let satAmount = document.getElementById("sat-amount");
+        let convertButton = document.querySelector(".button");
+        let currencyLogo = document.getElementById("fiat-logo");
+        let currencyName = document.getElementById("currency-name");
+        let currencySymbol = document.getElementById("fiat-currency-symbol");
+        let swapCurrencyButton = document.getElementById("swap-button");
+
+        const convertFiatToBTC = (event, currencySymbol) => {
+
+            let btcPriceInFiat = (currencySymbol.textContent === euroSymbol) ? btcPriceEUR : btcPriceUSD;
+
+            btcAmount.innerText = (Number(amountInput.value) / btcPriceInFiat).toFixed(5);
+            satAmount.innerText = (btcAmount.innerText * oneBtcInSats).toFixed(3);
+
+            if (satAmount.innerText > 1000000000) {
+                satAmount.style.fontSize = '17px';
+            }
+        }
+
+        const swapFiatCurrency = () => {
+            if (currencySymbol.textContent === euroSymbol) {
+                currencyName.textContent = dollarName;
+                currencySymbol.textContent = dollarSymbol;
+                currencyLogo.src = USDImg;
+            }else {
+                currencyName.textContent = euroName;
+                currencySymbol.textContent = euroSymbol;
+                currencyLogo.src = EURImg;
+            }
+        }
+
+        swapButton.addEventListener("click", swapFiatCurrency);
+        convertButton.addEventListener("click", () => convertFiatToBTC(event, currencySymbol));
+
+    </script>
+</body>
+</html>
