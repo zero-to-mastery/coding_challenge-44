@@ -17,12 +17,13 @@
         }
         main {
             margin: 0rem auto 2rem auto;
-            max-width: 630px;
+            max-width: 650px;
         }
         h1 {
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             font-size: 4rem;
             text-align: center;
+            text-decoration: underline;
+            text-transform: uppercase;
         }
         h2 {
             font-weight:700;
@@ -32,7 +33,7 @@
             text-align: center;
         }
         div {
-            padding: 10px 0 15px 0;
+            padding: 0px 0 0px 0;
         }
         p {
             font-size: 22px;
@@ -43,6 +44,7 @@
         }
         label {
             font-size: 18px;
+            text-align: center;
         }
         button {
             background: white;
@@ -61,6 +63,9 @@
             border-color: white;
             border-width: 5px;
         }
+        div > button {
+            line-height: 2rem;
+        }
         #reset {
             float: right;
         }
@@ -74,6 +79,20 @@
             float: right;
             margin: 2% 0% 0% 2%;
         }
+        span {
+            font-size: 1.6rem;
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
         .message {
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             font-size: 4rem;
@@ -81,7 +100,11 @@
         }
         .results {
             font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2rem;
             font-weight: 700;
+        }
+        ul {
+            list-style: none;
         }
         footer {
             font-family:fantasy;
@@ -95,8 +118,8 @@
     <h1>Ultimate Trivia</h1>
     <h2>Welcome to the ultimate trivia challenge.</h2>
     <h3>Test your knowledge with 20 random trivia questions.</h3>
-    <button type="button" id="reset">Reset Answers</button>
-    <button type="button" id="random">Choose Background</button>
+    <button type="button" id="reset">Reset All</button>
+    <button type="button" id="background">Change Background</button>
     <form id="triviaForm">
         <div>
             <p>1. What state is propane in at standard temperature and pressure?</p>
@@ -104,6 +127,7 @@
             <input type="radio" id="1b" name="q1" value="B"><label for="1b">B) Gas</label>
             <input type="radio" id="1c" name="q1" value="C"><label for="1c">C) Solid</label>
             <input type="radio" id="1d" name="q1" value="D"><label for="1d">D) Plasma</label>
+            <div id="divC1"><button type="button" id="check1">Check Answer</button></div>
         </div>
         <div>
             <p>2. Pi, the mathematical constant equal to approx 3.14159, is what kind of number?</p>
@@ -111,6 +135,7 @@
             <input type="radio" id="2b" name="q2" value="B"><label for="2b">B) Natural</label>
             <input type="radio" id="2c" name="q2" value="C"><label for="2c">C) Complex</label>
             <input type="radio" id="2d" name="q2" value="D"><label for="2d">D) Irrational</label>
+            <div id="divC2"><button type="button" id="check2">Check Answer</button></div>
         </div>
         <div>
             <p>3. What is the only food that cannot go bad?</p>
@@ -118,6 +143,7 @@
             <input type="radio" id="3b" name="q3" value="B"><label for="3b">B) Canned tuna</label>
             <input type="radio" id="3c" name="q3" value="C"><label for="3c">C) Honey</label>
             <input type="radio" id="3d" name="q3" value="D"><label for="3d">D) Peanut butter</label>
+            <div id="divC3"><button type="button" id="check3">Check Answer</button></div>
         </div>
         <div>
             <p>4. Where in your body is the deltoid muscle situated?</p>
@@ -125,6 +151,7 @@
             <input type="radio" id="4b" name="q4" value="B"><label for="4b">B) Lower back</label>
             <input type="radio" id="4c" name="q4" value="C"><label for="4c">C) Brain</label>
             <input type="radio" id="4d" name="q4" value="D"><label for="4d">D) Legs</label>
+            <div id="divC4"><button type="button" id="check4">Check Answer</button></div>
         </div>
         <div>
             <p>5. What is the most visited tourist attraction in the world?</p>
@@ -132,6 +159,7 @@
             <input type="radio" id="5b" name="q5" value="B"><label for="5b">B) Statue of Liberty</label>
             <input type="radio" id="5c" name="q5" value="C"><label for="5c">C) Eiffel Tower</label>
             <input type="radio" id="5d" name="q5" value="D"><label for="5d">D) Great Wall of China</label>
+            <div id="divC5"><button type="button" id="check5">Check Answer</button></div>
         </div>
         <div>
             <p>6. In the medical term arthritis, what does the suffix -itis mean?</p>
@@ -139,6 +167,7 @@
             <input type="radio" id="6b" name="q6" value="B"><label for="6b">B) Infection or Inflammation</label>
             <input type="radio" id="6c" name="q6" value="C"><label for="6c">C) Painful</label>
             <input type="radio" id="6d" name="q6" value="D"><label for="6d">D) Difficulty</label>
+            <div id="divC6"><button type="button" id="check6">Check Answer</button></div>
         </div>
         <div>
             <p>7. What element does the chemical symbol Au stand for?</p>
@@ -146,6 +175,7 @@
             <input type="radio" id="7b" name="q7" value="B"><label for="7b">B) Magnesium</label>
             <input type="radio" id="7c" name="q7" value="C"><label for="7c">C) Silver</label>
             <input type="radio" id="7d" name="q7" value="D"><label for="7d">D) Salt</label>
+            <div id="divC7"><button type="button" id="check7">Check Answer</button></div>
         </div>
         <div>
             <p>8. Which fast food restaurant has the largest number of retail locations in the world?</p>
@@ -153,6 +183,7 @@
             <input type="radio" id="8b" name="q8" value="B"><label for="8b">B) McDonald's</label>
             <input type="radio" id="8c" name="q8" value="C"><label for="8c">C) Wendy's</label>
             <input type="radio" id="8d" name="q8" value="D"><label for="8d">D) Subway</label>
+            <div id="divC8"><button type="button" id="check8">Check Answer</button></div>
         </div>
         <div>
             <p>9. What is the longest line of constant latitude of the Earth?</p>
@@ -160,13 +191,15 @@
             <input type="radio" id="9b" name="q9" value="B"><label for="9b">B) Tropic of Cancer</label>
             <input type="radio" id="9c" name="q9" value="C"><label for="9c">C) Arctic Circle</label>
             <input type="radio" id="9d" name="q9" value="D"><label for="9d">D) Equator</label>
+            <div id="divC9"><button type="button" id="check9">Check Answer</button></div>
         </div>
         <div>
-            <p>10. Which Asian country has the only non-rectangular flag in the world?</p>
+            <p>10. Which Asian numWrongry has the only non-rectangular flag in the world?</p>
             <input type="radio" id="10a" name="q10" value="A"><label for="10a">A) Pakistan</label>
             <input type="radio" id="10b" name="q10" value="B"><label for="10b">B) Brunei</label>
             <input type="radio" id="10c" name="q10" value="C"><label for="10c">C) Nepal</label>
             <input type="radio" id="10d" name="q10" value="D"><label for="10d">D) Myanmar</label>
+            <div id="divC10"><button type="button" id="check10">Check Answer</button></div>
         </div>
         <div>
             <p>11. What is the oldest soft drink in the United States?</p>
@@ -174,6 +207,7 @@
             <input type="radio" id="11b" name="q11" value="B"><label for="11b">B) 7-Up</label>
             <input type="radio" id="11c" name="q11" value="C"><label for="11c">C) Pepsi</label>
             <input type="radio" id="11d" name="q11" value="D"><label for="11d">D) Coca Cola</label>
+            <div id="divC11"><button type="button" id="check11">Check Answer</button></div>
         </div>
         <div>
             <p>12. What US president was elected to office for a record 4 terms?</p>
@@ -181,6 +215,7 @@
             <input type="radio" id="12b" name="q12" value="B"><label for="12b">B) Franklin Delano Roosevelt</label>
             <input type="radio" id="12c" name="q12" value="C"><label for="12c">C) Thomas Woodrow Wilson</label>
             <input type="radio" id="12d" name="q12" value="D"><label for="12d">D) Richard Milhous Nixon</label>
+            <div id="divC12"><button type="button" id="check12">Check Answer</button></div>
         </div>
         <div>
             <p>13. What is the highest-grossing video game franchise to date?</p>
@@ -188,6 +223,7 @@
             <input type="radio" id="13b" name="q13" value="B"><label for="13b">B) Mario</label>
             <input type="radio" id="13c" name="q13" value="C"><label for="13c">C) Pokemon</label>
             <input type="radio" id="13d" name="q13" value="D"><label for="13d">D) Final Fantasy</label>
+            <div id="divC13"><button type="button" id="check13">Check Answer</button></div>
         </div>
         <div>
             <p>14. What is the name of the coffee shop in the sitcom Friends?</p>
@@ -195,6 +231,7 @@
             <input type="radio" id="14b" name="q14" value="B"><label for="14b">B) Java Park</label>
             <input type="radio" id="14c" name="q14" value="C"><label for="14c">C) Central Perk</label>
             <input type="radio" id="14d" name="q14" value="D"><label for="14d">D) Central Park Roastery</label>
+            <div id="divC14"><button type="button" id="check14">Check Answer</button></div>
         </div>
         <div>
             <p>15. Which three U.S. Presidents passed away on the 4th of July?</p>
@@ -202,13 +239,15 @@
             <input type="radio" id="15b" name="q15" value="B"><label for="15b">B) Washington, Adams and Lincoln</label>
             <input type="radio" id="15c" name="q15" value="C"><label for="15c">C) Madison, Hayes and Ford</label>
             <input type="radio" id="15d" name="q15" value="D"><label for="15d">D) Jefferson, Adams and Monroe</label>
+            <div id="divC15"><button type="button" id="check15">Check Answer</button></div>
         </div>
         <div>
-            <p>16. “Cirque du Soleil” started in what country?</p>
+            <p>16. “Cirque du Soleil” started in what numWrongry?</p>
             <input type="radio" id="16a" name="q16" value="A"><label for="16a">A) Russia</label>
             <input type="radio" id="16b" name="q16" value="B"><label for="16b">B) Canada</label>
             <input type="radio" id="16c" name="q16" value="C"><label for="16c">C) France</label>
             <input type="radio" id="16d" name="q16" value="D"><label for="16d">D) USA</label>
+            <div id="divC16"><button type="button" id="check16">Check Answer</button></div>
         </div>
         <div>
             <p>17. Is the Tasmanian Devil living, extinct, mythological or a folk tale?</p>
@@ -216,13 +255,15 @@
             <input type="radio" id="17b" name="q17" value="B"><label for="17b">B) Folk tale</label>
             <input type="radio" id="17c" name="q17" value="C"><label for="17c">C) Extinct</label>
             <input type="radio" id="17d" name="q17" value="D"><label for="17d">D) Mythological</label>
+            <div id="divC17"><button type="button" id="check17">Check Answer</button></div>
         </div>
         <div>
-            <p>18. Which country's national animal is a unicorn?</p>
+            <p>18. Which numWrongry's national animal is a unicorn?</p>
             <input type="radio" id="18a" name="q18" value="A"><label for="18a">A) Denmark</label>
             <input type="radio" id="18b" name="q18" value="B"><label for="18b">B) Wales</label>
             <input type="radio" id="18c" name="q18" value="C"><label for="18c">C) Scotland</label>
             <input type="radio" id="18d" name="q18" value="D"><label for="18d">D) New Zealand</label>
+            <div id="divC18"><button type="button" id="check18">Check Answer</button></div>
         </div>
         <div>
             <p>19. What sport has been played on the moon?</p>
@@ -230,15 +271,17 @@
             <input type="radio" id="19b" name="q19" value="B"><label for="19b">B) Golf</label>
             <input type="radio" id="19c" name="q19" value="C"><label for="19c">C) Frisbee</label>
             <input type="radio" id="19d" name="q19" value="D"><label for="19d">D) Soccer</label>
+            <div id="divC19"><button type="button" id="check19">Check Answer</button></div>
         </div>
-        <div id="appendToMe">
+        <div id="div20">
             <p>20. Mycology is the scientific study of what?</p>
             <input type="radio" id="20a" name="q20" value="A"><label for="20a">A) Blood</label>
             <input type="radio" id="20b" name="q20" value="B"><label for="20b">B) Flowers</label>
             <input type="radio" id="20c" name="q20" value="C"><label for="20c">C) Cancer Cells</label>
             <input type="radio" id="20d" name="q20" value="D"><label for="20d">D) Fungi</label>
+            <div id="lastCheck"><button type="button" id="check20">Check Answer</button></div>
         </div>
-        <button id="submit" type="button">Submit</button>
+        <button id="submit" type="button">Submit Answers</button>
         <button id="backToTop" type="button">Back to Top</button>
         </form>
         </main>
@@ -248,13 +291,158 @@
             submit = document.getElementById('submit'),
             toTop = document.getElementById('backToTop'),
             reset = document.getElementById("reset"),
-            random = document.getElementById("random"),
+            background = document.getElementById("background"),
+            div1 = document.getElementById("divC1"),
+            div2 = document.getElementById("divC2"),
+            div3 = document.getElementById("divC3"),
+            div4 = document.getElementById("divC4"),
+            div5 = document.getElementById("divC5"),
+            div6 = document.getElementById("divC6"),
+            div7 = document.getElementById("divC7"),
+            div8 = document.getElementById("divC8"),
+            div9 = document.getElementById("divC9"),
+            div10 = document.getElementById("divC10"),
+            div11 = document.getElementById("divC11"),
+            div12 = document.getElementById("divC12"),
+            div13 = document.getElementById("divC13"),
+            div14 = document.getElementById("divC14"),
+            div15 = document.getElementById("divC15"),
+            div16 = document.getElementById("divC16"),
+            div17 = document.getElementById("divC17"),
+            div18 = document.getElementById("divC18"),
+            div19 = document.getElementById("divC19"),
+            div20 = document.getElementById("div20"),
+            divlastCheck = document.getElementById("lastCheck"),
+            check1 = document.getElementById("check1"),
+            check2 = document.getElementById("check2"),
+            check3 = document.getElementById("check3"),
+            check4 = document.getElementById("check4"),
+            check5 = document.getElementById("check5"),
+            check6 = document.getElementById("check6"),
+            check7 = document.getElementById("check7"),
+            check8 = document.getElementById("check8"),
+            check9 = document.getElementById("check9"),
+            check10 = document.getElementById("check10"),
+            check11 = document.getElementById("check11"),
+            check12 = document.getElementById("check12"),
+            check13 = document.getElementById("check13"),
+            check14 = document.getElementById("check14"),
+            check15 = document.getElementById("check15"),
+            check16 = document.getElementById("check16"),
+            check17 = document.getElementById("check17"),
+            check18 = document.getElementById("check18"),
+            check19 = document.getElementById("check19"),
+            check20 = document.getElementById("check20"),
             answerKey = ['B', 'D', 'C', 'A', 'C', 
-                        'B', 'A', 'D', 'D', 'C', 
-                        'A', 'B', 'A', 'C', 'D', 
-                        'B', 'A', 'C', 'B', 'D'];
-        let wrongArr = [], message, numWrong;
-        // SUBMIT BUTTON FUNCTION
+            'B', 'A', 'D', 'D', 'C', 
+            'A', 'B', 'A', 'C', 'D', 
+            'B', 'A', 'C', 'B', 'D'],
+            ul1 = document.createElement('ul'),
+            ul2 = document.createElement('ul');
+            let numWrong = 0, message;
+        // CHECK FUNCTION INPUT DATA
+        const checkFunc1 = () => {
+            const input = document.forms.triviaForm.elements.q1.value;
+            checkAnswer(input, answerKey[0], div1);
+        }
+        const checkFunc2 = () => {
+            const input = document.forms.triviaForm.elements.q2.value;
+            checkAnswer(input, answerKey[1], div2);
+        }
+        const checkFunc3 = () => {
+            const input = document.forms.triviaForm.elements.q3.value;
+            checkAnswer(input, answerKey[2], div3);
+        }
+        const checkFunc4 = () => {
+            const input = document.forms.triviaForm.elements.q4.value;
+            checkAnswer(input, answerKey[3], div4);
+        }
+        const checkFunc5 = () => {
+            const input = document.forms.triviaForm.elements.q5.value;
+            checkAnswer(input, answerKey[4], div5);
+        }
+        const checkFunc6 = () => {
+            const input = document.forms.triviaForm.elements.q6.value;
+            checkAnswer(input, answerKey[5], div6);
+        }
+        const checkFunc7 = () => {
+            const input = document.forms.triviaForm.elements.q7.value;
+            checkAnswer(input, answerKey[6], div7);
+        }
+        const checkFunc8 = () => {
+            const input = document.forms.triviaForm.elements.q8.value;
+            checkAnswer(input, answerKey[7], div8);
+        }
+        const checkFunc9 = () => {
+            const input = document.forms.triviaForm.elements.q9.value;
+            checkAnswer(input, answerKey[8], div9);
+        }
+        const checkFunc10 = () => {
+            const input = document.forms.triviaForm.elements.q10.value;
+            checkAnswer(input, answerKey[9], div10);
+        }
+        const checkFunc11 = () => {
+            const input = document.forms.triviaForm.elements.q11.value;
+            checkAnswer(input, answerKey[10], div11);
+        }
+        const checkFunc12 = () => {
+            const input = document.forms.triviaForm.elements.q12.value;
+            checkAnswer(input, answerKey[11], div12);
+        }
+        const checkFunc13 = () => {
+            const input = document.forms.triviaForm.elements.q13.value;
+            checkAnswer(input, answerKey[12], div13);
+        }
+        const checkFunc14 = () => {
+            const input = document.forms.triviaForm.elements.q14.value;
+            checkAnswer(input, answerKey[13], div14);
+        }
+        const checkFunc15 = () => {
+            const input = document.forms.triviaForm.elements.q15.value;
+            checkAnswer(input, answerKey[14], div15);
+        }
+        const checkFunc16 = () => {
+            const input = document.forms.triviaForm.elements.q16.value;
+            checkAnswer(input, answerKey[15], div16);
+        }
+        const checkFunc17 = () => {
+            const input = document.forms.triviaForm.elements.q17.value;
+            checkAnswer(input, answerKey[16], div17);
+        }
+        const checkFunc18 = () => {
+            const input = document.forms.triviaForm.elements.q18.value;
+            checkAnswer(input, answerKey[17], div18);
+        }
+        const checkFunc19 = () => {
+            const input = document.forms.triviaForm.elements.q19.value;
+            checkAnswer(input, answerKey[18], div19);
+        }
+        const checkFunc20 = () => {
+            const input = document.forms.triviaForm.elements.q20.value;
+            checkAnswer(input, answerKey[19], divlastCheck);
+        }
+        // CHECK ANSWER BUTTON FUNCTION
+        const checkAnswer = (input, answer, question) => {
+            let result, correctAnswer, resultDiv;
+            resultSpan = document.createElement('span');
+            if (input === answer) {
+                result = document.createTextNode(` ${input} is correct!`);
+                resultSpan.append(result);
+                resultSpan.setAttribute('class', 'correct');
+            } else {
+                user = document.createTextNode(` ${input} is incorrect. `);
+                const span1 = document.createElement('span');
+                span1.appendChild(user);
+                span1.setAttribute('class', 'incorrect');
+                correctAnswer = document.createTextNode(` Correct answer: ${answer}`);
+                const span2 = document.createElement('span');
+                span2.appendChild(correctAnswer);
+                span2.setAttribute('class', 'correct');
+                resultSpan.append(span1, span2)
+            }
+            question.append(resultSpan);
+        }
+        // SUBMIT ANSWERS BUTTON FUNCTION
         const submitAnswers = () => {
             const input1 = document.forms.triviaForm.elements.q1.value;
             const input2 = document.forms.triviaForm.elements.q2.value;
@@ -282,14 +470,21 @@
                             input9, input10, input11, input12,
                             input13, input14, input15, input16,
                             input17, input18, input19, input20]
-        // CREATE WRONG ANSWERS ARRAY
+        // CREATE LISTS OF CORRECT/INCORRECT ANSWERS
         for (let i=0; i<20; i++) {
-            if (usersAnswers[i] !== answerKey[i]) {
-                wrongArr.push([` QUESTION ${i+1}. Your Answer: ${usersAnswers[i]}; Correct Answer: ${answerKey[i]}`]);
+            if (usersAnswers[i] === answerKey[i]) {
+                const li = document.createElement('li');
+                const corrText = document.createTextNode(`${i+1}. ${usersAnswers[i]}`);
+                li.appendChild(corrText);
+                ul1.appendChild(li);
+            } else {
+                const li = document.createElement('li');
+                const incorrText = document.createTextNode(`${i+1}. Your Answer: ${usersAnswers[i]} || Correct Answer: ${answerKey[i]}`);
+                li.appendChild(incorrText);
+                ul2.appendChild(li);
+                numWrong++;
             }
         }
-        // # OF INCORRECT ANSWERS === WRONGARR LENGTH
-        numWrong = wrongArr.length;
         // 20 POSSIBLE SCORE MESSAGES
         switch (numWrong) {
         case (20):
@@ -353,25 +548,28 @@
             message = document.createTextNode("Score: 95%! You're as smart as a dolphin.");
             break;
         case 0:
-            message = document.createTextNode("Score: 100%! You're as smart as an orangutan!");
-            break;
-        default:
-            message = document.createTextNode("Please answer all the questions before submitting.");
+            message = document.createTextNode("Score: 100%! You're as smart as an orangutan.");
             break;
       }
         // APPEND RESULTS + MESSAGE
         const divMessage = document.createElement('div');
         const classMessage = divMessage.setAttribute('class', 'message');
-        const appendDiv = document.querySelector('#appendToMe')
+        const appendDiv = document.querySelector('#div20');
         divMessage.appendChild(message);
         appendDiv.appendChild(divMessage);
+        // APPEND CORRECT ANSWERS
+        const divCorrect = document.createElement('div');
+        divCorrect.setAttribute('class', 'results');
+        const userCorrect = document.createTextNode("Correct Answers: ");
         // APPEND INCORRECT ANSWERS
-        const divResults = document.createElement('div');
-        const classResults = divResults.setAttribute('class', 'results');
-        const userResults = document.createTextNode("Incorrect Answers: " + wrongArr);
+        const divIncorrect = document.createElement('div');
+        divIncorrect.setAttribute('class', 'results');
+        const userIncorrect = document.createTextNode("Incorrect Answers: ");
         if (numWrong > 0) {
-            divResults.appendChild(userResults);
-            appendDiv.appendChild(divResults);
+            divCorrect.append(userCorrect, ul1);
+            appendDiv.appendChild(divCorrect);
+            divIncorrect.append(userIncorrect, ul2);
+            appendDiv.appendChild(divIncorrect);
         }
         // APPEND FOOTER THANKS MESSAGE
         const footerThanks = document.createElement('footer');
@@ -396,7 +594,7 @@
     const rgbToHex = (r,g,b) => {
         return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }
-    const randomButton = () => {
+    const backgroundButton = () => {
         function randomNum(maxLimit = 256) {
             let num = Math.random() * maxLimit;
             num = Math.floor(num);
@@ -411,7 +609,27 @@
     const randomGradient = (c1,c2) => {
         body.style.background = 'linear-gradient(to right, ' + c1 + ',' + c2 + ')';
     }
-    random.addEventListener('click', randomButton);
+    check1.addEventListener('click', checkFunc1);
+    check2.addEventListener('click', checkFunc2);
+    check3.addEventListener('click', checkFunc3);
+    check4.addEventListener('click', checkFunc4);
+    check5.addEventListener('click', checkFunc5);
+    check6.addEventListener('click', checkFunc6);
+    check7.addEventListener('click', checkFunc7);
+    check8.addEventListener('click', checkFunc8);
+    check9.addEventListener('click', checkFunc9);
+    check10.addEventListener('click', checkFunc10);
+    check11.addEventListener('click', checkFunc11);
+    check12.addEventListener('click', checkFunc12);
+    check13.addEventListener('click', checkFunc13);
+    check14.addEventListener('click', checkFunc14);
+    check15.addEventListener('click', checkFunc15);
+    check16.addEventListener('click', checkFunc16);
+    check17.addEventListener('click', checkFunc17);
+    check18.addEventListener('click', checkFunc18);
+    check19.addEventListener('click', checkFunc19);
+    check20.addEventListener('click', checkFunc20);
+    background.addEventListener('click', backgroundButton);
     reset.addEventListener('click', location.reload.bind(location));
     submit.addEventListener('click', submitAnswers);
     submit.addEventListener('click', scrollToBottom);
