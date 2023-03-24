@@ -79,6 +79,9 @@
             float: right;
             margin: 2% 0% 0% 2%;
         }
+        #lastCheck {
+            margin-bottom: 2rem;
+        }
         span {
             font-size: 1.6rem;
             text-shadow:
@@ -96,7 +99,7 @@
         .message {
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             font-size: 4rem;
-            padding: 5% 0% 5% 0%;
+            padding: 1% 0% 5% 0%;
         }
         .results {
             font-family: Arial, Helvetica, sans-serif;
@@ -110,7 +113,6 @@
             font-family:fantasy;
             font-size: 2rem;
             font-style: oblique;
-            margin-top: 2rem;
             text-align: center;
         }
     </style>
@@ -551,26 +553,26 @@
             message = document.createTextNode("Score: 100%! You're as smart as an orangutan.");
             break;
       }
+      // APPEND CORRECT ANSWERS
+      const appendDiv = document.querySelector('#div20');
+      const divCorrect = document.createElement('div');
+      divCorrect.setAttribute('class', 'results');
+      const userCorrect = document.createTextNode("Correct Answers: ");
+      // APPEND INCORRECT ANSWERS
+      const divIncorrect = document.createElement('div');
+      divIncorrect.setAttribute('class', 'results');
+      const userIncorrect = document.createTextNode("Incorrect Answers: ");
+      if (numWrong > 0) {
+          divCorrect.append(userCorrect, ul1);
+          appendDiv.appendChild(divCorrect);
+          divIncorrect.append(userIncorrect, ul2);
+          appendDiv.appendChild(divIncorrect);
+        }
         // APPEND RESULTS + MESSAGE
         const divMessage = document.createElement('div');
         const classMessage = divMessage.setAttribute('class', 'message');
-        const appendDiv = document.querySelector('#div20');
         divMessage.appendChild(message);
         appendDiv.appendChild(divMessage);
-        // APPEND CORRECT ANSWERS
-        const divCorrect = document.createElement('div');
-        divCorrect.setAttribute('class', 'results');
-        const userCorrect = document.createTextNode("Correct Answers: ");
-        // APPEND INCORRECT ANSWERS
-        const divIncorrect = document.createElement('div');
-        divIncorrect.setAttribute('class', 'results');
-        const userIncorrect = document.createTextNode("Incorrect Answers: ");
-        if (numWrong > 0) {
-            divCorrect.append(userCorrect, ul1);
-            appendDiv.appendChild(divCorrect);
-            divIncorrect.append(userIncorrect, ul2);
-            appendDiv.appendChild(divIncorrect);
-        }
         // APPEND FOOTER THANKS MESSAGE
         const footerThanks = document.createElement('footer');
         const classThanks = footerThanks.setAttribute('class', 'thanks');
