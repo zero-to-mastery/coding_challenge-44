@@ -79,9 +79,6 @@
             float: right;
             margin: 2% 0% 0% 2%;
         }
-        #lastCheck {
-            margin-bottom: 2rem;
-        }
         span {
             font-size: 1.6rem;
             text-shadow:
@@ -99,12 +96,13 @@
         .message {
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             font-size: 4rem;
-            padding: 1% 0% 5% 0%;
+            padding: 5% 0% 5% 0%;
         }
         .results {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 1.2rem;
             font-weight: 700;
+            margin-top: 1.5rem;
         }
         ul {
             list-style: none;
@@ -113,6 +111,7 @@
             font-family:fantasy;
             font-size: 2rem;
             font-style: oblique;
+            margin-top: 2rem;
             text-align: center;
         }
     </style>
@@ -196,7 +195,7 @@
             <div id="divC9"><button type="button" id="check9">Check Answer</button></div>
         </div>
         <div>
-            <p>10. Which Asian numWrongry has the only non-rectangular flag in the world?</p>
+            <p>10. Which Asian country has the only non-rectangular flag in the world?</p>
             <input type="radio" id="10a" name="q10" value="A"><label for="10a">A) Pakistan</label>
             <input type="radio" id="10b" name="q10" value="B"><label for="10b">B) Brunei</label>
             <input type="radio" id="10c" name="q10" value="C"><label for="10c">C) Nepal</label>
@@ -244,7 +243,7 @@
             <div id="divC15"><button type="button" id="check15">Check Answer</button></div>
         </div>
         <div>
-            <p>16. “Cirque du Soleil” started in what numWrongry?</p>
+            <p>16. “Cirque du Soleil” started in which country?</p>
             <input type="radio" id="16a" name="q16" value="A"><label for="16a">A) Russia</label>
             <input type="radio" id="16b" name="q16" value="B"><label for="16b">B) Canada</label>
             <input type="radio" id="16c" name="q16" value="C"><label for="16c">C) France</label>
@@ -260,7 +259,7 @@
             <div id="divC17"><button type="button" id="check17">Check Answer</button></div>
         </div>
         <div>
-            <p>18. Which numWrongry's national animal is a unicorn?</p>
+            <p>18. Which country's national animal is a unicorn?</p>
             <input type="radio" id="18a" name="q18" value="A"><label for="18a">A) Denmark</label>
             <input type="radio" id="18b" name="q18" value="B"><label for="18b">B) Wales</label>
             <input type="radio" id="18c" name="q18" value="C"><label for="18c">C) Scotland</label>
@@ -481,7 +480,7 @@
                 ul1.appendChild(li);
             } else {
                 const li = document.createElement('li');
-                const incorrText = document.createTextNode(`${i+1}. Your Answer: ${usersAnswers[i]} || Correct Answer: ${answerKey[i]}`);
+                const incorrText = document.createTextNode(`${i+1}. Answered: ${usersAnswers[i]} || Correct Answer: ${answerKey[i]}`);
                 li.appendChild(incorrText);
                 ul2.appendChild(li);
                 numWrong++;
@@ -553,20 +552,20 @@
             message = document.createTextNode("Score: 100%! You're as smart as an orangutan.");
             break;
       }
-      // APPEND CORRECT ANSWERS
-      const appendDiv = document.querySelector('#div20');
-      const divCorrect = document.createElement('div');
-      divCorrect.setAttribute('class', 'results');
-      const userCorrect = document.createTextNode("Correct Answers: ");
-      // APPEND INCORRECT ANSWERS
-      const divIncorrect = document.createElement('div');
-      divIncorrect.setAttribute('class', 'results');
-      const userIncorrect = document.createTextNode("Incorrect Answers: ");
-      if (numWrong > 0) {
-          divCorrect.append(userCorrect, ul1);
-          appendDiv.appendChild(divCorrect);
-          divIncorrect.append(userIncorrect, ul2);
-          appendDiv.appendChild(divIncorrect);
+       // APPEND CORRECT ANSWERS
+        const appendDiv = document.querySelector('#div20');
+        const divCorrect = document.createElement('div');
+        divCorrect.setAttribute('class', 'results');
+        const userCorrect = document.createTextNode("Correct Answers: ");
+        // APPEND INCORRECT ANSWERS
+        const divIncorrect = document.createElement('div');
+        divIncorrect.setAttribute('class', 'results');
+        const userIncorrect = document.createTextNode("Incorrect Answers: ");
+        if (numWrong > 0) {
+            divCorrect.append(userCorrect, ul1);
+            appendDiv.appendChild(divCorrect);
+            divIncorrect.append(userIncorrect, ul2);
+            appendDiv.appendChild(divIncorrect);
         }
         // APPEND RESULTS + MESSAGE
         const divMessage = document.createElement('div');
@@ -611,29 +610,29 @@
     const randomGradient = (c1,c2) => {
         body.style.background = 'linear-gradient(to right, ' + c1 + ',' + c2 + ')';
     }
-    check1.addEventListener('click', checkFunc1);
-    check2.addEventListener('click', checkFunc2);
-    check3.addEventListener('click', checkFunc3);
-    check4.addEventListener('click', checkFunc4);
-    check5.addEventListener('click', checkFunc5);
-    check6.addEventListener('click', checkFunc6);
-    check7.addEventListener('click', checkFunc7);
-    check8.addEventListener('click', checkFunc8);
-    check9.addEventListener('click', checkFunc9);
-    check10.addEventListener('click', checkFunc10);
-    check11.addEventListener('click', checkFunc11);
-    check12.addEventListener('click', checkFunc12);
-    check13.addEventListener('click', checkFunc13);
-    check14.addEventListener('click', checkFunc14);
-    check15.addEventListener('click', checkFunc15);
-    check16.addEventListener('click', checkFunc16);
-    check17.addEventListener('click', checkFunc17);
-    check18.addEventListener('click', checkFunc18);
-    check19.addEventListener('click', checkFunc19);
-    check20.addEventListener('click', checkFunc20);
+    check1.addEventListener('click', checkFunc1, {once: true});
+    check2.addEventListener('click', checkFunc2, {once: true});
+    check3.addEventListener('click', checkFunc3, {once: true});
+    check4.addEventListener('click', checkFunc4, {once: true});
+    check5.addEventListener('click', checkFunc5, {once: true});
+    check6.addEventListener('click', checkFunc6, {once: true});
+    check7.addEventListener('click', checkFunc7, {once: true});
+    check8.addEventListener('click', checkFunc8, {once: true});
+    check9.addEventListener('click', checkFunc9, {once: true});
+    check10.addEventListener('click', checkFunc10, {once: true});
+    check11.addEventListener('click', checkFunc11, {once: true});
+    check12.addEventListener('click', checkFunc12, {once: true});
+    check13.addEventListener('click', checkFunc13, {once: true});
+    check14.addEventListener('click', checkFunc14, {once: true});
+    check15.addEventListener('click', checkFunc15, {once: true});
+    check16.addEventListener('click', checkFunc16, {once: true});
+    check17.addEventListener('click', checkFunc17, {once: true});
+    check18.addEventListener('click', checkFunc18, {once: true});
+    check19.addEventListener('click', checkFunc19, {once: true});
+    check20.addEventListener('click', checkFunc20, {once: true});
     background.addEventListener('click', backgroundButton);
     reset.addEventListener('click', location.reload.bind(location));
-    submit.addEventListener('click', submitAnswers);
+    submit.addEventListener('click', submitAnswers, {once: true});
     submit.addEventListener('click', scrollToBottom);
     toTop.addEventListener('click', scrollToTop);
     </script>
