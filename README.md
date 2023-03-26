@@ -44,6 +44,7 @@ Now, once you've forked this repo and got a local version up on your computer, f
 - [My card Portfolio](/submissions/ThierryRakotomanana.html) - By: [Thierry Rakotomanana](https://github.com/ThierryRakotomanana)
 - [Portfolio](/submissions/Md-Aquib.html) - By: [Md-Aquib](https://github.com/Md-Aquib)
 - [ROCK PAPER SCISSOR LIZARD SPOCK](/submissions/pianeta051.html) - By: [CARLOS PIANETA](https://github.com/pianeta051)
+- [Superhero Name and Superpower](/submissions/danithang.html) - By: [Astra Berry](https://github.com/danithang)
 - [Checkbox Filters](/submissions/dimitarradulov.html) - By: [Dimitar Radulov](https://github.com/dimitarradulov)
 - [Portfolio-Landingpage](/submissions/salvo9107.html) - By: [Salvatore Marotta](https://github.com/Salvo9107)
 - [Agency Landing Page](/submissions/Carls13.html) - By: [Carlos Hernandez](https://github.com/Carls13)

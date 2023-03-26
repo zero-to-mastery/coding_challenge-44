@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhero Name</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-transform: uppercase;
+        background-color: grey;
+    }
+    .container {
+        text-align: center;
+        margin: 15rem;
+    }
+    button {
+        margin: 2em;
+        padding: 10px;
+        text-transform: uppercase;
+        background-color: rgb(230, 237, 227);
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>What is your random superhero name and superpower?</h1>
+        <h2 id="firstname">first name</h2>
+        <h2 id="lastname">last name</h2>
+        <h2 id="superpower">superpower</h2>
+        <button class="btn">click to find out</button>
+    </div>
+    <script>
+        firstNames = ["Agent", "Brave", "Captain", "Detective", "Emerald", "Flying", "Great", "Harrowing", "Invisible", "Shadow", "Kinetic", "Doctor", "Mighty", "Night", "Wave", "Professor", "Quick", "Rebellious", "Super", "Thunder", "Ultra", "Mega", "Wonder", "Water", "Astro", "Steel", "Dark"]
+
+        secondNames = ["Knight", "Shock", "Bandit", "Thunderbolt", "Avenger", "Justice", "Master", "Falcon", "Shield", "Ninja", "Mutant", "Hero", "Witch", "Rider", "Shark", "Thunder", "Slider", "Guardian", "Phanthom", "Surfer", "Oracle"]
+
+        superPowers = ["Flight", "Invisibility", "Armor", "Gadgets", "Speed", "Genius", "Stretching", "Strength", "Teleportation", "Invincibility", "Shapeshifting", "X-Ray Vision", "Energy", "Telekinesis", "Robotics", "Fire Power", "Water Power"]
+        const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+        const firstName = document.getElementById("firstname");
+        const lastName = document.getElementById("lastname");
+        const superPower = document.getElementById("superpower")
+        const btn = document.querySelector(".btn");
+
+        btn.addEventListener("click", function () {
+            let hexColor = "#"
+            for (let i = 0; i < 6; i++) {
+                hexColor += hex[getRandomNum()];
+            }
+            firstName.innerHTML = `First Name: ${getRandomFirst()}`;
+            lastName.innerHTML = `Last Name: ${getRandomLast()}`;
+            superPower.innerHTML = `Superpower: ${getRandomPower()}`;
+            document.body.style.backgroundColor = hexColor;
+        });
+
+        function getRandomFirst() {
+            const randomFirst = Math.floor(Math.random() * firstNames.length);
+            return firstNames[randomFirst];
+        }
+        function getRandomLast() {
+            const randomLast = Math.floor(Math.random() * secondNames.length);
+            return secondNames[randomLast];
+        }
+        function getRandomPower() {
+            const randomPower = Math.floor(Math.random() * superPowers.length);
+            return superPowers[randomPower];
+        }
+        function getRandomNum() {
+            return Math.floor(Math.random() * hex.length);
+        }
+    </script>
+</body>
+</html>
