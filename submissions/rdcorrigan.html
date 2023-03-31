@@ -19,18 +19,16 @@
             margin: 0rem auto 2rem auto;
             max-width: 650px;
         }
+        h1, h2, h3, footer {
+            text-align: center;
+        }
         h1 {
             font-size: 4rem;
-            text-align: center;
             text-decoration: underline;
             text-transform: uppercase;
         }
         h2 {
             font-weight:700;
-            text-align: center;
-        }
-        h3 {
-            text-align: center;
         }
         div {
             padding: 0px 0 0px 0;
@@ -69,29 +67,12 @@
         #reset {
             float: right;
         }
-        #appendToMe {
-            margin-bottom: 20px;
-        }
         #submit {
             margin: 2% 0 0% 0%;
         }
         #backToTop {
             float: right;
             margin: 2% 0% 0% 2%;
-        }
-        span {
-            font-size: 1.6rem;
-            text-shadow:
-                -1px -1px 0 #000,
-                1px -1px 0 #000,
-                -1px 1px 0 #000,
-                1px 1px 0 #000;
-        }
-        .correct {
-            color: green;
-        }
-        .incorrect {
-            color: red;
         }
         .message {
             font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -112,7 +93,6 @@
             font-size: 2rem;
             font-style: oblique;
             margin-top: 2rem;
-            text-align: center;
         }
     </style>
     <main>
@@ -444,26 +424,26 @@
             document.getElementById('L20d').append(checkMark);}
         // SUBMIT ANSWERS BUTTON FUNCTION
         const submitAnswers = () => {
-            const input1 = document.forms.form.elements.q1.value;
-            const input2 = document.forms.form.elements.q2.value;
-            const input3 = document.forms.form.elements.q3.value;
-            const input4 = document.forms.form.elements.q4.value;
-            const input5 = document.forms.form.elements.q5.value;
-            const input6 = document.forms.form.elements.q6.value;
-            const input7 = document.forms.form.elements.q7.value;
-            const input8 = document.forms.form.elements.q8.value;
-            const input9 = document.forms.form.elements.q9.value;
-            const input10 = document.forms.form.elements.q10.value;
-            const input11 = document.forms.form.elements.q11.value;
-            const input12 = document.forms.form.elements.q12.value;
-            const input13 = document.forms.form.elements.q13.value;
-            const input14 = document.forms.form.elements.q14.value;
-            const input15 = document.forms.form.elements.q15.value;
-            const input16 = document.forms.form.elements.q16.value;
-            const input17 = document.forms.form.elements.q17.value;
-            const input18 = document.forms.form.elements.q18.value;
-            const input19 = document.forms.form.elements.q19.value;
-            const input20 = document.forms.form.elements.q20.value;
+            const input1 = document.forms.form.elements.q1.value,
+            input2 = document.forms.form.elements.q2.value,
+            input3 = document.forms.form.elements.q3.value,
+            input4 = document.forms.form.elements.q4.value,
+            input5 = document.forms.form.elements.q5.value,
+            input6 = document.forms.form.elements.q6.value,
+            input7 = document.forms.form.elements.q7.value,
+            input8 = document.forms.form.elements.q8.value,
+            input9 = document.forms.form.elements.q9.value,
+            input10 = document.forms.form.elements.q10.value,
+            input11 = document.forms.form.elements.q11.value,
+            input12 = document.forms.form.elements.q12.value,
+            input13 = document.forms.form.elements.q13.value,
+            input14 = document.forms.form.elements.q14.value,
+            input15 = document.forms.form.elements.q15.value,
+            input16 = document.forms.form.elements.q16.value,
+            input17 = document.forms.form.elements.q17.value,
+            input18 = document.forms.form.elements.q18.value,
+            input19 = document.forms.form.elements.q19.value,
+            input20 = document.forms.form.elements.q20.value;
         // USERS ANSWERS ARRAY
         const usersAnswers = [input1, input2, input3, input4,
                             input5, input6, input7, input8, 
@@ -496,95 +476,74 @@
         // 20 POSSIBLE SCORE MESSAGES
         switch (numWrong) {
         case 20:
-            message = document.createTextNode("Score: 0%! Oh dear.");
-            break;
+            message = document.createTextNode("Score: 0%! Oh dear."); break;
         case 19:
-            message = document.createTextNode("Score: 5%! At least you got one.");
-            break;
+            message = document.createTextNode("Score: 5%! At least you got one."); break;
         case 18:
-            message = document.createTextNode("Score: 10%! Nice try.");
-            break;
+            message = document.createTextNode("Score: 10%! Nice try."); break;
         case 17:
-            message = document.createTextNode("Score: 15%! Not bad.");
-            break;
+            message = document.createTextNode("Score: 15%! Not bad."); break;
         case 16:
-            message = document.createTextNode("Score: 20%! No worries, some tough questions.");
-            break;
+            message = document.createTextNode("Score: 20%! No worries, some tough questions."); break;
         case 15:
-            message = document.createTextNode("Score: 25%! That's decent.");
-            break;
+            message = document.createTextNode("Score: 25%! That's decent."); break;
         case 14:
-            message = document.createTextNode("Score: 30%! You did your best.");
-            break;
+            message = document.createTextNode("Score: 30%! You did your best."); break;
         case 13:
-            message = document.createTextNode("Score: 35%! Good effort.");
-            break;
+            message = document.createTextNode("Score: 35%! Good effort."); break;
         case 12:
-            message = document.createTextNode("Score: 40%! Not bad at all.");
-            break;
+            message = document.createTextNode("Score: 40%! Not bad at all."); break;
         case 11:
-            message = document.createTextNode("Score: 45%! Almost half correct.");
-            break;
+            message = document.createTextNode("Score: 45%! Almost half correct."); break;
         case 10:
-            message = document.createTextNode("Score: 50%! Half correct, not too shabby.");
-            break;
+            message = document.createTextNode("Score: 50%! Half correct, not too shabby."); break;
         case 9:
-            message = document.createTextNode("Score: 55%! Over half correct, well done.");
-            break;
+            message = document.createTextNode("Score: 55%! Over half correct, well done."); break;
         case 8:
-            message = document.createTextNode("Score: 60%! You know a thing or two.");
-            break;
+            message = document.createTextNode("Score: 60%! You know a thing or two."); break;
         case 7:
-            message = document.createTextNode("Score: 65%! That's a respectable result.");
-            break;
+            message = document.createTextNode("Score: 65%! That's a respectable result."); break;
         case 6:
-            message = document.createTextNode("Score: 70%! Good job friend.");
-            break;
+            message = document.createTextNode("Score: 70%! Good job friend."); break;
         case 5:
-            message = document.createTextNode("Score: 75%! A very good effort indeed.");
-            break;
+            message = document.createTextNode("Score: 75%! A very good effort indeed."); break;
         case 4:
-            message = document.createTextNode("Score: 80%! I'm impressed.");
-            break;
+            message = document.createTextNode("Score: 80%! I'm impressed."); break;
         case 3:
-            message = document.createTextNode("Score: 85%! You're a trivia buff.");
-            break;
+            message = document.createTextNode("Score: 85%! You're a trivia buff."); break;
         case 2:
-            message = document.createTextNode("Score: 90%! Wow, you know your stuff.");
-            break;
+            message = document.createTextNode("Score: 90%! Wow, you know your stuff."); break;
         case 1:
-            message = document.createTextNode("Score: 95%! Almost aced it.");
-            break;
+            message = document.createTextNode("Score: 95%! Almost aced it."); break;
         case 0:
-            message = document.createTextNode("Score: 100%! You're a genius!");
-            break;
+            message = document.createTextNode("Score: 100%! You're a genius!"); break;
       }
        // APPEND CORRECT ANSWERS
-        const appendDiv = document.querySelector('#div20');
-        const divCorrect = document.createElement('div');
+        const appendDiv = document.querySelector('#div20'), 
+        divCorrect = document.createElement('div'),
+        userCorrect = document.createTextNode("Correct Answers: ");
         divCorrect.setAttribute('class', 'results');
-        const userCorrect = document.createTextNode("Correct Answers: ");
         divCorrect.append(userCorrect, ul1);
         if (numWrong < 20) {
             appendDiv.appendChild(divCorrect);
         }
         // APPEND INCORRECT ANSWERS
-        const divIncorrect = document.createElement('div');
+        const divIncorrect = document.createElement('div'), 
+        userIncorrect = document.createTextNode("Incorrect Answers: ");
         divIncorrect.setAttribute('class', 'results');
-        const userIncorrect = document.createTextNode("Incorrect Answers: ");
         divIncorrect.append(userIncorrect, ul2);
         if (numWrong > 0) {
             appendDiv.appendChild(divIncorrect);
         }
         // APPEND RESULTS + MESSAGE
-        const divMessage = document.createElement('div');
-        const classMessage = divMessage.setAttribute('class', 'message');
+        const divMessage = document.createElement('div'), 
+        classMessage = divMessage.setAttribute('class', 'message');
         divMessage.appendChild(message);
         appendDiv.appendChild(divMessage);
         // APPEND FOOTER THANKS MESSAGE
-        const footerThanks = document.createElement('footer');
-        const classThanks = footerThanks.setAttribute('class', 'thanks');
-        const messageThanks = document.createTextNode("Thanks for playing!");
+        const footerThanks = document.createElement('footer'), 
+        classThanks = footerThanks.setAttribute('class', 'thanks'),
+        messageThanks = document.createTextNode("Thanks for playing!");
         footerThanks.appendChild(messageThanks);
         appendDiv.appendChild(footerThanks);
     }
@@ -610,8 +569,8 @@
             num = Math.floor(num);
             return num;
         }
-        const rhex1 = rgbToHex(randomNum(),randomNum(),randomNum());
-        const rhex2 = rgbToHex(randomNum(),randomNum(),randomNum());
+        const rhex1 = rgbToHex(randomNum(),randomNum(),randomNum()), 
+            rhex2 = rgbToHex(randomNum(),randomNum(),randomNum());
         color1 = rhex1;
         color2 = rhex2;
         randomGradient(color1,color2);
