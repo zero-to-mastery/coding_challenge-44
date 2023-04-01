@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tick Tack Toe</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2&family=Noto+Sans:wght@300&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+      }
+
+      :root {
+        --bg-color: #222327;
+        --text-color: #fff;
+        --main-color: #29fd53;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+
+      nav {
+        background-color: rgb(37, 34, 34);
+        color: white;
+        height: 50px;
+        font-size: 27px;
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+        font-family: "Noto Sans", sans-serif;
+      }
+
+      #mid {
+        color: #57c46d;
+      }
+
+      #end {
+        color: #bafaba;
+      }
+
+      .logo {
+        color: var(--text-color);
+      }
+
+      .gameContainer {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+      }
+
+      .container {
+        display: grid;
+        grid-template-rows: repeat(3, 10vw);
+        grid-template-columns: repeat(3, 10vw);
+        font-family: "Noto Sans", sans-serif;
+        position: relative;
+      }
+
+      .box {
+        border: 2px solid var(--main-color);
+        font-size: 8vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .box:hover {
+        background-color: #465349;
+      }
+
+      .info {
+        font-size: 20px;
+      }
+
+      .gameInfo {
+        padding: 0 35px;
+        font-family: "Baloo Bhaina 2", cursive;
+      }
+
+      .imgBox img {
+        width: 0;
+        transition: width 1s ease-in-out;
+      }
+
+      .bl-0 {
+        border-left: 0;
+      }
+
+      .br-0 {
+        border-right: 0;
+      }
+
+      .bt-0 {
+        border-top: 0;
+      }
+
+      .bb-0 {
+        border-bottom: 0;
+      }
+
+      #reset {
+        padding: 1px 15px;
+        margin: 0 22px;
+        background: #19a134;
+        color: var(--text-color);
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bolder;
+        font-family: "Baloo Bhaina 2", cursive;
+      }
+
+      .line {
+        background-color: var(--main-color);
+        height: 5px;
+        width: 0;
+        position: absolute;
+        transition: 0.7s ease-in-out;
+        border-radius: 5px;
+      }
+
+      /* @media screen and (max-width: 600px) {
+  .gameContainer {
+    flex-wrap: wrap;
+  }
+  .gameInfo {
+    margin-top: 34px;
+  }
+  .gameInfo h1 {
+    font-size: 1.5rem;
+  }
+  .container {
+    grid-template-rows: repeat(3, 20vw);
+    grid-template-columns: repeat(3, 20vw);
+  }
+} */
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html" class="logo"
+        ><span id="front"
+          >Tick<span id="mid">Tack</span><span id="end">Toe</span></span
+        ></a
+      >
+    </nav>
+    <div class="gameContainer">
+      <div class="container">
+        <div class="line"></div>
+        <div class="box bt-0 bl-0"><span class="boxText"></span></div>
+        <div class="box bt-0"><span class="boxText"></span></div>
+        <div class="box bt-0 br-0"><span class="boxText"></span></div>
+        <div class="box bl-0"><span class="boxText"></span></div>
+        <div class="box"><span class="boxText"></span></div>
+        <div class="box br-0"><span class="boxText"></span></div>
+        <div class="box bb-0 bl-0"><span class="boxText"></span></div>
+        <div class="box bb-0"><span class="boxText"></span></div>
+        <div class="box bb-0 br-0"><span class="boxText"></span></div>
+      </div>
+      <div class="gameInfo">
+        <h1>Welcome to TickTackToe!</h1>
+        <div>
+          <span class="info">Turn for X</span>
+          <button id="reset">Reset</button>
+        </div>
+        <div class="imgBox">
+          <img src="excited.gif" alt="" />
+        </div>
+      </div>
+    </div>
+    <script>
+      console.log("Welcome to Tick Tack Toe");
+      // let music = new Audio("music.mp3");
+      // let audioTurn = new Audio("ting.mp3");
+      // let gameover = new Audio("gameover.mp3");
+      let isgameover = false;
+      let turn = "X";
+
+      // Function to change the turn
+      const changeTurn = () => {
+        return turn === "X" ? "O" : "X";
+      };
+
+      // Function to check win
+      const checkWin = () => {
+        let boxtexts = document.getElementsByClassName("boxText");
+        let wins = [
+          [0, 1, 2, 0, 5, 0],
+          [3, 4, 5, 0, 15, 0],
+          [6, 7, 8, 0, 25, 0],
+          [0, 3, 6, -10, 15, 90],
+          [1, 4, 7, 0, 15, 90],
+          [2, 5, 8, 10, 15, 90],
+          [0, 4, 8, 0, 15, 45],
+          [2, 4, 6, 0, 15, 135],
+        ];
+        wins.forEach((e) => {
+          if (
+            boxtexts[e[0]].innerText === boxtexts[e[1]].innerText &&
+            boxtexts[e[2]].innerText === boxtexts[e[1]].innerText &&
+            boxtexts[e[0]].innerText !== ""
+          ) {
+            document.querySelector(".info").innerText =
+              boxtexts[e[0]].innerText + " Won!";
+            isgameover = true;
+            // gameover.play();
+            document
+              .querySelector(".imgBox")
+              .getElementsByTagName("img")[0].style.width = "156px";
+            document.querySelector(".line").style.width = "30vw";
+            document.querySelector(
+              ".line"
+            ).style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`;
+          }
+        });
+      };
+
+      // Game Logic
+      // music.play();
+      let boxes = document.getElementsByClassName("box");
+      Array.from(boxes).forEach((element) => {
+        let boxtext = element.querySelector(".boxText");
+        element.addEventListener("click", () => {
+          if (boxtext.innerText === "") {
+            boxtext.innerText = turn;
+            turn = changeTurn();
+            // audioTurn.play();
+            checkWin();
+            if (!isgameover) {
+              document.getElementsByClassName("info")[0].innerText =
+                "Turn for " + turn;
+            }
+          }
+        });
+      });
+
+      // Add onclick listner to reset button
+      reset.addEventListener("click", () => {
+        let boxTexts = document.querySelectorAll(".boxText");
+        Array.from(boxTexts).forEach((element) => {
+          element.innerText = "";
+        });
+        turn = "X";
+        isgameover = false;
+        document.getElementsByClassName("info")[0].innerText =
+          "Turn for " + turn;
+        document
+          .querySelector(".imgBox")
+          .getElementsByTagName("img")[0].style.width = "0px";
+        document.querySelector(".line").style.width = "0";
+      });
+    </script>
+  </body>
+</html>
