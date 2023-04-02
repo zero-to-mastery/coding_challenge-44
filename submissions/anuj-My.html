@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Reveal Animation</title>
+
+    <style>
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      main {
+        position: relative;
+        height: 100vh;
+      }
+
+      .side .fancy {
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 1.3em;
+        line-height: 0.8em;
+      }
+
+      .side {
+        background-color: black;
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        position: absolute;
+      }
+
+      .side .title {
+        color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        font-size: 8vw;
+        margin: 0 15vw;
+        width: 70vw;
+      }
+
+      #left-side .title {
+        color: white;
+      }
+
+      #left-side .fancy {
+        color: yellow;
+      }
+
+      #right-side .title {
+        color: rgb(39, 39, 39);
+      }
+
+      #right-side .fancy {
+        color: white;
+      }
+
+      #right-side {
+        background-color: #992bff;
+      }
+
+      #left-side {
+        z-index: 2;
+        background-color: rgb(32, 255, 181);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="right-side" class="side">
+        <h2 class="title">
+          Today is going to
+          <span class="fancy"> awesome </span>
+        </h2>
+      </div>
+      <div id="left-side" class="side">
+        <h2 class="title">
+          Today is going to
+          <span class="fancy"> wonderful </span>
+        </h2>
+      </div>
+    </main>
+
+    <script>
+      const left = document.getElementById("left-side");
+
+      const handleOnMove = (e) => {
+        const p = (e.clientX / window.innerWidth) * 100;
+
+        left.style.width = `${p}%`;
+      };
+
+      document.onmousemove = (e) => handleOnMove(e);
+      document.ontouchmove = (e) => handleOnMove(e.touches[0]);
+    </script>
+  </body>
+</html>
