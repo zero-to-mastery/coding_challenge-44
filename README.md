@@ -36,6 +36,7 @@ Now, once you've forked this repo and got a local version up on your computer, f
 - [Chinese New Year](/submissions/miraclebanks.html) - By: [Miracle](https://github.com/miraclebanks)
 - [Wedding Landing Page](/submissions/mattcsmith.html) - By: [Matt](https://github.com/mattcsmith)
 - [Matteos Trattoria](/submissions/matthewvanpelt.html) - By: [Matt](https://github.com/mattvp21)
+- [Background Reveal Animation](/submissions/anuj-My.html) - By: [Anuj](https://github.com/anuj-My)
 - [Jaguar Field Notes](/submissions/procesorplus.html) - By: [procesorplus](https://github.com/procesorplus)
 - [Portfolio Page (Landing/About)](/submission/breyrivera2021.html) - By: [Brey Rivera](https://github.com/BreyRivera2021)
 - [Smooth Scroll Template](/submissions/joesayat.html) - By: [Joe](https://github.com/joesayat)
@@ -53,7 +54,6 @@ Now, once you've forked this repo and got a local version up on your computer, f
 - [Satoshi's Converter](/submissions/Almopt.html) - By: [Almopt](https://github.com/Almopt)
 - [Tic tac toe](./submissions/sherawat-Lokesh.html) -By: [sherawat-Lokesh](https://github.com/sherawat-Lokesh)
 - [House Garbage Management website](/submissions/Fly0w.html) - By: [Fly0w](https://github.com/Fly0w)
-
 
 ## One Last Thing!
 
