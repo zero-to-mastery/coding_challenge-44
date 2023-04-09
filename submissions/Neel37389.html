@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NP-Portfolio</title>
+  </head>
+  <style>
+    body {
+      background-color: #1d1e22;
+      margin: 0 auto;
+    }
+    .main-nav {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      font-size: 1.5em;
+      flex-direction: row-reverse;
+    }
+    .sticky {
+      position: fixed;
+      top: 2%;
+      width: 100%;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+      font-family: Biotif-Regular, Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+    li {
+      padding: 20px;
+    }
+    .section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 {
+      background: linear-gradient(
+        to right,
+        #a0e9ff 30%,
+        #a162e8 50%,
+        #f093b0 70%,
+        #edca85 94%
+      );
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      animation: appear ease-in 1s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      font-size: 12.5rem;
+    }
+    p {
+      color: white;
+      font-family: Biotif-Regular, Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      margin: 5%;
+    }
+    .intro {
+      width: 30%;
+      height: fit-content;
+      display: flex;
+      border: solid #191919;
+      background: #4b4b4b;
+      border-radius: 20px;
+      margin-left: 15px;
+    }
+    .box {
+      width: 90%;
+      height: fit-content;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      border: solid #191919;
+      background: #4b4b4b;
+      border-radius: 20px;
+    }
+    @media only screen and (max-width: 600px) {
+      .main-nav {
+        font-size: 1em;
+        padding: 0;
+      }
+      .section {
+        flex-direction: column;
+      }
+      .intro {
+        width: 90%;
+        height: fit-content;
+        padding: 20px;
+        margin-left: 0;
+      }
+    }
+  </style>
+
+  <body>
+    <nav class="sticky">
+      <ul class="main-nav">
+        <li><a href="#my-contact">Contact</a></li>
+        <li><a href="#my-projects">Projects</a></li>
+      </ul>
+    </nav>
+
+    <div class="section">
+      <h1 class="logo">NP</h1>
+      <div class="intro">
+        <div class="about-me">
+          <p>
+            Hi! My name is Neel Patel. I am currently studying Computer Science
+            at Temple University. I want to be a Web Developer after I graduate.
+            I am enrolled in ZTM's Complete Web Developer in 2023. I am a very
+            curious guy and loves to work with teams and interact with people of
+            different backgrounds.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="my-projects">
+      <div class="box">
+        <div>
+          <h3 class="head">My Projects</h3>
+          <p style="font-size: large; color: white">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+            venenatis lorem ac aliquet aliquet. Integer egestas neque augue, sed
+            imperdiet erat dignissim quis. Cras dapibus eleifend velit a
+            venenatis. Donec augue nulla, molestie accumsan enim ac, efficitur
+            pulvinar nisl. Mauris aliquam maximus facilisis. Duis sodales arcu
+            sit amet nisi congue accumsan. Sed a erat pretium, tristique ante
+            ac, efficitur dolor. Sed at sagittis sapien. Praesent hendrerit
+            neque at ante malesuada aliquam maximus facilisis. Duis sodales arcu
+            sit amet nisi congue accumsan. Sed a erat pretium, tristique ante
+            ac, efficitur dolor. Sed at sagittis sapien. Praesent hendrerit
+            neque at ante malesuada
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="my-contact">
+      <div class="box">
+        <div>
+          <h3 class="head">Contact Me</h3>
+          <p style="font-size: large; color: white">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+            venenatis lorem ac aliquet aliquet. Integer egestas neque augue, sed
+            imperdiet erat dignissim quis. Cras dapibus eleifend velit a
+            venenatis. Donec augue nulla, molestie accumsan enim ac, efficitur
+            pulvinar nisl. Mauris aliquam maximus facilisis. Duis sodales arcu
+            sit amet nisi congue accumsan. Sed a erat pretium, tristique ante
+            ac, efficitur dolor. Sed at sagittis sapien. Praesent hendrerit
+            neque at ante malesuada aliquam maximus facilisis. Duis sodales arcu
+            sit amet nisi congue accumsan. Sed a erat pretium, tristique ante
+            ac, efficitur dolor. Sed at sagittis sapien. Praesent hendrerit
+            neque at ante malesuada
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
