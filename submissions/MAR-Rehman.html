@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>The Colourful Calculator</title>
+	 <style>
+
+	 	body{
+	 		width: 100%;
+	 		height: 100%;
+	 		background: #6ea7d2;
+	 		display: flex;
+	 		justify-content: center; 
+	 		align-content: center; 
+	 		margin-top: 125px;
+	 	}
+
+	 	.calculator{
+	 		background: #3a4452;
+	 		padding: 20px;
+	 		border-radius: 10px;
+	 	}
+
+	    .calculator form input{
+	    	border: 0;
+	    	outline: 0;
+	    	width: 60px;
+	    	height: 60px;
+	    	border-radius: 10px;
+	    	box-shadow: -8px -8px 15px rgba(255, 255, 255, 0.1),5px 5px 15px rgba(0, 0, 0, 0.2);
+	    	background: transparent;
+	    	font-size: 20px;
+	    	color: #fff;
+	    	cursor: pointer;
+	    	margin: 10px;
+	    }
+
+	    form .display{
+	    	display: flex;
+	    	justify-content: flex-end;
+	    	margin: 20px 0;
+	    }
+
+	    form .display input{
+	    	text-align: right;
+	    	flex: 1;
+	    	font-size: 45px;
+	    	box-shadow: none;
+	    }
+
+	   form input.equal{
+	   	width: 145px;
+	    }
+
+	    form input.operator{
+	    	color: #04FDFE;
+	    }
+		
+		#AC:active{
+			color: #FFF419;
+			background-color: #3F00B3;
+		}
+
+		#DE:active{
+			color: #691BB3;
+			background-color: #F7FF19;
+		}
+
+		#DOT:active{
+			color: #FF0AD1;
+			background-color: #4BFF19;
+		}		
+
+		#DIVIDE:active{
+			color: #FF010A;
+			background-color: #19C2FF;
+		}
+
+		#SEVEN:active{
+			color: #FF5C00;
+			background-color: #19FFFE;
+		}		
+
+		#EIGHT:active{
+			color: #E7FF0A;
+			background-color: #9C19FF;
+		}
+
+		#NINE:active{
+			color: #85FF1F;
+			background-color: #F619FF;
+		}
+
+		#MULTIPLY:active{
+			color: #00FF1A;
+			background-color: #FF1964;
+		}
+
+		#FOUR:active{
+			color: #FF3519;
+			background-color: #10FF8C;
+		}
+
+		#FIVE:active{
+			color: #FF860D;
+			background-color: #01C5FF;
+		}
+
+		#SIX:active{
+			color: #A93DB3;
+			background-color: #9AFF47;
+		}
+
+		#MINUS:active{
+			color: #4740FF;
+			background-color: #FFDC34;
+		}
+
+		#ONE:active{
+			color: #C8FF33;
+			background-color: #D676FF;
+		}
+
+		#TWO:active{
+			color: #46FF33;
+			background-color: #FF26B0;
+		}
+
+		#THREE:active{
+			color: #FF3DF5;
+			background-color: #3DB307;
+		}
+
+		#PLUS:active{
+			color: #EBFED7;
+			background-color: #9E19B3;
+		}
+
+		#DOUBLEZ:active{
+			color: #FF9027;
+			background-color: #008EB3;
+		}
+
+		#ZERO:active{
+			color: #FFE226;
+			background-color: #2E1BB3;
+		}
+
+		#EQUAL:active{
+			color: #FFD8C2;
+			background-color: #26FFFE;
+		}					
+
+	 </style>
+</head>
+<body>
+<div class="title" value="The Coolest Calculator">
+	<div class="container">
+		<div class="calculator">
+			<form>
+				<div class="display">
+					<input type="text" name="display">
+				</div>
+				<div>
+					<input type="button" value="AC" onclick="display.value = '' " id="AC" class="operator">
+					<input type="button" value="DE" onclick="display.value = display.value.toString().slice(0,-1) "id="DE" class="operator">
+					<input type="button" value="." onclick="display.value += '.' " id="DOT" class="operator">
+					<input type="button" value="/" onclick="display.value += '/' " id="DIVIDE"class="operator">
+				</div>
+				<div>
+					<input type="button" value="7" onclick="display.value += '7' " id="SEVEN">
+					<input type="button" value="8" onclick="display.value += '8' " id="EIGHT">
+					<input type="button" value="9" onclick="display.value += '9' " id="NINE">
+					<input type="button" value="*" onclick="display.value += '*' " id="MULTIPLY" class="operator">
+				</div>
+				<div>
+					<input type="button" value="4" onclick="display.value += '4' " id="FOUR">
+					<input type="button" value="5" onclick="display.value += '5' " id="FIVE">
+					<input type="button" value="6" onclick="display.value += '6' " id="SIX">
+					<input type="button" value="-" onclick="display.value += '-' " id="MINUS" class="operator">
+				</div>
+				<div>
+					<input type="button" value="1" onclick="display.value += '1' " id="ONE">
+					<input type="button" value="2" onclick="display.value += '2' " id="TWO">
+					<input type="button" value="3" onclick="display.value += '3' " id="THREE">
+					<input type="button" value="+" onclick="display.value += '+' " id="PLUS" class="operator">
+				</div>
+				<div>
+					<input type="button" value="00" onclick="display.value += '00' " id="DOUBLEZ">
+					<input type="button" value="0" onclick="display.value += '0' " id="ZERO">
+					<input type="button" value="=" onclick="display.value = eval(display.value)" id="EQUAL" class="equal operator">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
