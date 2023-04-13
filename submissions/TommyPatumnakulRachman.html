@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Tommy Rachman Portfolio Coding Challenge 44</title>
+
+
+
+    <style>
+
+        /*------------------HERO-----------------*/
+
+.jumbotron{
+    color: antiquewhite;
+    height: 100vh;
+}
+
+.hero-centering{
+
+   padding: 15% 5%;
+    
+}
+
+#text {
+
+	font-size: 1.5em;
+	
+}
+
+p#text.pixel-font{
+  margin-bottom: 0;
+}
+
+.underline-block{
+    
+    background-color:#ffc107;
+    width: 100%;
+    padding: 1.5px;
+    margin: 0;
+}
+
+.spin-stop {
+    animation: spin-stop 2s linear forwards;
+    transform-style: preserve-3d;
+  }
+  
+  
+  h1.display-4.pixel-font{
+    font-size: 2em;
+}
+
+
+
+
+/* Fonts for classes */
+.pixel-font{
+    font-family: 'Press Start 2P', cursive;
+}
+
+
+
+.bg-new{
+    background-color: #000000;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+  }
+  
+  section {
+   
+    height: 100vh;
+  }
+
+ 
+
+
+
+.navbar-expand-lg {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+}
+
+
+.navbar-center{
+ margin-left: auto;
+}
+
+
+/* Whole page */
+
+.container-portfolio{
+
+    
+    height:100vh;
+
+}
+
+
+ div.container-portfolio >  section{
+    
+height: 100vh; 
+
+}
+
+
+.media p{
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.pixel-font h5{
+
+    font-size: 1.3em;
+
+}
+
+
+/*----------------- TOP PAGE ----------------- */
+
+div.jumbotron.hero-container{
+
+  background-image:url(hero-background.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-color: rgb(67, 67, 67);
+        background-blend-mode: multiply;
+        border-radius: 0%;
+        padding: 5% 10% 10% 10%;
+        margin: 0;
+}
+
+
+div.jumbotron.hero-container:hover{
+  background-color: rgb(118, 85, 85);
+
+}
+
+/*----------------- ABOUT ME ----------------- */
+
+.about-me{
+
+    background-image:url(about-me-background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: rgb(63, 63, 63);
+    background-blend-mode: multiply;
+    border-radius: 0%;
+    height: 100vh; 
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    color: antiquewhite;
+   
+}
+
+
+
+
+
+
+section#about-me.about-me{
+  margin: 0;
+  padding: 20% 10% 10% 10%;
+}
+
+section#my-skills.my-skills{
+  margin: 0;
+  padding: 15% 10% 10% 10%;
+}
+
+
+section#contact-me.contact-me{
+  margin: 0;
+  padding: 15% 10% 10% 10%;
+}
+
+.about-me:hover{
+  background-color: rgb(118, 85, 85);
+    
+}
+
+/*----------------- MY SKILLS ----------------- */
+
+.my-skills{
+
+    background-image:url(my-skills-background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: rgb(63, 63, 63);
+    background-blend-mode: multiply;
+    border-radius: 0%;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    color: antiquewhite;
+
+   
+}
+
+
+#my-skills.my-skills{
+  padding: 10% 10%;
+}
+
+.my-skills:hover{
+  background-color: rgb(118, 85, 85);
+
+}
+
+/*----------------- PROJECTS ----------------- */
+
+.projects{
+
+    background-image:url(projects-background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: rgb(63, 63, 63);
+    background-blend-mode: multiply;
+    border-radius: 0%;
+    height: 100vh; 
+    
+    padding: 10% 10%;
+    color: antiquewhite;
+
+   
+}
+
+.projects:hover{
+  background-color: rgb(118, 85, 85);
+}
+
+.project-grid{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 20px;
+    justify-content: space-evenly;
+}
+
+.project-grid > div{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.project-size{
+
+    width: 22.5em ;
+    height: 12.5em;
+    border-radius: 5%;
+    margin-bottom:  10px;
+}
+
+@media (max-width: 1068px) {
+
+
+  .hero-centering{
+    padding: 0%;
+  }
+
+
+    .project-grid{
+        height: 700px; /* Set the height of the scroll box */
+        overflow: auto; /* Add a scrollbar when the content exceeds the height */
+        border:none; /* Optional: Add a border to the scroll box */
+        padding: 15px; /* Optional: Add padding to the scroll box */
+        margin-top: 20px;
+    }
+
+    .project-size {
+        width: 15.5em ;
+        height: 9.5em;
+    }
+
+    p.lead.btn-position{
+        display: block; /* Set the button to a block element */
+  margin: 0 auto; /* Set the horizontal margin to auto */
+  text-align: center; /* Center the text inside the button */
+    }
+
+    h1.display-4.pixel-font{
+        font-size: 1.7em;
+    }
+
+    .underline-block{
+    
+        background-color:#ffc107;
+        width: 85%;
+        padding: 1.5px;
+        margin: 0;
+    }
+
+
+    .skills-table{
+      
+        height: 700px; /* Set the height of the scroll box */
+        overflow: auto; /* Add a scrollbar when the content exceeds the height */
+        border:none; /* Optional: Add a border to the scroll box */
+        padding: 15px; /* Optional: Add padding to the scroll box */
+  
+    }
+
+
+  }
+
+/*----------------- PROJECTS ----------------- */
+
+.contact-me{
+
+    background-image:url(contact-me-background.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: rgb(63, 63, 63);
+    background-blend-mode: multiply;
+    border-radius: 0%;
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    padding: 3% 10%;
+    color: antiquewhite;
+}
+
+
+.contact-me:hover{
+  background-color: rgb(118, 85, 85);
+}
+
+
+/*----------------- MY SKILLS ----------------- */
+
+.container > .row{
+gap: 5px;
+padding: 2em;
+}
+
+.row > .col-sm{
+  display:grid;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+.skills-icons{
+  
+  max-width: 3.2em;
+  max-height: 3.2em;
+  transition: transform 1.5s ease;
+
+}
+
+.skills-icons:hover{
+  transform: scale(1.3);
+}
+
+
+.profile-picture{
+
+    width: 250px;
+  height: 250px;
+  border-radius: 60%;
+  object-fit: cover;
+    margin: 0px;
+}
+
+
+ /*Need to add a media screen to shrink text size when resizing to smaller screen*/
+@media screen {
+    
+}
+
+.main-page-title{
+
+    text-align: center;
+    align-items: center;
+}
+
+
+
+
+
+/*````````````````````````````````````````*/
+
+
+:root {
+    --face: #e4e4e4;
+    --lowlight: #111;
+    --side: #48007f;
+    --side-dark: #120e08;
+    --coin-size: 12rem;
+  }
+  
+  
+  /*
+    everything above is positioning and variables.
+    this is where the real fun begins...
+  */
+  
+  .coin {
+    height: var(--coin-size);
+    width: var(--coin-size);
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .coin::before {
+    content: '';
+    display: block;
+    position: relative;
+    height: var(--coin-size);
+    width: var(--coin-size);
+    border-radius: 50%;
+    background-color: var(--face);
+    animation: spin 0.5s linear 4;
+    background-image:url("pp.png");
+    background-size: 120% 120%;
+    background-position: center;
+  }
+  
+  /* animation definitions */
+  
+  @keyframes spin {
+    0% {
+      width: var(--coin-size);
+      box-shadow:
+        0 0 0 var(--side-dark);
+      animation-timing-function: ease-in;
+    }
+    
+    49.999% {
+      width: 0.1rem;
+      box-shadow:
+        0.05rem 0 0 var(--side),
+        0.1rem 0 0 var(--side),
+        0.15rem 0 0 var(--side),
+        0.2rem 0 0 var(--side),
+        0.25rem 0 0 var(--side),
+        0.3rem 0 0 var(--side),
+        0.35rem 0 0 var(--side),
+        0.4rem 0 0 var(--side),
+        0.45rem 0 0 var(--side),
+        0.5rem 0 0 var(--side),
+        0.55rem 0 0 var(--side),
+        0.6rem 0 0 var(--side),
+        0.65rem 0 0 var(--side),
+        0.7rem 0 0 var(--side),
+        0.75rem 0 0 var(--side);
+      transform: translateX(-0.375rem);
+      background-color: var(--lowlight);
+      animation-timing-function: linear;
+    }
+    
+    50.001% {
+      width: 0.1rem;
+      box-shadow:
+        -0.05rem 0 0 var(--side),
+        -0.1rem 0 0 var(--side),
+        -0.15rem 0 0 var(--side),
+        -0.2rem 0 0 var(--side),
+        -0.25rem 0 0 var(--side),
+        -0.3rem 0 0 var(--side),
+        -0.35rem 0 0 var(--side),
+        -0.4rem 0 0 var(--side),
+        -0.45rem 0 0 var(--side),
+        -0.5rem 0 0 var(--side),
+        -0.55rem 0 0 var(--side),
+        -0.6rem 0 0 var(--side),
+        -0.65rem 0 0 var(--side),
+        -0.7rem 0 0 var(--side),
+        -0.75rem 0 0 var(--side);
+      transform: translateX(0.375rem);
+      background-color: var(--lowlight);
+      animation-timing-function: ease-out;
+    }
+    
+    100% {
+      width: var(--coin-size);
+      box-shadow:
+        0 0 0 var(--side-dark);
+    }
+  }
+  
+    </style>
+</head>
+<body>
+   
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-dark bg-new">
+        <a class="navbar-brand" href="#">
+          
+          <img class="mr-3" src="navbar-icon.png" alt="nav-icon"
+          style="
+      max-height: 30px;
+      max-width: 30px;
+      margin: 0px;
+      padding: 0px;
+    
+      "
+          >
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav navbar-center">
+            <a class="nav-item nav-link" href="#about-me">About Me <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#my-skills">My Skills</a>
+            <a class="nav-item nav-link" href="#projects">Projects</a>
+            <a class="nav-item nav-link" href="#contact-me">Contact Me</a>
+          </div>
+        </div>
+      </nav>
+
+    <!-- Navigation -->
+
+
+<div class="container-portfolio">
+
+
+    <div class="jumbotron hero-container" 
+      
+        :hover="  background-color: rgb(118, 85, 85);
+        "
+        >
+
+      <div class="hero-centering">
+        <div style="display: grid;
+        grid-template-columns: 26em;
+        padding: 0px;
+        margin: 0px;">
+        <p  id = "text" class = "pixel-font"></p>
+        <h1 class="display-4 pixel-font ">
+          <div class="display-4 underline-block"></div></h1>
+        <div ></div>
+        </div>
+
+        <div style="
+        display: flex;
+        align-items: center;">
+    
+      <div class="row">
+        <p class="lead col-sm-9" style="margin-right: 15px;">
+          As a recent computer science graduate with a passion for web development, I am eager to apply my knowledge and skills to build robust and scalable web solutions. My desire to become a web developer stems from my interest in creating intuitive and user-friendly interfaces that positively impact businesses and people's lives. I am excited to leverage my education and experience to pursue a career in web development and contribute to the rapidly growing and evolving field of web technology.
+        </p>
+
+        <!--Profile Picture
+        
+          make the image clickable, and spins everytime it is clicked
+        
+        -->
+        <div class="coin col-sm-2"></div>
+      </div>
+
+        </div>
+        <p>View my resume to see how my qualifications can contribute to your team's success.</p>
+        <p class="lead btn-position">
+          <a class="badge badge-warning" href="Resume.pdf" role="button"
+          download="resume 2023"
+          style="padding: 10px;"
+          >View Resume</a>
+        </p>
+
+      </div>
+      </div>
+
+
+<!--ABOUT ME SECTION-->
+<section class="about-me" id="about-me">
+    <!--Add Downloadable Resume and photo of self-->
+    <div class="media">
+      <img class="mr-3" src="about-me-icon.png" alt="about-me-icon"
+      style="
+      max-height: 64px;
+      max-width: 64px;
+      filter: invert(100%);
+      "
+      >
+      <div class="media-body">
+        <h5 class="mt-0 pixel-font ">About Me</h5>
+        <p>
+        Hi there! My name is Tommy Rachman, I'm 28 years old from San Francisco, CA. When I'm not coding, you can find me producing music or graphic designing. Being artistic is one of my passions, and I love the creative process of turning ideas into a finished product.
+        </p>
+        <p>
+        In addition to my interest in creating music, I also enjoy playing video games and spending time on the basketball court because it helps me clear my mind and stay focused. In my free time, I enjoy learning new skills and expanding my knowledge. I feel that you can never learn enough, so it is very important to be educating yourself everyday.
+        </p>
+     
+        <p>
+          I am excited about the prospect of collaborating with other professionals and contributing my skills to exciting projects. Thank you for taking the time to learn a bit about me, and I look forward to connecting with you!
+        </p>
+      </div>
+    </div>
+
+</section>
+
+
+<!--My Skills SECTION-->
+
+
+<section class="my-skills" id="my-skills">
+<!--Add Downloadable Resume and photo of self-->
+<div class="media">
+<img class="mr-3" src="my-skills-icon.png" alt="my-skills-icon"
+style="
+max-height: 64px;
+max-width: 64px;
+filter: invert(100%);
+"
+>
+<div class="media-body">
+<h5 class="mt-0 pixel-font">My Skills</h5>
+
+<div class="container skills-table">
+  <div class="row">
+    <div class="col-sm">
+      <img class="skills-icons" src="c++-icon.png" alt="c++-icon">
+      C++
+    </div>
+    <div class="col-sm">
+      <img class="skills-icons" src="java-icon.png" alt="java-icon">
+      Java
+    </div>
+    <div class="col-sm">
+      <img class="skills-icons" src="js-icon.png" alt="js-icon">
+
+      JavaScript
+    </div>
+    <div class="col-sm">
+      <img class="skills-icons" src="python-icon.png" alt="python-icon">
+
+      Python
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+      <img class="skills-icons" src="html5-icon.png" alt="html5-icon">
+
+      HTML5
+    </div>
+    <div class="col-sm">
+      <img class="skills-icons" src="css-icon.png" alt="css-icon">
+
+      CSS
+    </div>
+    <div class="col-sm">
+      <img class="skills-icons" src="react-icon.png" alt="react-icon">
+
+      React
+    </div>
+    <div class="col-sm">
+      <img class="skills-icons" src="firebase-icon.png" alt="firebase-icon">
+
+      Firebase
+    </div>
+  </div>
+
+  <div class="row">
+    
+    <div class="col-sm">
+      <img class="skills-icons" src="mysql-icon.png" alt="mysql-icon">
+
+      MYSQL
+    </div>
+    <div class="col-sm">
+      <img class="skills-icons" src="node-icon.png" alt="node-icon">
+
+      Node.js  
+    </div>
+    <div class="col-sm">
+      <img class="skills-icons" src="json-icon.png" alt="json-icon">
+
+    JSON
+  </div>
+  <div class="col-sm">
+    <img class="skills-icons" src="redux-icon.svg" alt="redux-icon">
+
+    Redux
+  </div>
+  </div>
+
+
+
+<div class="row">
+    
+  <div class="col-sm">
+    <img class="skills-icons" src="aem-icon.png" alt="aem-icon">
+
+    AEM
+  </div>
+  <div class="col-sm">
+    <img class="skills-icons" src="fl-icon.png" alt="fl-icon">
+
+    FL Studios  
+  </div>
+  <div class="col-sm">
+    <img class="skills-icons" src="mongo-db-icon.png" alt="mongo-db-icon">
+
+  Mongo DB
+</div>
+<div class="col-sm">
+  <img class="skills-icons" src="ts-icon.png" alt="ts-icon">
+
+  TypeScript
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+
+<!--My Skills SECTION-->
+
+
+<section class="projects" id="projects" style=
+"
+ margin: 0%;"
+
+>
+
+
+<!--Add Downloadable Resume and photo of self-->
+<div class="media">
+<img class="mr-3" src="projects-icon.png" alt="projects-icon"
+style="
+max-height: 64px;
+max-width: 64px;
+filter: invert(100%);
+"
+>
+<div class="media-body">
+<h5 class="mt-0 pixel-font">Projects</h5>
+    <div class="project-grid">
+        <div>
+        <img  class="project-size" src="splunk-gif.gif" alt="splunk-gif">
+                <h5>Splunk Customer Story Page</h5>
+                <p>Html / CSS / AEM (Adobe Experience Manager)</p>
+        </div>       
+
+
+        <div>
+          <img  class="project-size" src="oracle-gif.gif" alt="oracle-gif">
+                  <h5>Oracle java4kids Page</h5>
+                  <p>Html / CSS / javaScript /Oracle CMS</p>
+          </div>   
+
+          <div>
+            <img  class="project-size" src="share-gallery-gif.gif" alt="share-gallery-gif">
+                    <h5>Share Gallery Page</h5>
+                    <p>Html / CSS / javaScript / Figma</p>
+            </div> 
+
+            
+          <div>
+            <img  class="project-size" src="originull-page.jpg" alt="originull-page">
+                    <h5>Personal Web page for my Music</h5>
+                    <p>Html / CSS / javaScript</p>
+            </div> 
+
+            <div>
+              <img  class="project-size" src="pokedex.gif" alt="pokedex-page">
+                      <h5>Pokedex displaying every pokemon info</h5>
+                      <p>Html / CSS / javaScript / Pokemon API</p>
+              </div> 
+
+    </div>
+</div>
+
+
+</section>
+
+
+
+<!--Contact Me SECTION-->
+
+
+<section class="contact-me" id="contact-me" style=
+"
+ margin: 0%;"
+
+>
+<!--Add Downloadable Resume and photo of self-->
+<div class="media">
+<img class="mr-3" src="contact-me-icon.png" alt="contact-me-icon"
+style="
+max-height: 64px;
+max-width: 64px;
+filter: invert(100%);
+"
+>
+<div class="media-body">
+<h5 class="mt-0 pixel-font">Contact Me</h5>
+
+<form>
+  <div class="form-group">
+    <label for="inputName">Name</label>
+    <input type="text" class="form-control" id="inputName" placeholder="Name">
+  </div>
+  <div class="form-group">
+    <label for="inputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="inputSubject">Subject</label>
+    <input type="text" class="form-control" id="inputSubject" placeholder="Subject">
+  </div>
+  <div class="form-group">
+    <label for="inputMessage">Message</label>
+
+    <textarea rows = "5" cols = "120" class="form-control" id="inputMessage" placeholder="Enter Message..."></textarea>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="goodLuck">
+    <label class="form-check-label" for="goodLuck">Check for good luck :D</label>
+  </div>
+  
+
+  <p class="lead">
+    <a class="badge badge-warning" href="#" role="button" type="submit"
+    style="padding: 10px; margin-top: 12px;"
+    > Submit
+  </a>
+  </p>
+</form>
+
+</section>
+
+
+
+</div>
+
+
+
+
+
+
+    <script>
+
+var i = 1;
+var txt = 'Tommy Rachman';
+var speed = 200;
+
+function typeWriter() {
+	var textElement = document.getElementById("text");
+	if (i <= txt.length) {
+		textElement.innerHTML = txt.substring(0, i);
+		i++;
+		setTimeout(typeWriter, speed);
+	} else {
+		// End of text has been reached, reset i and start over
+		i = 1;
+		setTimeout(typeWriter, speed);
+	}
+}
+
+window.onload = function() {
+	typeWriter();
+}
+
+
+    </script>
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+</body>
+</html>
