@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>My-calculatator</title>
+</head>
+<body>
+    <div id="mydiv1">
+        <form name="caf">
+
+            <input type="text" name="inna" placeholder="0" id="myplac">
+            <br>
+            <input type="button" value="1" onclick="caf.inna.value+=1">
+            <input type="button" value="2" onclick="caf.inna.value+=2">
+            <input type="button" value="3" onclick="caf.inna.value+=3">
+            <input type="button" value="+" onclick="add()">
+            <br>
+            <input type="button" value="4" onclick="caf.inna.value+=4">
+            <input type="button" value="5" onclick="caf.inna.value+=5">
+            <input type="button" value="6" onclick="caf.inna.value+=6">
+            <input type="button" value="-" onclick="sub()"> 
+            <br>
+            <input type="button" value="7" onclick="caf.inna.value+=7">
+            <input type="button" value="8" onclick="caf.inna.value+=8">
+            <input type="button" value="9" onclick="caf.inna.value+=9">
+            <input type="button" value="/" onclick="di()">
+            <br>
+            <input type="button" value="R" onclick="caf.inna.value=''">
+            <input type="button" value="0" onclick="caf.inna.value+=0">
+            <input type="button" value="=" onclick="caf.inna.value=eval(caf.inna.value)">
+            <input type="button" value="x" onclick="mul()">
+            <br>
+            
+            </form>
+            
+        
+            <script src="index.js"></script>
+        
+    </div>
+</body>
+</html>

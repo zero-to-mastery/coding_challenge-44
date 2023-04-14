@@ -1,0 +1,16 @@
+#mydiv1 {
+    width: 300px;
+    height: 280px;
+    background-color: black;
+
+
+}
+input {
+    width: 24%;
+    height: 55px; font-size: 20px;
+}
+#myplac {
+    width: 96%;
+    height: 50px;
+    background-color: azure;
+}
