@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 'montserrat', sans-serif;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-image: linear-gradient(120deg, #91eea8, #31ccfb);
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 10px;
+      }
+
+      .taskList {
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid rgb(0, 0, 0);
+        background: none;
+        padding: 10px;
+        outline: none;
+        font-size: 18px;
+      }
+
+      h1 {
+        padding: 50px;
+        text-align: center;
+      }
+
+      h3 {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: rgb(245, 181, 138);
+        border-radius: 10px;
+        box-shadow: 2px 2px 1px rgb(241, 241, 241);
+      }
+
+      .completedTask h3 {
+        background-color: rgb(138, 245, 195);
+      }
+
+      .task {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.5);
+        padding: 18px;
+        margin: 6px 0;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+
+      .task i {
+        float: right;
+        margin-left: 20px;
+        cursor: pointer;
+      }
+
+      .completedTask .task {
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+      }
+
+      .pendingTask {
+        float: left;
+        width: 49.5%;
+      }
+
+      .completedTask {
+        float: right;
+        width: 49.5%;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>TO DO LIST</h1>
+      <input
+        type="text"
+        class="taskList"
+        placeholder="Enter a task"
+        name=""
+        id=""
+      />
+      <div class="pendingTask">
+        <h3>Pending</h3>
+      </div>
+      <div class="completedTask">
+        <h3>Completed</h3>
+      </div>
+    </div>
+
+    <script>
+      $('.taskList').on('keyup', function (enterTask) {
+        if (enterTask.keyCode == 13 && $('.taskList').val() != '') {
+          const task = $("<div class='task'></div>").text($('.taskList').val());
+          const del = $("<i class='fas fa-trash-alt'></i>").click(function () {
+            let p = $(this).parent();
+            p.fadeOut(function () {
+              p.remove();
+            });
+          });
+
+          const check = $("<i class='fas fa-check'></i>").click(function () {
+            let p = $(this).parent();
+            p.fadeOut(function () {
+              $('.completedTask').append(p);
+              p.fadeIn();
+            });
+            $(this).remove();
+          });
+
+          task.append(del, check);
+          $('.pendingTask').append(task);
+          $('.taskList').val('');
+        }
+      });
+    </script>
+  </body>
+</html>
