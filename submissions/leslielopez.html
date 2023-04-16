@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poke Ball Product Card</title>
+
+    <style>
+        :root {
+            /* primary */
+            --dark-red: hsl(0, 100%, 27.3%);
+            --cadmium-red: hsl(351, 100%, 44.5%);
+            --orange-red: hsl(16.2, 100%, 50%);
+            --orange: hsl(16.2, 100%, 50%);
+            --radical-red: hsl(347.8, 100%, 60.4%);
+
+            /* poke ball */
+            --poke-ball-red: hsl(347.6, 96.7%, 51.8%);
+            --poke-ball-gray: hsl(0, 0%, 6.7%);
+
+            /* neutral */
+            --black: hsl(0, 0%, 0%);
+            --dim-gray: hsl(0, 0%, 45.1%);
+            --silver: hsl(0, 0%, 75.3%);
+            --white: hsl(0, 0%, 100%);
+            --whisper: hsl(0, 0%, 90.2%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--whisper);
+            width: 100%;
+            height: 37.9rem;
+        }
+
+        ::selection {
+            background: silver;
+        }
+
+        body::before {
+            content: "";
+            background: var(--whisper);
+            background-image: linear-gradient(0deg, var(--orange) 10%, var(--dark-red) 100%);
+            clip-path: circle(55% at right 30%);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            background: var(--white);
+            position: relative;
+            max-width: 46.87rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .container::before {
+            content: "";
+            background-image: linear-gradient(135deg, var(--orange) 10%, var(--dark-red) 100%);
+            clip-path: circle(65% at right 35%);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.75rem;
+        }
+
+        .container .box.one {
+            padding: 2.18rem 0.312rem 0 2.18rem;
+        }
+
+        .box.one .details .topic {
+            font-size: 1.87rem;
+            font-weight: 500;
+        }
+
+        .box.one .details p {
+            color: var(--dim-gray);
+            font-size: 0.81rem;
+            font-weight: 500;
+        }
+
+        .box.one .price-box {
+            margin-top: 1rem;
+        }
+
+        .box.one .discount {
+            color: var(--dim-gray);
+            font-size: 1.25rem;
+            position: relative;
+            margin: 0.62rem 0 0 0.75rem;
+        }
+
+        .box.one .discount::before {
+            content: "";
+            background: var(--dim-gray);
+            position: absolute;
+            top: 50%;
+            left: -0.5rem;
+            width: 6.25rem;
+            height: 0.062rem;
+        }
+
+        .box.one .price {
+            color: var(--cadmium-red);
+            font-size: 1.87rem;
+        }
+
+        .box.one .button1 {
+            margin-top: 3.43rem;
+        }
+
+        .box.one .button1 button {
+            background: var(--orange-red);
+            color: var(--white);
+            font-size: 1.12rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border: none;
+            outline: none;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .button1 button:hover {
+            transform: translateY(1px);
+        }
+
+        .container .box.two .image {
+            position: relative;
+            right: 0;
+            top: 0;
+            width: 26.87rem;
+            height: 21.25rem;
+        }
+
+        .image img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .container .box.two .image-box {
+            text-align: right;
+            position: relative;
+            right: 0;
+            bottom: 1.68rem;
+        }
+
+        .box.two .image-box .info {
+            margin: 0 2.18rem 0 0;
+        }
+
+        .box.two .info .brand {
+            color: var(--radical-red);
+            font-size: 1.06rem;
+            font-weight: 600;
+        }
+
+        .box.two .info .name {
+            color: var(--white);
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .box.two .info .shipping {
+            color: var(--black);
+            font-size: 1.12rem;
+            font-weight: 400;
+        }
+
+        .box.two .button2 {
+            margin: 1.06rem 0;
+        }
+
+        .button2 button {
+            background: transparent;
+            color: var(--white);
+            font-size: 0.93rem;
+            font-weight: 400;
+            padding: 0.5rem 1.06rem;
+            border: 1px solid var(--white);
+            border-radius: 0.75rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .button2 button:hover {
+            color: var(--white);
+            background: linear-gradient(150deg, var(--poke-ball-red), var(--poke-ball-gray));
+        }
+
+        .pokeball {
+            background: linear-gradient(0deg, var(--whisper) 0%, var(--whisper) 50%, var(--poke-ball-red) 50%, var(--poke-ball-red) 100%);
+            width: 24.5vw;
+            height: 50vh;
+            border-radius: 50%;
+            border: 6px var(--poke-ball-gray) solid;
+            position: relative;
+            left: 50px;
+            top: 50px;
+        }
+
+        .pokeball::before,
+        btn,
+        .btn::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .pokeball::before {
+            content: "";
+            width: 20.3rem;
+            background: var(--poke-ball-gray);
+            height: 4rem;
+        }
+
+        .pokeball::after {
+            content: "";
+            background: var(--white);
+            position: absolute;
+            top: 2.5rem;
+            left: 1rem;
+            width: 6rem;
+            height: 2rem;
+            border-radius: 50%;
+            transform: rotate(-40deg);
+        }
+
+        .btn {
+            background: var(--white);
+            width: 7.5rem;
+            height: 7.5rem;
+            border-radius: 50%;
+            border: 15px solid var(--poke-ball-gray);
+            position: relative;
+            left: 100px;
+            top: 80px;
+        }
+
+        .btn::before {
+            content: "";
+            width: 3.5rem;
+            height: 3.5rem;
+            border: 5px var(--poke-ball-gray) solid;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box one">
+            <div class="details">
+                <div class="topic">Description</div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo blanditiis doloribus minima facilis
+                    animi. Ratione, nobis cumque consectetur numquam sint alias, reprehenderit possimus eius ea deserunt
+                    nisi nemo, voluptas tenetur. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum
+                    corrupti recusandae veniam veritatis expedita eum magni fugit fuga rerum ex officiis adipisci
+                    laboriosam aliquam facere, sed doloremque est exercitationem.</p>
+                <div class="price-box">
+                    <div class="discount">$200</div>
+                    <div class="price">$100</div>
+                </div>
+            </div>
+            <div class="button1">
+                <button>Add To Cart</button>
+            </div>
+        </div>
+        <div class="box two">
+            <div class="image-box">
+                <div class="image">
+                    <div class="pokeball">
+                        <div class="btn"></div>
+                    </div>
+                </div>
+                <div class="info">
+                    <div class="brand">Item</div>
+                    <div class="name">Poke Ball</div>
+                    <div class="shipping">Free Shipping</div>
+                    <div class="button2">
+                        <button>Login For More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
