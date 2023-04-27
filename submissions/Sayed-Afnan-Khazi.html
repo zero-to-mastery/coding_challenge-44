@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		.hidden {
+			visibility: hidden;
+		}
+
+		.container {
+			display: grid;
+			justify-items: center;
+		}
+
+		#title {
+			text-decoration: underline ;
+			text-decoration-thickness: 20px;
+			height: 100%;
+			font-size: 8vh;
+		}
+
+		#input-div {
+			display: flex;
+			width: 100%;
+			height: 100%;
+			justify-content: center;
+			align-items: center;
+		}
+
+		#input-time {
+			margin-top: 15px;
+			margin-bottom: 15px;
+			margin-left: 25px;
+			font-size: 4vh;
+			font-weight: bold;
+			width: 15%;
+		/*	height: 50%;*/
+		}
+
+
+		p {
+			font-weight: bold;
+			font-size: 4vh;
+		}
+
+		#timer {
+			font-size: 20vh;
+			height: 1em;
+			margin: 0.1em;
+			border-bottom: 20px solid black;
+			padding: 0px 5px 0px 5px;
+		}
+
+		button {
+			height: 2.3em;
+		  width: 5em;
+		  padding: 0px;
+		  font-size: 1.3em;
+		  margin-left: 15px;
+		  margin-top: 15px;
+		  margin-right: 15px;
+		}
+
+
+		@media only screen and (max-width: 600px) {
+		  #title {
+		  	font-size: 6vh;
+		  	text-decoration-thickness: 15px;
+		  }
+		  #timer {
+		  	font-size: 15vh;
+		  }
+		  p {
+				font-size: 3vh;
+			}
+			#input-time {
+				font-size: 3vh;
+			}
+			button {
+				width: 3em;
+		/*		font-size: 1em;*/
+			}
+		}
+
+		@media only screen and (max-width: 475px) {
+		  #title {
+		  	font-size: 4vh;
+		  	text-decoration-thickness: 10px;
+		  }
+		  #timer {
+		  	font-size: 10vh;
+		  }
+		  p {
+			font-size: 2vh;
+			}
+			#input-time {
+				font-size: 2vh;
+			}
+		}
+	</style>
+	<title>Pomodoro</title>
+</head>
+<body>
+	<div class="container">
+		<h1 id="title">Pomodoro Timer</h1>
+		<div id="input-div">
+			<p>Input Time:</p>
+			<input type="numeric" name="time" id="input-time" value="25">
+		</div>
+		<h2 id="timer">25:00</h2>
+		<div class="buttons-list">
+			<button id="reset" class="hidden">Reset</button>
+			<button id="start">Start</button>
+			<button id="pause" class="hidden">Pause</button>
+			<button id="resume" class="hidden">Resume</button>
+		</div>
+	</div>
+	<script>
+		// Getting all the elements
+		const timerElement = document.getElementById("timer");
+		const startButton = document.getElementById("start");
+		const pauseButton = document.getElementById("pause");
+		const resumeButton = document.getElementById("resume");
+		const resetButton = document.getElementById("reset");
+		const timeInput = document.getElementById("input-time");
+		const inputDiv = document.getElementById("input-div");
+
+		// Setting the time global variables
+		let sec;
+		let min;
+		let timer;
+		let time;
+		let isRunning = false;
+
+		// Function to hide the input field
+		function hideField(inputDivObject) {
+			inputDivObject.classList.add("hidden");
+		}
+		function viewField(inputDivObject) {
+			inputDivObject.classList.remove("hidden");
+		}
+		// Functions to view/hide the buttons
+		function viewButton(buttonObject) {
+			buttonObject.classList.remove("hidden");
+		}
+		function hideButton(buttonObject) {
+			buttonObject.classList.add("hidden");
+		}
+
+		// Countdown logic
+		function startCountdown(){
+			// Checking to decrement minutes
+			if (sec === 0) {
+				min--;
+				sec = 59;
+			}
+			// Formatting seconds to be, eg: 08 instead of 8
+			if (sec < 10) {
+				timerElement.innerHTML=min+':0'+sec;
+			} else {
+		    	timerElement.innerHTML=min+':'+sec;
+			}
+			// Decrementing the timer
+		    sec--;
+		    // Checking for the end condition
+		    if (min < 0) {
+		    	isRunning = false;
+		    	timerElement.innerHTML='00'+':'+'00';
+		        clearInterval(timer);
+		        // Hide the pause button
+				hideButton(pauseButton);
+		        // Hide the resume button (edge case)
+				hideButton(resumeButton);
+		        alert("Time's up! 😃"); // Gets stuck on 00:01 and the above commands don't work, how to fix?
+		    }
+		}
+
+		// Buttons Logic
+		function startTimer(){
+			if (!isRunning) {
+				sec = 0;
+				time = timeInput.value;
+				min = time;
+				if (time<1) {
+					alert("Time can't be less than one. Setting time to 1.");
+					min = 1;
+				}
+				if (isNaN(min)) {
+					alert("Value entered is not a number. Please try again");
+					timeInput.value = 1;
+					timerElement.innerHTML = timeInput.value+':00';
+					return;
+				}
+			    isRunning = true;
+			    // Hiding the input field
+			    hideField(inputDiv);
+			    // Hiding the start button
+			    hideButton(startButton);
+			    // Introducing the reset button
+			    viewButton(resetButton);
+			    // Introducing the pause button
+			    pauseButton.classList.remove("hidden");
+			    timer = setInterval(startCountdown, 1000);
+			}
+		}
+
+		function pauseTimer() {
+			isRunning = false;
+			clearInterval(timer);
+			// Hiding the pause button
+			hideButton(pauseButton)
+			// Introducing the resume button
+			viewButton(resumeButton);
+		}
+
+
+		function resumeTimer() {
+			// Hiding the resume button
+			hideButton(resumeButton);
+			// Reintroducing the pause button
+			viewButton(pauseButton);
+			// Resuming the timer
+			// Note: We can't use startTimer() here since it will reset the timer
+			if (!isRunning) {
+			    isRunning = true;
+			    timer = setInterval(startCountdown, 1000);
+			}
+		}
+
+		function resetTimer() {
+			isRunning = false;
+			clearInterval(timer);
+			sec = 0;
+			min = timeInput.value;
+			if (sec < 10) {
+				timerElement.innerHTML=min+':0'+sec;
+			} else {
+		    	timerElement.innerHTML=min+':'+sec;
+			}
+			// Hide the pause button
+			hideButton(pauseButton);
+			// Hide the reset button
+			hideButton(resetButton);
+			// Hide the resume button (edge case)
+			hideButton(resumeButton);
+			// Show the start button
+			viewButton(startButton);
+			// Showing the input field
+			viewField(inputDiv);
+		}
+
+
+		function updateTimer() {
+			timerElement.innerHTML = timeInput.value+':00';
+		}
+
+		// Adding all the button's event listeners
+		startButton.addEventListener("click",startTimer);
+		pauseButton.addEventListener("click",pauseTimer);
+		resumeButton.addEventListener("click",resumeTimer);
+		resetButton.addEventListener("click",resetTimer);
+		timeInput.addEventListener("input",updateTimer);
+	</script>
+</body>
+</html>
