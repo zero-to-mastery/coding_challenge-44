@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Myne Organic</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/6e274c4be9.js" crossorigin="anonymous"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poltawski+Nowy:wght@400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poltawski Nowy', serif;
+      scroll-behavior: smooth;
+    }
+
+    /*-------Header Section-------*/
+    .header {
+      min-height: 100vh;
+      background: #43424254;
+      box-shadow: 0 2px 15px 5px rgba(255, 255, 255, 0.3);
+      position: relative;
+    }
+
+    /*-----Navigation Sector------*/
+    nav {
+      display: flex;
+      padding: 20px 50px;
+      justify-content: center;
+    }
+
+    .nav-links ul li {
+      list-style: none;
+      display: inline-block;
+      padding: 2rem 3rem;
+      position: relative;
+      transition: all 500ms ease;
+    }
+
+    .nav-links ul li a {
+      color: black;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .nav-links ul li a:hover {
+      color: rgba(152, 131, 50, 0.95);
+    }
+
+    /*---------Header Content---------*/
+    .text-box {
+      width: 70%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      padding: 5rem 0;
+    }
+
+    .text-box h1 {
+      font-size: 5rem;
+      font-weight: bolder;
+      color: rgba(152, 131, 50, 0.95);
+      margin-bottom: 2rem;
+    }
+
+    .text-box p {
+      margin-bottom: 3rem;
+      color: #000;
+      font-weight: bolder;
+      font-size: 1.1rem;
+      text-transform: capitalize;
+      line-height: 22px;
+    }
+
+    .btn {
+      text-decoration: none;
+      border: 1px solid rgba(152, 131, 50, 0.95);
+      ;
+      background-color: rgba(152, 131, 50, 0.95);
+      ;
+      color: rgb(255, 255, 255);
+      padding: 15px 35px;
+      font-size: 1rem;
+      position: relative;
+      transition: all 400ms ease;
+      border-radius: 7px;
+    }
+
+    .btn:hover {
+      border: 2px solid rgba(172, 151, 69, 0.95);
+      background: transparent;
+      color: #000;
+    }
+
+
+
+    /*----------ABOUT-----------*/
+    .about {
+      width: 100%;
+      height: 100vh;
+      margin: auto;
+      padding: 50px 0;
+      text-align: center;
+      background-image: linear-gradient(rgba(210, 210, 195, 0.743), rgba(141, 140, 136, 0.743));
+    }
+
+    h1 {
+      font-size: 37px;
+      font-weight: 800;
+      color: rgb(92, 77, 15);
+      margin-bottom: 3rem;
+      letter-spacing: 2px;
+    }
+
+    p {
+      color: #000;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      padding: 10px;
+    }
+
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 5rem;
+      padding-bottom: 20px;
+      gap: 5rem;
+    }
+
+    .card {
+      height: 200px;
+      width: 350px;
+      padding: 40px;
+      background-color: rgba(194, 180, 139, 0.743);
+      border-radius: 15px;
+      margin: 18px 20px;
+      transition: 0.4s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.15);
+    }
+
+    .card h3 {
+      margin: 5px;
+      color: rgba(85, 71, 15, 0.95);
+    }
+
+    h5 {
+      color: rgba(97, 81, 19, 0.95);
+      font-size: 1rem;
+      line-height: 14px;
+      letter-spacing: 2px;
+      padding: 12px;
+    }
+
+
+
+
+    /*--------CONTACT US------------*/
+    .contact {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background-image: linear-gradient(rgba(95, 95, 95, 0.4), rgba(107, 107, 107, 0.4));
+      box-shadow: 0 2px 15px 5px rgba(255, 255, 255, 0.3);
+      text-align: center;
+      padding-bottom: 2rem;
+    }
+
+    .contact h3 {
+      font-size: 24px;
+      font-weight: bolder;
+      padding-top: 4rem;
+      text-transform: capitalize;
+      margin-bottom: 2rem;
+    }
+
+    .contact p:last-child {
+      margin-bottom: 2rem;
+    }
+
+    .icons a {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      margin: 1rem 1rem;
+      background-color: rgba(153, 134, 49, 0.95);
+      color: white;
+      padding: 10px 15px;
+    }
+
+    .end {
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .end span {
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media screen and (max-width: 900px) {
+      .text-box h1 {
+        font-size: 4rem;
+      }
+
+      .about {
+        padding: 4% 10%;
+        height: fit-content;
+      }
+
+      .about .box {
+        display: grid;
+        padding-top: 0;
+        gap: 1rem;
+      }
+
+      .box .card {
+        width: 75vw;
+      }
+
+      .card h3 {
+        font-size: 1.7rem;
+        font-weight: bold;
+      }
+    }
+
+    @media screen and (max-width: 620px) {
+      nav {
+        padding: 0;
+        width: 90vw;
+        margin: 0 auto;
+      }
+
+      .nav-links ul li {
+        padding: 1.5rem;
+      }
+
+      .nav-links ul li a {
+        color: rgba(47, 39, 6, 0.95);
+      }
+
+      .text-box h1 {
+        font-size: 3.2rem;
+        padding-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .about h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        padding-top: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!----------Header Section---------->
+  <section class="header">
+    <nav>
+      <div class="nav-links" id="navLinks">
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#contact">CONTACT</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="text-box">
+      <h1>Myne Organic</h1>
+      <p>We assure the best with our high
+        consecrated black soap for your glowing skin <br>
+        which contains ingredients that combat acnes
+      </p>
+      <a href="" class="btn">Buy Now</a>
+    </div>
+  </section>
+
+  <!---------------ABOUT------------------->
+  <section class="about" id="about">
+    <div class="about-text">
+      <h1>ABOUT US</h1>
+      <p>
+        Have you been suffering from terrible acnes that's persistent and reoccuring
+        or are suffering <br>from bad after-effect using a certain organic product?.
+      </p>
+      <p>
+        look no further because your ever glowing skin is our top priority which is why at Myne Organics,<br>
+        we revitalize dead cells and prevent skin inflammation.
+      </p>
+      <div class="box">
+        <div class="card">
+          <h3>Natural</h3>
+          <h5>We offer organically grown products with only the best ingredients</h5>
+        </div>
+        <div class="card">
+          <h3>Healthy</h3>
+          <h5>Products are treated and grown by dedicated farmers.It helps in Acne treatment</h5>
+        </div>
+        <div class="card">
+          <h3>Fragrant</h3>
+          <h5>Safety is our product priority, it contains rose water which reduce redness and improve complexion</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-------------CONTACT US----------------->
+  <section class="contact" id="contact">
+    <div class="contact-us">
+      <h3>Let's be your Beauty Plug</h3>
+      <p>Contact us for your Anti-Aging and Skin Rejuvenation Soap</p>
+      <p>&#35;Stay Beautiful</p>
+    </div>
+    <div class="icons">
+      <a href=""><i class="fa fa-facebook"></i></a>
+      <a href=""><i class="fa fa-instagram"></i></a>
+      <a href=""><i class="fa fa-phone"></i></a>
+    </div>
+    <p class="end">
+      &copy;<span>CopyRight By <em>Chidoka Ifeanyi</em></span>
+    </p>
+  </section>
+
+</body>
+
+</html>
