@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+    background-color: black;
+} 
+.raindrop {
+  position: absolute;
+  width: 2px;
+  height:10px;margin-left: 1px;
+  background-color: rgb(51, 202, 1);
+  transform: rotate(0deg);
+  animation: fall 4s linear infinite;
+}
+@keyframes fall{
+    from{
+        top: 0%;
+    }
+    to{
+        top: 95vh;
+    }
+}
+</style>
+<body>
+    </body>
+
+<script>
+        
+    function Raindrop() {
+        var drop = document.createElement("div");
+        drop.className = "raindrop";
+        drop.style.left = Math.random() * window.innerWidth + "px";
+        drop.style.top = Math.random() * window.innerHeight + "px";
+        document.body.appendChild(drop);
+        
+      }
+    
+      setInterval(function() {
+        Raindrop();
+      }, 50);
+    </script>
+
+</html>
