@@ -47,6 +47,7 @@ Now, once you've forked this repo and got a local version up on your computer, f
 - [Checkbox Filters](/submissions/dimitarradulov.html) - By: [Dimitar Radulov](https://github.com/dimitarradulov)
 - [Portfolio-Landingpage](/submissions/salvo9107.html) - By: [Salvatore Marotta](https://github.com/Salvo9107)
 - [Agency Landing Page](/submissions/Carls13.html) - By: [Carlos Hernandez](https://github.com/Carls13)
+- [Green Rain](/submissions/manish0kuniyal.html) -By: [Manish Kuniyal](https://github.com/manish0kuniyal)
 - [Digital Clock](./submissions/Mariano-JR.html) - By: [Mariano-JR](https://github.com/Mariano-JR)
 - [Pricing Page](/submissions/mohakgupt.html) - By: [Mohak](https://github.com/mohakgupt)
 - [Typewriter Effect](/submissions/alexwindy0.html) - By: [Alex](https://github.com/Alexwindy0)
