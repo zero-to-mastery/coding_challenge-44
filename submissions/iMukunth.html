@@ -1,0 +1,788 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Mukunth Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gruppo&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,200&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+     <link
+        rel="stylesheet"
+
+        href="https://site-assets.fontawesome.com/releases/v6.4.0/css/all.css"
+      >
+
+      <link
+        rel="stylesheet"
+
+        href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-solid.css"
+      >
+
+      <link
+        rel="stylesheet"
+
+        href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-regular.css"
+      >
+
+      <link
+        rel="stylesheet"
+
+        href="https://site-assets.fontawesome.com/releases/v6.4.0/css/sharp-light.css"
+      >
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background: black;
+        }
+        a{
+            text-decoration: none;
+            color: whitesmoke;
+        }
+        #nav{
+            display: flex;
+            justify-content: flex-end;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            flex-direction: row;    
+            z-index: 1;  
+        }
+        .section-divided{
+            display: block;
+            max-width: 80%;
+            margin: 0 auto;
+            border-bottom: 1px solid #333;
+            margin-bottom: 6rem;
+            margin-top: 6rem;
+        }
+        .end-divided{
+            margin-bottom: 0px;
+        }
+        .nav-list{
+            list-style-type: none;
+            padding-right: 3rem;
+        }
+        #nav>ul>li{
+            display: inline-block;
+            margin-right: 5rem;
+            font-family: 'Bebas Neue',sans-serif;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            animation: introPreview;
+            animation-duration: 4s;
+            animation-timing-function: easy-in;
+        }
+
+        #nav>ul>li::after{
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: whitesmoke;
+            transition: width .3s;
+            width: 20px;
+            margin: 0 auto;
+        }
+        #nav>ul>li:hover::after{
+            width: 100%;
+        }
+        #Welcome-section{
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            width: 100%;
+            padding: 2rem;
+            box-sizing: border-box; 
+        }
+        #intro{
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            box-sizing: border-box; 
+        }
+        #intro > h1,#intro > h2{
+            color: white;
+
+        }
+        #Welcome-section h1{
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 6rem;
+            margin: 0;
+            animation-duration: 2s;
+        }
+
+        #Welcome-section h2{
+            font-family: 'Bebas Neue', sans-serif;
+            color: #333333;
+            font-size: 4.5rem;
+            margin: 0;
+            animation-duration: 3s;
+        }
+
+        #Welcome-section i{
+            color: red;
+            font-size: 3rem;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        #about{
+            width: 100%;
+            display: block;
+            background-color: black;
+            box-sizing: border-box; 
+            padding: 2rem 0 6rem 0;
+        /*    background-image: linear-gradient(135deg,#02aab0 0%,#00cdac 100%);*/
+        /*    background: rgba(125, 249, 255, 0.86);*/
+            background: url("https://img.freepik.com/free-photo/blue-concrete-textured-wall_53876-94019.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(10.5px);
+            -webkit-backdrop-filter: blur(10.5px);
+        /*    border: 1px solid rgba(125, 249, 255, 0.83);*/
+            clip-path: polygon(0 0,100% 0,100% 80%,0 100%);
+
+        }
+        #container{
+            height: auto;
+        }
+
+        h3{
+            text-align: center;
+            color: #fff;
+            margin: 0;
+            margin-bottom: 25px;
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
+            font-size: 2.8rem;
+        }
+        .wrapper{
+            display: flex;
+            width: calc(100% - 20%);
+            margin: 0 auto;
+            flex-direction: row;
+        }
+        .wrapper > div{
+            width: 50%;
+        }
+        .About-img{
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .About-img img{
+            box-shadow: 0 1rem 3rem #0000002d!important;
+            border-radius: 10px;
+            width: 300px;
+            height: auto;
+            vertical-align: middle;
+            max-width: 100%;
+        }
+        .About-details{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .About-details p{
+            font-family: Montserrat,sans-serif;
+            font-size: 1.3rem;
+            color: #fff;
+            fomt-weight: 100;
+        }
+
+        #project-section{
+            padding: 2rem 0;
+            width: 100%; 
+            display: block;
+            min-height: 620px;
+        }
+        .project-flex{
+            width: 100vw;
+            height: auto;
+            max-width: calc(100% - 20%);
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: space-around;
+            margin: 0 auto;   
+        }
+        .project-card{
+            background-color: #121212;
+            width:300px;
+            margin-top: 10px;
+            border-radius: 10px;
+            transition: 0.5s;
+            transition-timing-function: ease-out;
+        }
+        .project-card:hover{
+            transform: translateY(-30px);
+        }
+        .project-card img{
+            width: 300px;
+            height: 260px;
+            border-radius: 10px 10px 0 0;
+        }
+        aside{
+            color: #fff;
+            padding: 0 1.2rem 1rem 1.2rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+        aside > h4{
+            font-weight: bold;
+            font-family: "poppins",sans-serif;
+            margin: 13px 0 0 0;
+        }
+        aside > a{
+            font-family: "Poppins", sans-serif;
+            text-decoration: none;
+            text-transform: capitalize;
+            background: #e91e63;
+            border-radius: 15px;
+            display: inline-block;
+            align-self: center;
+            padding: 8px 25px;
+            font-family: poppins,sans-serif;
+            color: floralwhite;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            color: rgba(255, 255, 255, 0.9);
+        }
+        aside > h4 > i{
+            font-size: 1.1rem;
+            vertical-align: middle;
+            margin-right: 2px;
+        }
+        /* contact section*/
+        #contact-section{
+            width: 100%;
+            padding: 2rem 0 0 0;
+            margin-top: 1rem;
+        }
+        .Message-box{
+            width:100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0.5rem 0 0;
+        }
+        .Message-box p{
+            color: white;
+            font-family: "poppins",sans-serif;
+            font-size: 20px;
+            max-width: 260px;
+            font-weight: bold;
+            border-right: .15em solid orange;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 3.5s steps(40, end) infinite,blink-caret .75s step-end infinite;
+        }
+        label{
+            color: white;
+            width: 60%;
+            margin: 0 auto;
+            display: block;
+            margin-top: 1rem;
+            font-weight: bold;
+            font-family: "poppins",sans-serif;
+            font-size: 1.2rem;
+        }
+        label > input,label > textarea{
+            display: block;
+            width: 100%;
+            margin: 0 auto;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            background: black;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: white;
+            border: 1px solid rgb(51, 51, 51);
+            font-family: "poppins",sans-serif;
+            padding: 0.8rem 0.6rem;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        label > textarea:focus{
+            outline: 1px solid rgb(255, 255, 255);
+            border: 1px solid rgb(255, 255, 255);
+        } 
+        label > input:focus{
+            outline: 1px solid rgb(255, 255, 255);
+            border: 1px solid rgb(255, 255, 255);
+        }
+        .MsgSntBox{
+            color: white;
+        }
+        form > .btn{
+            display: block;
+            background: black;
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            margin: 0 auto;
+            margin-top: 2.2rem;
+            font-weight: bold;
+            border: 1px solid rgb(51, 51, 51);
+            text-transform: capitalize;
+            transition: 0.5s ease-in-out;
+            font-family: "poppins",sans-serif;
+            color: white;
+        }
+        form > .btn:hover{
+            border: 1px solid rgb(255, 255, 255);
+        }
+        footer{
+            padding: 3rem 0rem 1.5rem;
+            width: 80%;
+            margin: 0 auto;
+        }
+        .footer-items{
+            display: flex;
+            justify-content: space-between;
+        }
+        #footer-nav>ul>li{
+            color: white;
+            display: inline-block;
+            font-family: 'Bebas Neue',sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            border-right: 2px solid whitesmoke;
+            padding: 0 0.8rem;
+        }
+        #footer-nav>ul>li:nth-last-child(1){
+            border-right: none;
+        }
+
+        #social-icons > ul> li{
+            color: white;
+            text-decoration: none;
+            list-style-type: none;
+            display: inline-block;
+            margin-right: 2.4rem;
+            font-size: 1.8rem;
+            transition: transform 0.3s linear;
+        }
+        #social-icons > ul> li:hover{
+            transform: scale(1.5);
+        }
+        #social-text{
+            font-family: 'Bebas Neue',sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin: 0;
+            margin-right: 0px;
+        }
+        .copyright{
+            text-align: end
+        }
+        @keyframes introPreview{
+            0%{
+                opacity: 0;
+            }
+            25%{
+                opacity: 0;
+            }
+            50%{
+                opacity: 0;
+            }
+            75%{
+                opacity: 100%;
+            }
+            90%{
+                opacity: 0;
+            }
+            100%{
+                opacity: 100%;
+            }
+
+        }
+        @media (max-width:1600px){
+          About-details p{
+                font-size: 1.2rem;
+            }  
+        }
+        @media (max-width:1400px){
+            #intro{
+               padding: 2rem;
+            }
+            #intro h1{
+                font-size: 5.5rem;
+            }
+            #intro h2{
+                font-size: 4rem;
+            }
+
+            .About-details p{
+                font-size: 1.15rem;
+            }
+        }
+        @media (max-width:1200px){
+            .nav-list{
+                padding-right: 2rem;
+            }
+            #nav{
+                height: 55px;
+            }
+            #nav>ul>li{
+                 font-size: 1.6rem;
+                 margin-right: 3.5rem;
+            }
+            .wrapper{
+                width: calc(100% - 15%);
+            }
+            .wrapper > div{
+                width: 48%;
+            }
+            .wrapper > div:nth-child(2){
+                width: 52%;
+            }
+            .project-flex{
+                max-width: 800px;
+            }
+            .project-card:nth-child(3){
+                margin-top: 40px;
+            }
+        }
+        @media (max-width:1000px){
+            .nav-list{
+                padding-right: 1.7rem;
+            }
+             #nav>ul>li{
+                margin-right: 3.2rem;
+                 font-size: 1.4rem;
+            } 
+            #intro h1{
+                font-size: 5rem;
+            }
+            #intro h2{
+                font-size: 3.8rem;
+            }
+            .About-details p{
+                font-size: 1.1rem;
+            }
+            .wrapper{
+                width: calc(100% - 10%);
+            }
+            .footer-items{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width:900px){
+            .nav-list{
+                padding-right: 1.5rem;
+            }
+            #nav{
+                height: 50px
+            }
+            #nav>ul>li{
+                margin-right: 2.5rem;
+                font-size: 1.4rem;
+            }
+            #intro{
+                padding: 1rem;
+            }
+            #intro h1{
+                font-size: 4rem;
+            }
+            #intro h2{
+                font-size: 3.5rem;
+            }
+        }
+        @media (max-width:800px){
+            .wrapper > div{
+                width: calc(100% - 20%);
+            }
+            .wrapper{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            #container{
+                height: auto;
+            }
+            #about{
+                clip-path:none;
+                padding-bottom: 1rem;
+            }
+            .wrapper > div:nth-child(2){
+                width: calc(100% - 20%);
+                margin-top: 30px;
+            }
+            .About-details > p{
+                font-size: 1.23rem;
+                text-align: justify;
+            }
+            .project-flex{
+                max-width: 700px;
+            }
+        }
+        @media (max-width:700px){
+            .project-flex{
+                max-width: 400px;
+            }
+            .project-card:nth-child(2){
+                margin-top: 40px;
+            }
+        }
+        @media (max-width:600px){
+            #intro{
+                padding 0;
+            }
+            #intro h1{
+                font-size: 3.5rem;
+            }
+            #intro h2{
+                font-size: 3rem;
+            }
+        }
+        @media (max-width:1000px){
+
+        }
+
+        .animation-line::after{
+            content: '';
+            display: block;
+            width: 0px;
+            height: 2px;
+            background: #E8E8E8;
+            margin: 0 auto;
+            animation-name: lineInteraction;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        @keyframes lineInteraction{
+            0%{
+                width: 10px;
+            }
+            50%{
+                width: 140px;
+            }
+            100%{
+                width: 10px;
+            }
+        }
+        .active{
+        /*    background: linear-gradient(to top, rgba(247, 112, 98, 0.9) 0%, rgba(254, 81, 150, 0.9) 100%);*/
+        /*    background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);*/
+            background-color: #ffffff;
+            background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+            opacity: 0.8;
+            align-items: center;
+            width: 100vw;
+        }
+        .active-1{
+            color: black;
+        }
+        .project-title{
+            animation-delay: 1.3s;
+            margin-top: 1rem;
+        }
+        .animate__animated.animate__fadeInUp{
+            animation-delay: 1s;
+            animation-duration: 1.3s;
+            animation-timing-function: linear;
+        }
+
+        @keyframes typing {
+          from { width: 0 }
+          to { width: 100% }
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+          from, to { border-color: transparent }
+          50% { border-color: orange; }
+        }
+
+        .copyright{
+            color: white;
+            font-size: 12px;
+            font-family: sans-serif;
+            align-self: end;
+        }
+
+        .Msg-success {
+          position: fixed;
+          left: 50%;
+          top: 13%;
+          transform: translate(-50%, -50%);
+          color: white;;
+          margin: 0 auto;
+          width: 50%;
+          max-width: 370px;
+          text-align: center;
+          background: #004173;
+          border: 1px solid #004173;
+          padding: 0.4rem;
+          font-weight: bold;
+          font-family: "poppins", sans-serif;
+          border-radius: 10px;
+            z-index: 2;
+
+        }
+
+        }
+
+        .Msg-success > i{
+            font-size: 1.5rem;
+            vertical-align: middle;
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav id="nav" class="nav">
+        <ul class="nav-list">
+            <li><a href="#about" class="tiles">About</a></li>
+            <li><a href="#project-section" class="tiles">Work</a></li>
+            <li><a href="#contact-section" class="tiles">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!--  WELCOME SECTION  -->
+   
+    <section id="Welcome-section">
+        <div  id="intro">
+            <h1 class="animate__animated animate__fadeInLeftBig">Hello, My name is Mukunth</h1>
+            <h2 class="animate__animated animate__fadeInLeftBig">I am <span id="spin">web</span> Developer <i class="fa-sharp fa-solid fa-code fa-beat"></i></h2>
+        </div>
+    </section>
+    
+    <!--  ABOUT SECTION  -->
+    <section id="about">
+        <div id="container">
+        <!--HEADING-->
+        <h3 class="animation-line">ABOUT ME</h3>
+        <div class="wrapper flex">
+            <div class="About-img"><img src="https://lh3.googleusercontent.com/Felvk7dWeYD2wadQ5w6jsRNMYsqyOxnnDiqqYLGUSXaAXSLsb5eqp9pXexYQXII9STgTu-iim0ubl7iwYuvlnEivKT-Ev3jwWci_FweeOQuk10h8Ro-7zaWGOqW0OSHNdb-0nwEu6Ko=w2400"></div>
+            <!--  ARTICLE  -->
+            <div class="About-details">
+                <p>My name is Mukunth, and I am a web full stack developer currently pursuing a Master's in Computer Applications (MCA) at Sastra University. With a strong background in front-end and back-end development, I specialize in creating dynamic and interactive web applications.</p>
+                <p>I am passionate about staying updated with the latest technologies and working collaboratively to deliver high-quality web solutions. With my dedication and expertise, I am ready to contribute to the success of any web development project.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+    
+    <!--project-section-->
+    
+    <section id="project-section">
+        <!--HEADING-->
+        <div class="project-title animate__animated"><h3 class="animation-line">Projects</h3></div>
+        <div class="project-flex  animate__animated">
+            <div class="project-card"><img src="https://img.freepik.com/free-vector/gradient-metaverse-background_23-2149263788.jpg"><aside><h4><i class="fa-solid fa-hashtag"></i> Project 1</h4><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi neque, ipsa animi maiores repellendus distinctio aperiam earum dolor voluptatum consequatur blanditiis inventore debitis fuga numquam voluptate ex architecto itaque molestiae.</p><a href="#">open now</a></aside></div>
+                <div class="project-card animate__animated"><img src="https://img.freepik.com/free-vector/ai-technology-microchip-background-vector-digital-transformation-concept_53876-112222.jpg?w=740&t=st=1686380732~exp=1686381332~hmac=cbe941872d6b07c107ca4be313c42f7a8bbeb408619b87c2aeef7642a8647ee5"><aside><h4><i class="fa-solid fa-hashtag"></i> Project 2</h4><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi neque, ipsa animi maiores repellendus distinctio aperiam earum dolor voluptatum consequatur blanditiis inventore debitis fuga numquam voluptate ex architecto itaque molestiae.</p><a href="#">open now</a></aside></div>
+                <div class="project-card animate__animated"><img src="https://img.freepik.com/free-vector/smart-city_23-2148135335.jpg?size=626&ext=jpg&ga=GA1.1.1363891672.1686380700&semt=sph"><aside><h4><i class="fa-solid fa-hashtag"></i> Project 3</h4><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi neque, ipsa animi maiores repellendus distinctio aperiam earum dolor voluptatum consequatur blanditiis inventore debitis fuga numquam voluptate ex architecto itaque molestiae.</p><a href="#">open now</a></aside></div>
+        </div>
+    </section>
+    <div class="section-divided"></div>
+<!--  contact section-->
+    <section id="contact-section">
+        <div class="animate__animated"><h3 class="animation-line">say hello</h3></div>
+        
+        <div class="Message-box">
+            <form action="process.php" method="post">
+                 <p>I'd love to hear from you!</p>    
+                <label for="name">Name<input type="name" name="uname" id="name" placeholder="Jack Ryan" minlength="6" required></label>
+                <label for="mailid">Email Address<input type="email" id="email" name="mailid" placeholder="abc@gmail.com" required></label>
+                <label for="textM">Your meassge<textarea name="textmsg" id="message" rows="5" cols="30" placeholder="Drop your message here.."  minlength="10" required></textarea></label>
+                <input  class="btn" type="submit" name="btn-snt" value="Send message" onclick="Submit()" id="Form-Submit"></input>
+            </form>
+            
+        </div>
+    </section>
+    <div class="section-divided end-divided"></div>
+    <footer>
+        <div class="footer-items">
+        <nav id="footer-nav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#project-section">Work</a></li>
+                <li><a href="#contact-section">Contact</a></li>
+                <li>Education</li>
+                <li><a href="https://docs.google.com/document/d/1Bh-aqobZiQ51bPHy9eroiiu7kFPsxf7s/edit?usp=sharing&ouid=112779779439367987126&rtpof=true&sd=true" download>Downloads</a></li>
+            </ul>
+        </nav>
+        <nav id="social-icons">
+            <ul>
+                <li><a target="_blank" href="https://github.com/iMukunth"><i class="fa-brands fa-github"></i></a></li>
+                <li><a target="_blank" href="https://in.linkedin.com/in/mukunth-tata?trk=people-guest_people_search-card"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a target="_blank" href="https://www.instagram.com/mukunth__"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a><i target="_blank" class="fa-brands fa-twitter"></i></a></li>
+            </ul>
+        </nav>
+        </div>
+        <p class="copyright">Copyright <i class="fa-regular fa-copyright"></i> 2023. Designed by Mukunth</p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var textArray = ["front-end", "back-end", "full-stack"];
+            var index = 0;
+            var spanElement = $("#spin");
+
+            function changeText() {
+                spanElement.fadeOut(200, function() {
+                spanElement.text(textArray[index]);
+                spanElement.fadeIn(200);       
+            });
+            index = (index + 1) % textArray.length;
+            }
+            setInterval(changeText, 5000);
+        });
+        $(window).on("load",function() {
+            $(window).on("scroll", function() {
+                if($(window).scrollTop() > 50) {
+                    $("#nav").addClass("active");
+                    $(".tiles").addClass("active-1");
+                } else {
+                    $("#nav").removeClass("active");
+                    $(".tiles").removeClass("active-1");
+                }
+                if($(window).scrollTop() > 650) {
+                    $(".project-flex").addClass("animate__fadeInUp");
+                    $(".project-title").addClass("animate__fadeInUp");
+                } else {
+                    $(".project-flex").removeClass("animate__fadeInUp");
+                    $(".project-title").removeClassClass("animate__fadeInUp");
+                }
+            });
+        });
+
+        $(document).ready(function(){
+            $(".fa-circle-xmark").click(function(){
+            $(".Msg-success").toggle();
+            });
+        });
+    </script>
+</body>
+    
+</html>
