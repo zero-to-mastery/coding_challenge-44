@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiziz</title>
+<!--    FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;900&display=swap" rel="stylesheet">
+    <style>
+        a {
+            color: inherit;
+        }
+        :root {
+            --primary-color: white;
+            --accent-color: rgba(54, 49, 49);
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: whitesmoke;
+            height: 30vh;
+        }
+        .inner-header{
+            text-align: center;
+        }
+        .subtitle {
+            font-weight: normal;
+        }
+        .high {
+            padding: .2rem;
+            background: var(--accent-color);
+            color: var(--primary-color)
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: whitesmoke;
+        }
+        main {
+            margin: 3rem 0;
+        }
+        .question {
+            width: 50%;
+            margin: 0 auto;
+            border-radius: 10px;
+            background: whitesmoke;
+            padding: 1rem;
+            text-align: center;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style-type: none;
+        }
+        .question-title {
+            font-size: 1.4em;
+            font-weight: 800;
+        }
+        .question-answers {}
+        .button {
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            font-family: 'Montserrat', sans-serif;
+            padding: .5rem;
+            margin: 1rem 0;
+        }
+        .hidden {
+            display: none;
+        }
+        .blur{
+            z-index: 9;
+            position: fixed;
+            background: rgba(54, 49, 49, 0.8);
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .modal {
+            z-index: 10;
+            position: fixed;
+            border-radius: 10px;
+            left: 50%;
+            top: 50%;
+            color: black;
+            background: whitesmoke;
+            transform: translate(-50%, -50%);
+        }
+        .modal-header {
+            font-size: 1.4em;
+            font-weight: 800;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            text-align: center;
+            padding: 2rem;
+
+        }
+        .modal-footer {
+            height: 10px;
+            background: var(--accent-color);
+        }
+        .modal-body{
+            text-align: center;
+            padding: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="inner-header">
+        <h1>Quiziz</h1>
+        <p class="delimiter">───── ⋆⋅☆⋅⋆ ─────</p>
+        <h2 class='subtitle'>The only <span class="high">quiz game</span> that you {presumably} need!</h2>
+    </div>
+</header>
+<main>
+    <div class="question q1">
+        <div class="question-title">
+
+        </div>
+        <form class="question-answers" >
+        </form>
+    </div>
+
+
+    <div class="blur hidden"></div>
+
+    <div class="error modal hidden">
+        <div class="modal-header">
+            <p>Sorry!</p>
+        </div>
+        <div class="modal-body">
+            <p>Please <span class="high">try again!</span></p>
+            <input class="button close-modal" type="button" value="Try again!">
+        </div>
+        <div class="modal-footer"></div>
+    </div>
+
+    <div class="success modal hidden">
+        <div class="modal-header">
+            <p>AWESOME!</p>
+        </div>
+        <div class="modal-body">
+            <p>Great job! <span class="high">You know your stuff!</span></p>
+            <input class="button close-modal" type="button" value="Refresh the page to try again!">
+        </div>
+        <div class="modal-footer"></div>
+    </div>
+</main>
+<footer>
+    <p>Create with love by <span class="high"><a href="https://www.linkedin.com/in/%C8%99tefan-secrieru-b0b60b224/">Stefan Secrieru</a></span></p>
+</footer>
+
+<script>
+    let idx = 0
+
+    const solutions = [
+        {
+            question: 'What can you use to style a Web page?',
+            correct: [2],
+            answers: ['HTML', 'CSS', 'JS', 'React Js.', 'Svelte']
+        },
+        {
+            question: 'What does HTML stand for?',
+            correct: [3],
+            answers: ['Hyper Text Markup Lingo', 'Hyper Trait Markup Language', 'Hyper Text Markup Language']
+        },
+        {
+            question: 'What can you use for Web Development?',
+            correct: [1, 2, 3],
+            answers: ['HTML', 'CSS', 'JS']
+        }
+    ]
+    const printQuestion = () => {
+        const questions = document.querySelectorAll('.question')
+        const newButton = document.createElement('input')
+        newButton.classList.add('button')
+        newButton.type = 'submit'
+        newButton.value = 'Submit!'
+        const container = document.querySelector('.question-answers')
+        container.innerHTML = ''
+
+        const newBr = document.createElement('br')
+
+        container.appendChild(newButton)
+        container.appendChild(newBr)
+
+
+        const questionTitle = document.createElement('p')
+        questionTitle.innerHTML = solutions[idx].question
+
+        const questionDelimiter = document.createElement('p')
+        questionDelimiter.innerHTML = '───── ⋆⋅☆⋅⋆ ─────'
+
+        const questionHeader = document.querySelector('.question-title')
+        questionHeader.innerHTML = ''
+        questionHeader.appendChild(questionTitle)
+        questionHeader.appendChild(questionDelimiter)
+
+        for (let i = 0; i < solutions[idx].answers.length; i++) {
+            const newInput = document.createElement('input')
+            newInput.id = `inp${i}`
+            newInput.type = 'checkbox'
+
+            const newLabel = document.createElement('label')
+            newLabel.textContent = solutions[idx].answers[i]
+            newLabel.htmlFor = `inp${i}`
+
+
+            const newBr = document.createElement('br')
+            container.appendChild(newInput)
+            container.appendChild(newLabel)
+            container.appendChild(newBr)
+        }
+
+    }
+
+    const printError = () => {
+        document.querySelector('.error').classList.remove('hidden')
+        document.querySelector('.blur').classList.remove('hidden')
+    }
+
+    const printSuccess = () => {
+        idx++
+        if(idx < solutions.length)
+            printQuestion()
+        else{
+            document.querySelector('.success').classList.remove('hidden')
+            document.querySelector('.blur').classList.remove('hidden')
+        }
+    }
+
+    const isIn = (container, target) => {
+        for (let containerElement of container)
+            if(target === containerElement)
+                return true
+        return false
+    }
+    const checkFormValidity = (ans) => {
+        if(ans.length !== solutions[idx].correct.length){
+            printError()
+            return -1
+        }
+        for (let s of solutions[idx].correct) {
+            console.log(ans, s, idx)
+            if(!(isIn(ans, s))) {
+                printError()
+                return -1
+            }
+        }
+        printSuccess()
+        return 0
+    }
+    const formSubmitted = (e) => {
+        const ans = []
+        e.preventDefault()
+        const checkboxes = e.target
+        console.log(checkboxes)
+        for(let i = 1; i < checkboxes.length; i++)
+            if(checkboxes[i].checked)
+                ans.push(i)
+        checkFormValidity(ans)
+
+    }
+    const startListening = () => {
+        document.querySelectorAll('form').forEach(f => {
+            f.addEventListener('submit', (e) => {
+                formSubmitted(e)
+            })
+        })
+    }
+    const startListeningOnModals = () => {
+        document.querySelectorAll('.close-modal').forEach(m => {
+            m.addEventListener('click', () => {
+                document.querySelectorAll('.modal').forEach(m => {
+                    m.classList.add('hidden')
+                })
+                document.querySelector('.blur').classList.add('hidden')
+            })
+        })
+    }
+
+    (() => {
+        idx = 0
+        startListeningOnModals()
+        printQuestion()
+        startListening()
+    })()
+
+
+</script>
+
+
+</body>
+</html>
