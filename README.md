@@ -53,6 +53,7 @@ Now, once you've forked this repo and got a local version up on your computer, f
 - [Satoshi's Converter](/submissions/Almopt.html) - By: [Almopt](https://github.com/Almopt)
 - [Tic tac toe](./submissions/sherawat-Lokesh.html) -By: [sherawat-Lokesh](https://github.com/sherawat-Lokesh)
 - [House Garbage Management website](/submissions/Fly0w.html) - By: [Fly0w](https://github.com/Fly0w)
+- [Quiziz - Quiz yourself!](/submissions/Stefan3002.html) - By: [Stefan3002](https://github.com/Stefan3002)
 
 
 ## One Last Thing!
