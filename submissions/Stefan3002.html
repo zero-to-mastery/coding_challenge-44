@@ -74,7 +74,9 @@
             font-size: 1.4em;
             font-weight: 800;
         }
-        .question-answers {}
+        .question-answers {
+
+        }
         .button {
             background: transparent;
             border: 1px solid var(--accent-color);
@@ -117,10 +119,30 @@
             height: 10px;
             background: var(--accent-color);
         }
-        .modal-body{
+        .modal-body {
             text-align: center;
             padding: 3rem;
         }
+        .menu {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            width: 30%;
+            margin: 1rem auto;
+            padding: .5rem;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border-radius: 10px;
+        }
+        @media screen and (max-width: 1000px) {
+            .menu {
+                width: 70%;
+            }
+            .question {
+                width: 80%;
+            }
+        }
+
     </style>
 </head>
 
@@ -133,7 +155,15 @@
     </div>
 </header>
 <main>
-    <div class="question q1">
+    <div class="menu">
+        <p class="question-number">
+
+        </p>
+        <p class="questions-tries">
+
+        </p>
+    </div>
+    <div class="question">
         <div class="question-title">
 
         </div>
@@ -172,6 +202,7 @@
 
 <script>
     let idx = 0
+    let noTries = 0;
 
     const solutions = [
         {
@@ -188,9 +219,22 @@
             question: 'What can you use for Web Development?',
             correct: [1, 2, 3],
             answers: ['HTML', 'CSS', 'JS']
+        },
+        {
+            question: 'SAAS is a ... preprocessor',
+            correct: [1],
+            answers: ['CSS', 'JS', 'HTML', 'C++', 'Ruby']
         }
     ]
+
+    const rePrintTries = () => {
+        document.querySelector('.questions-tries').innerHTML = `${noTries}`
+    }
     const printQuestion = () => {
+
+        // Print the current question number in the menu
+        document.querySelector('.question-number').innerHTML = `${idx + 1} / ${solutions.length}`
+
         const questions = document.querySelectorAll('.question')
         const newButton = document.createElement('input')
         newButton.classList.add('button')
@@ -220,10 +264,12 @@
             const newInput = document.createElement('input')
             newInput.id = `inp${i}`
             newInput.type = 'checkbox'
+            newInput.classList.add('answer')
 
             const newLabel = document.createElement('label')
             newLabel.textContent = solutions[idx].answers[i]
             newLabel.htmlFor = `inp${i}`
+            newLabel.classList.add('answer-label')
 
 
             const newBr = document.createElement('br')
@@ -235,12 +281,16 @@
     }
 
     const printError = () => {
+        noTries++
+        rePrintTries()
         document.querySelector('.error').classList.remove('hidden')
         document.querySelector('.blur').classList.remove('hidden')
     }
 
     const printSuccess = () => {
         idx++
+        noTries++
+        rePrintTries()
         if(idx < solutions.length)
             printQuestion()
         else{
@@ -302,6 +352,7 @@
     (() => {
         idx = 0
         startListeningOnModals()
+        rePrintTries()
         printQuestion()
         startListening()
     })()
