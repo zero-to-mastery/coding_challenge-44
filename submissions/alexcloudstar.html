@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman Game</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body,
+      #app {
+        height: 100%;
+      }
+
+      .game-title {
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      #app {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .hidden {
+        opacity: 0.3;
+      }
+
+      .d-none {
+        display: none;
+      }
+
+      #hangtool {
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 229px;
+        left: -10px;
+      }
+
+      #hangtool .top {
+        height: 10px;
+        width: 119px;
+        background-color: black;
+        position: absolute;
+        top: -15px;
+        right: 0;
+        border-radius: 10px;
+      }
+
+      #hangtool .middle {
+        height: 250px;
+        width: 10px;
+        background-color: black;
+        position: absolute;
+        bottom: 20px;
+      }
+
+      #hangtool .bottom {
+        height: 50px;
+        display: flex;
+        position: absolute;
+        bottom: -10px;
+      }
+
+      #hangtool .bottom .left,
+      #hangtool .bottom .right {
+        width: 10px;
+        height: 80px;
+        background-color: #000;
+        position: absolute;
+        border-radius: 10px;
+      }
+
+      #hangtool .bottom .left {
+        right: 20px;
+        transform: rotate(45deg);
+      }
+
+      #hangtool .bottom .right {
+        left: 20px;
+        transform: rotate(-45deg);
+      }
+
+      #hangman-string {
+        height: 6px;
+        width: 70px;
+        background-color: #000;
+        position: absolute;
+        top: 20px;
+        right: -32px;
+        transform: rotate(90deg);
+      }
+
+      #hangman {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      #hangman #head {
+        height: 50px;
+        width: 50px;
+        background-color: #000;
+        border-radius: 50%;
+        position: absolute;
+        top: 40px;
+        right: -25px;
+      }
+
+      #hangman #body {
+        height: 100px;
+        width: 10px;
+        background-color: #000;
+        position: absolute;
+        top: 90px;
+        right: -5px;
+      }
+
+      #hangman #body #left-arm,
+      #hangman #body #right-arm,
+      #hangman #body #left-leg,
+      #hangman #body #right-leg {
+        height: 50px;
+        width: 10px;
+        background-color: #000;
+        position: absolute;
+      }
+
+      #hangman #body #left-arm {
+        top: 0;
+        left: -20px;
+        transform: rotate(45deg);
+      }
+
+      #hangman #body #right-arm {
+        top: 0;
+        right: -20px;
+        transform: rotate(-45deg);
+      }
+
+      #hangman #body #left-leg {
+        bottom: -35px;
+        left: -20px;
+        transform: rotate(45deg);
+      }
+
+      #hangman #body #right-leg {
+        bottom: -35px;
+        right: -20px;
+        transform: rotate(-45deg);
+      }
+
+      #inputs {
+        display: flex;
+        margin-top: 150px;
+      }
+
+      #inputs input {
+        max-width: 35px;
+        margin: 0 5px;
+        text-transform: uppercase;
+        padding: 5px 10px;
+      }
+
+      .game-status {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+      }
+
+      .game-status::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: #000;
+        opacity: 0.5;
+      }
+
+      .game-status div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .game-status h1 {
+        color: #fff;
+        font-size: 70px;
+        margin-bottom: 20px;
+      }
+
+      .game-status button {
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: #000;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .game-status button:hover {
+        background-color: #fff;
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="game-title">Hangman Game</h1>
+    <div id="app">
+      <div id="hangtool" class="hidden">
+        <div class="top hidden"></div>
+        <div class="middle hidden"></div>
+        <div class="bottom hidden">
+          <div class="left"></div>
+          <div class="right"></div>
+        </div>
+        <div id="hangman-string" class="hidden"></div>
+        <div id="hangman" class="hidden">
+          <div id="head" class="hidden"></div>
+          <div id="body" class="hidden">
+            <div id="left-arm" class="hidden"></div>
+            <div id="right-arm" class="hidden"></div>
+            <div id="left-leg" class="hidden"></div>
+            <div id="right-leg" class="hidden"></div>
+          </div>
+        </div>
+      </div>
+      <div id="inputs"></div>
+      <div class="game-status d-none">
+        <div class="game-over d-none">
+          <h1>Game Over</h1>
+          <button type="button" onclick="restartGame()">Restart game</button>
+        </div>
+        <div class="game-won d-none">
+          <h1>Game Won</h1>
+          <button type="button" onclick="restartGame()">Restart game</button>
+        </div>
+      </div>
+    </div>
+
+    <script async>
+      const hangmanParts = {
+        bottom: false,
+        middle: false,
+        top: false,
+        string: false,
+        head: false,
+        body: false,
+        leftArm: false,
+        rightArm: false,
+        leftLeg: false,
+        rightLeg: false,
+      };
+
+      const gameStatus = {
+        gameOver: false,
+        gameWon: false,
+      };
+
+      const restartGame = () => window.location.reload();
+
+      const drawHangMan = step => {
+        const hangtool = document.getElementById('hangtool');
+        const hangtoolBottom = document.querySelector('#hangtool > .bottom');
+        const hangtoolMiddle = document.querySelector('#hangtool > .middle');
+        const hangtoolTop = document.querySelector('#hangtool > .top');
+        const hangManString = document.querySelector(
+          '#hangtool > #hangman-string'
+        );
+        const hangMan = document.querySelector('#hangtool > #hangman');
+        const hangManHead = document.querySelector(
+          '#hangtool > #hangman > #head'
+        );
+        const hangManBody = document.querySelector(
+          '#hangtool > #hangman > #body'
+        );
+        const hangManLeftArm = document.querySelector(
+          '#hangtool > #hangman > #body > #left-arm'
+        );
+        const hangManRightArm = document.querySelector(
+          '#hangtool > #hangman > #body > #right-arm'
+        );
+        const hangManLeftLeg = document.querySelector(
+          '#hangtool > #hangman > #body > #left-leg'
+        );
+        const hangManRightLeg = document.querySelector(
+          '#hangtool > #hangman > #body > #right-leg'
+        );
+
+        hangtool.classList.remove('hidden');
+
+        if (!hangmanParts.bottom && step === 1) {
+          showElement(hangtoolBottom);
+        }
+
+        if (!hangmanParts.middle && step === 2) {
+          showElement(hangtoolMiddle);
+        }
+
+        if (!hangmanParts.top && step === 3) {
+          showElement(hangtoolTop);
+        }
+
+        if (!hangmanParts.string && step === 4) {
+          showElement(hangMan);
+          showElement(hangManString);
+        }
+
+        if (!hangmanParts.head && step === 5) {
+          showElement(hangManHead);
+        }
+
+        if (!hangmanParts.body && step === 6) {
+          showElement(hangManBody);
+        }
+
+        if (!hangmanParts.leftArm && step === 7) {
+          showElement(hangManLeftArm);
+        }
+
+        if (!hangmanParts.rightArm && step === 8) {
+          showElement(hangManRightArm);
+        }
+
+        if (!hangmanParts.leftLeg && step === 9) {
+          showElement(hangManLeftLeg);
+        }
+
+        if (!hangmanParts.rightLeg && step === 10) {
+          showElement(hangManRightLeg);
+
+          gameStatus.gameOver = true;
+          document.querySelector('.game-status').classList.remove('d-none');
+          document.querySelector('.game-over').classList.remove('d-none');
+        }
+      };
+
+      function showElement(element) {
+        element.classList.remove('hidden');
+      }
+
+      const startRound = async () => {
+        let step = 0;
+        const inputsIdSelector = '#inputs';
+        const inputsDiv = document.querySelector(inputsIdSelector);
+
+        const fetched = await fetch(
+          'https://random-word-api.herokuapp.com/all'
+        );
+        const json = await fetched.json();
+        const word = json[Math.floor(Math.random() * json.length)];
+        const wordLength = word.length;
+
+        for (let i = 0; i < wordLength; i++) {
+          const divInputs = document.createElement('input');
+
+          inputsDiv.appendChild(divInputs);
+
+          document
+            .querySelectorAll(`${inputsIdSelector} > input`)
+            .forEach((element, index) => {
+              element.classList.add('letter');
+              element.type = 'text';
+              element.maxLength = '1';
+              element.id = `letter-${index}`;
+
+              element.onkeydown = el => {
+                let indexes = [];
+
+                for (let i = 0; i < wordLength; i++) {
+                  if (word[i] === el.key) {
+                    indexes.push(i);
+                  }
+                }
+
+                const inputs = document.querySelectorAll('.letter');
+
+                if (el.key === 'Backspace' || el.key === 'Delete')
+                  return clearInput(el);
+
+                if (indexes.length === 0) {
+                  step++;
+                  drawHangMan(step);
+                } else {
+                  for (let i = 0; i < indexes.length; i++) {
+                    inputs[indexes[i]].value = el.key;
+                    inputs[indexes[i]].disabled = true;
+                  }
+
+                  for (let i = 0; i < inputs.length; i++) {
+                    if (inputs[i].value === '') return;
+                  }
+
+                  gameStatus.gameWon = true;
+                  document
+                    .querySelector('.game-status')
+                    .classList.remove('d-none');
+                  document
+                    .querySelector('.game-won')
+                    .classList.remove('d-none');
+                }
+              };
+            });
+        }
+      };
+
+      startRound();
+    </script>
+  </body>
+</html>
