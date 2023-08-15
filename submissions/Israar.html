@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css.css">
+	<title>First Git Challenge</title>
+</head>
+<style>
+h1 {
+    font: size 5em;
+    color: lawngreen;
+    font-family: monospace;
+    text-align: center;
+    margin: auto 0;
+    justify-content: center;
+    margin-top: 25%;
+}
+p{
+    color: aliceblue;
+}
+body{
+    background: url("https://wallpapercave.com/dwp2x/wp8368533.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+h3 {
+	font: 900 1.4em monospace;
+    color: rgb(191, 239, 245);
+    text-align: center;
+    text-transform: none;
+    letter-spacing: 0.01em;
+}
+.color1{
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    margin-left: 45%;
+    margin-right: auto;
+}
+.color2{
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    margin-left: auto;
+    margin-right: 45%;
+}
+#container{
+	background: linear-gradient(to right, red , yellow);
+    opacity: 0.8;
+    height: 50vh;
+    width: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:0;
+    margin-left: 25%;
+}
+
+#twist{
+
+    transition: transform 5s;
+}
+#twist:hover{
+    -webkit-transform: rotate(-2160deg);
+    -moz-transform: rotate(-2160deg);
+    -o-transform: rotate(-2160deg);
+    -ms-transform: rotate(-2160deg);
+    transform: rotate(-2160deg);
+}
+#center{
+    align-items: center;
+    justify-content: center;
+    margin-left: 45%;
+    margin-top: 30%;
+}
+</style>
+<body>
+    <div id="center">
+    <div id="addText">
+    </div>
+    </div>
+	<div id="container">
+    <h1 id="twist">I Don't Git It</h1>
+	</div>
+    <input oninput="setGradient()" class="color1" type="color" name="color1" value="#00ff00">
+	<input oninput="setGradient()" class="color2" type="color" name="color2" value="#ff0000">
+    <h3></h3>
+
+<script>
+    var css = document.querySelector("h3");
+    var color1 = document.querySelector(".color1");
+    var color2 = document.querySelector(".color2");
+    var box = document.getElementById("container");
+
+    function setGradient() {
+	box.style.background = 
+	"linear-gradient(to right, " 
+	+ color1.value 
+	+ ", " 
+	+ color2.value 
+	+ ")";
+
+	css.textContent = box.style.background + ";";
+}
+
+color1.addEventListener("input", setGradient);
+
+color2.addEventListener("input", setGradient);
+
+var twist = document.getElementById("twist");
+var text = document.createTextNode(" Twisted");
+
+function EnterFunction() {
+  document.getElementById("twist").innerHTML = "twisting";
+
+var addText = document.getElementById("addText");
+
+var container = document.createElement("span");
+
+container.appendChild(text);
+container.style.color = "lawngreen";
+addText.appendChild(container);
+}
+
+
+function LeaveFunction() {
+  document.getElementById("twist").innerHTML = "I Don't Git It";
+  text.parentNode.removeChild(text);
+
+}
+
+twist.addEventListener("mouseenter", EnterFunction );
+twist.addEventListener("mouseleave", LeaveFunction );
+
+
+// twist.addEventListener("mouseleave", function(){
+//     twist.innerHTML = "I don't git it";
+// })
+
+
+
+
+// var enter = document.getElementById("enter");
+// var input = document.getElementById("userinput");
+// var ul = document.querySelector("ul");
+// function createList() {
+// 		var li = document.createElement("li");
+// 		li.appendChild(document.createTextNode(input.value));
+// 		ul.appendChild(li);
+// 		input.value = "";
+// }
+</script>
+</body>
+</html>
