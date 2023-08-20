@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our website</title>
+
+    <style>
+        /* All */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(45deg, #A119FD, #5917E3);
+            background-repeat: no-repeat;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 50px;
+
+            width: 100%;
+            height: 80px;
+
+            background: #5D4CEB;
+        }
+
+        header nav ul {
+            list-style: none;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin-left: 7px;
+            margin-right: 7px;
+        }
+
+        header nav ul li a:link,
+        header nav ul li a:visited {
+            color: white;
+            font-weight: bolder;
+            font-size: 30px;
+            text-decoration: none;
+        }
+
+        header nav ul li a:hover,
+        header nav ul li a:active {
+            transition: 0.5s;
+            color: rgba(250, 250, 250, 0.4);
+        }
+
+
+        /* Main content */
+        main {
+            width: 1000px;
+            min-height: 850px;
+            margin: 0 auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            color: white;
+        }
+
+        main h1 {
+            font-size: 35px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        main p {
+            margin-bottom: 8px;
+            font-size: 18px;
+            text-align: justify;
+        }
+
+        /* Contact */
+        .contact input[type="text"], .contact input[type="email"], .contact textarea{
+            width: 350px;
+            height: 40px;
+            display: block;
+            margin: 0 auto;
+            padding: 8px;
+            margin-bottom: 10px;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .contact textarea{
+            height: 150px;
+        }
+
+        .contact input[type="submit"]{
+            display: block;
+            margin: 0 auto;
+            width: 70px;
+            height: 40px;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bolder;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            background: #5D4CEB;
+            color: white;
+        }
+
+        .contact input[type="submit"]:hover{
+            transition: 0.5s;
+            background: white;
+            color: #5D4CEB;
+        }
+
+        /* Footer */
+        footer {
+            width: 100%;
+            height: 90px;
+            background: #5D4CEB;
+
+            margin-top: 50px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+            font-size: 20px;
+        }
+
+        footer p {
+            margin-bottom: 8px;
+        }
+
+        footer a:link,
+        footer a:visited {
+            color: rgba(0, 0, 0, 0.8);
+            font-size: 20px;
+            text-decoration: none;
+            font-weight: bolder;
+        }
+
+        footer a:hover,
+        footer a:active {
+            transition: 0.5s;
+            color: rgba(250, 250, 250, 0.8);
+        }
+
+        /* Media Queryes */
+        @media (max-width: 1010px){
+            main{
+                width: auto;
+            }
+        }
+
+        @media (max-width: 650px){
+            header{
+                height: auto;
+                padding: 15px;
+                text-align: center;
+            }
+            
+            header nav ul li{
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 400px){
+            .contact input[type="text"], .contact input[type="email"], .contact textarea{
+                width: 250px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#abo">About</a></li>
+                <li><a href="#ser">Services</a></li>
+                <li><a href="#why">Why We?</a></li>
+                <li><a href="#ref">References</a></li>
+                <li><a href="#con">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="about" id="abo">
+            <h1>About us</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam numquam ipsam quibusdam libero ratione
+                fugit aspernatur nostrum velit esse vitae mollitia, perferendis voluptas officiis ex enim omnis
+                expedita, fuga nobis.
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio consequatur reiciendis a illo. Tenetur,
+                sed! Voluptate voluptates, odit enim asperiores vero modi reprehenderit nesciunt nihil neque dolorum
+                eaque in nam.</p>
+            <p>Maxime commodi deserunt nobis esse velit illo quas sit autem delectus nam aliquam impedit voluptatibus
+                ducimus modi, minima omnis sed harum libero. Ad tempore ut autem neque optio alias veritatis!</p>
+        </section>
+        <section class="services" id="ser">
+            <h1>Our Services</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui expedita ea voluptate? Tempore dolorum
+                dolorem, laudantium similique dicta necessitatibus suscipit sequi repellendus officia maxime
+                obcaecati totam blanditiis ad aliquam doloribus?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus officiis quod ut non optio
+                voluptates a quaerat expedita asperiores? Ipsa quos, ex placeat a quod accusamus odio possimus cumque
+                reprehenderit.</p>
+            <p>Ipsum vero alias exercitationem soluta nesciunt reprehenderit officiis maiores! Fugiat quibusdam
+                explicabo odio excepturi vero magni reiciendis numquam minus modi maxime doloribus tenetur molestias,
+                tempora, ipsam, dicta mollitia eaque laudantium.</p>
+        </section>
+        <section class="whyWe" id="why">
+            <h1>Why We?</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui expedita ea voluptate? Tempore dolorum
+                dolorem, laudantium similique dicta necessitatibus suscipit sequi repellendus officia maxime
+                obcaecati totam blanditiis ad aliquam doloribus?
+            </p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique eum in expedita necessitatibus dolor,
+                ullam, nobis fuga repudiandae illum debitis reprehenderit, consequuntur dolores quasi nam aliquid
+                veritatis qui provident laudantium.</p>
+            <p>Aliquid tempora odit architecto culpa voluptas libero rem! Qui beatae ipsam voluptatem officiis et itaque
+                doloremque dignissimos porro quasi quaerat molestiae ratione alias in obcaecati nam, similique corrupti
+                error ea.</p>
+        </section>
+        <section class="references" id="ref">
+            <h1>Our References</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui expedita ea voluptate? Tempore dolorum
+                dolorem, laudantium similique dicta necessitatibus suscipit sequi repellendus officia maxime
+                obcaecati totam blanditiis ad aliquam doloribus?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam est quae enim nostrum ex voluptates.
+                Excepturi tempore dolores saepe sunt non placeat sed pariatur voluptas, quia dolorem reprehenderit
+                necessitatibus iure.</p>
+            <p>Quisquam aperiam similique nostrum cumque ducimus earum veritatis id neque, ea suscipit tempore
+                necessitatibus nobis facilis eveniet provident atque eum minus commodi ipsum dignissimos. Obcaecati ut
+                doloribus mollitia non corporis!</p>
+        </section>
+        <section class="contact" id="con">
+            <h1>Contact Us</h1>
+            <form method="post">
+                <input type="text" name="name" placeholder="My name">
+                <input type="email" name="email" placeholder="My email">
+                <textarea name="message" placeholder="My message"></textarea>
+                <input type="submit" value="Sent">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            &copy; LonelyWolf 2023 -
+            <script>document.write(new Date().getFullYear())</script>
+        </p>
+        <p><a href="https://vlksamotar.cz/" target="_blank" rel="noopener noreferrer">Look at my website...</a></p>
+    </footer>
+</body>
+
+</html>
