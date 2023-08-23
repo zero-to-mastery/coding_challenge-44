@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eventually</title>
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- css  -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        overflow-x: hidden;
+      }
+      .header {
+        background-color: white;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: black;
+      }
+
+      .logo {
+        position: relative;
+        font-size: 34px;
+        font-weight: bold;
+        left: 2%;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+
+      nav li {
+        padding: 0 20px;
+      }
+
+      li a {
+        font-size: 22px;
+        color: black;
+        text-decoration: none;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+
+      .container {
+        background-image: url("https://github.com/ElyasShamal/Frontend-Mentor-Challenges/blob/main/landing-page/background-image/background-img.jpg?raw=true");
+        min-height: 95vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+      }
+
+      .sub-container {
+        position: relative;
+        top: 100px;
+        max-width: 100%;
+        left: 3%;
+      }
+
+      h1 {
+        color: white;
+        font-size: 3rem;
+      }
+
+      p {
+        max-width: 400px;
+        color: white;
+        font-size: 24px;
+        margin: 30px 0px;
+        line-height: 2rem;
+      }
+
+      p a {
+        text-decoration: none;
+        color: #1cb495;
+        margin-left: 10px;
+      }
+
+      form {
+        margin-top: 30px;
+      }
+
+      input {
+        width: 18em;
+        padding: 12px 12px;
+        border-radius: 5px;
+        border: none;
+      }
+
+      input:focus {
+        outline: 2px solid #1cb495;
+      }
+
+      button {
+        background-color: #1cb495;
+        color: #fff;
+        padding: 12px 12px;
+        border-radius: 5px;
+        border: none;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: white;
+        color: black;
+      }
+
+      .social {
+        position: relative;
+        margin-top: 150px;
+        left: 3%;
+      }
+
+      .social i {
+        padding: 20px 10px;
+        margin-bottom: 30px;
+        cursor: pointer;
+        color: white;
+        font-size: 25px;
+      }
+
+      .social i:hover {
+        color: #1cb495;
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+          font-size: 24px;
+          cursor: pointer;
+        }
+
+        nav {
+          display: none;
+          position: fixed;
+          top: 65px;
+          right: 0;
+          width: 50%;
+          height: 50%;
+          background-color: white;
+          z-index: 1;
+        }
+
+        nav.show {
+          display: flex;
+          flex-direction: column;
+        }
+
+        nav ul {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          margin: 0;
+          padding: 0;
+        }
+
+        nav li {
+          padding: 20px 0px;
+        }
+
+        p {
+          font-size: 18px;
+          margin: 30px 0px;
+          padding-right: 20px;
+          line-height: 2rem;
+        }
+      }
+
+      @media (max-width: 400px) {
+        button {
+          margin-top: 10px;
+        }
+      }
+    </style>
+    <!-- end of css -->
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">Eventually</div>
+      <div class="menu-toggle">
+        <i class="fa fa-bars"></i>
+      </div>
+
+      <nav class="navbar">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact </a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="sub-container">
+        <h1>Eventually</h1>
+        <p>
+          A simple template for telling the world when you'll launch your next
+          big thing. Brought to you by <a href="#">HTML5 UP.</a>
+        </p>
+
+        <form action="">
+          <input type="text" placeholder="Email Address" />
+          <button type="submit" id="btn">Sign Up</button>
+        </form>
+      </div>
+
+      <footer class="footer">
+        <div class="social">
+          <i class="fa fa-twitter"></i>
+          <i class="fa fa-github"></i>
+          <i class="fa fa-instagram"></i>
+          <i class="fa fa-linkedin"></i>
+        </div>
+      </footer>
+    </main>
+
+    <!-- start of javascript -->
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector("nav");
+
+      menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("show");
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768 && nav.classList.contains("show")) {
+          nav.classList.remove("show");
+        }
+      });
+    </script>
+  </body>
+</html>
