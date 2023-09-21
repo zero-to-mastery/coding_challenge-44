@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Paper, Rock, Scissors</title>
+
+    <style>
+        html,
+        body {
+            background-color: #56A5EC;
+        }
+
+        .outerDiv {
+            text-align: center;
+            height: auto;
+        }
+
+        .gameTypes {
+            vertical-align: top;
+            display: inline-block;
+            height: 100%;
+            width: 25%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="outerDiv">
+        <h1>
+            <center>Paper, Rock, Scissors</center>
+        </h1>
+
+        <div class="gameTypes">
+            <p>
+                <center>
+                    <button onclick="game()">Play Classic Game</button>
+                </center>
+            </p>
+
+            <h3>
+                <center>Outcomes for Classic Game:</center>
+            </h3>
+
+            <center>
+                <h4>Scissors cuts Paper<br>
+                    Paper covers Rock<br>
+                    Rock crushes Scissors</h4>
+            </center>
+        </div>
+
+        <div class="gameTypes">
+            <p>
+                <center>
+                    <button onclick="gameLS()">Play Paper, Rock, Scissors, Lizard, Spock</button>
+                </center>
+            </p>
+
+            <h3>
+                <center>Outcomes for Lizard, Spock:</center>
+            </h3>
+
+            <center>
+                <h4>Scissors cuts Paper<br>
+                    Paper covers Rock<br>
+                    Rock crushes Lizard<br>
+                    Lizard poisons Spock<br>
+                    Spock smashes Scissors<br>
+                    Scissors decapitates Lizard<br>
+                    Lizard eats Paper<br>
+                    Paper disproves Spock<br>
+                    Spock vaporizes Rock<br>
+                    (and as it always has) Rock crushes scissors</h4>
+            </center>
+        </div>
+
+        <div class="gameTypes">
+            <p>
+                <center>
+                    <button onclick="gameNHB()">Play Ninja, Hunter, Bear</button>
+                </center>
+            </p>
+
+            <h3>
+                <center>Outcomes for Ninja, Hunter, Bear:</center>
+            </h3>
+
+            <center>
+                <h4>Ninja kills Hunter<br>
+                    Hunter shoots Bear<br>
+                    Bear eats Ninja</h4>
+            </center>
+        </div>
+    </div>
+
+    <script>
+        function game() {
+            var userChoice = prompt("Do you choose Rock, Paper or Scissors?");
+            var userChoice2 = userChoice.charAt(0).toUpperCase() + userChoice.slice(1);
+            var computerChoice = Math.random();
+
+            if (computerChoice < 0.34) {
+                computerChoice = "Rock";
+            } else if (computerChoice <= 0.67) {
+                computerChoice = "Paper";
+            } else {
+                computerChoice = "Scissors";
+            }
+
+            if (userChoice2.toLowerCase() === computerChoice.toLowerCase()) {
+                alert("You both chose " + computerChoice + ". This game is a tie!");
+            } else if (userChoice2.toLowerCase() === "rock") {
+                if (computerChoice === "Scissors") {
+                    alert("You chose: " + userChoice2 + ".\nThe computer chose: " + computerChoice +
+                        "\n\nRock crushes Scissors. You win!");
+                } else {
+                    alert("You chose: " + userChoice2 + ".\nThe computer chose: " + computerChoice +
+                        "\n\nPaper covers Rock. You lose!");
+                }
+            } else if (userChoice2.toLowerCase() === "paper") {
+                if (computerChoice === "Rock") {
+                    alert("You chose: " + userChoice2 + ".\nThe computer chose: " + computerChoice +
+                        "\n\nPaper covers Rock. You win!");
+                } else {
+                    alert("You chose: " + userChoice2 + ".\nThe computer chose: " + computerChoice +
+                        "\n\nScissors cut Paper. You lose!");
+                }
+            } else if (userChoice2.toLowerCase() === "scissors") {
+                if (computerChoice === "Rock") {
+                    alert("You chose: " + userChoice2 + ".\nThe computer chose: " + computerChoice +
+                        "\n\nRock crushes Scissors. You lose!");
+                } else {
+                    alert("You chose: " + userChoice2 + ".\nThe computer chose: " + computerChoice +
+                        "\n\nScissors cut Paper. You win!");
+                }
+            } else if (userChoice2.toLowerCase() === "lizard" || userChoice2.toLowerCase() === "spock" || userChoice2
+                .toLowerCase() === "hunter" ||
+                userChoice2.toLowerCase() === "ninja" || userChoice2.toLowerCase() === "bear") {
+                if (confirm(userChoice2 +
+                        " is not a valid answer for this game.\n\nPlease guess a valid answer for this game type."
+                    )) {
+                    game();
+                }
+            } else {
+                if (confirm(
+                        "Invalid Answer.\n\nPlease guess a valid answer."
+                    )) {
+                    game();
+                }
+            }
+        }
+
+        function gameLS() {
+            var userChoiceLS = prompt("Do you choose Paper, Rock, Scissors, Lizard, or Spock?");
+            var userChoiceLS2 = userChoiceLS.charAt(0).toUpperCase() + userChoiceLS.slice(1);
+            var computerChoiceLS = Math.random();
+
+            if (computerChoiceLS < 0.2) {
+                computerChoiceLS = "Paper";
+            } else if (computerChoiceLS <= 0.4) {
+                computerChoiceLS = "Rock";
+            } else if (computerChoiceLS <= 0.6) {
+                computerChoiceLS = "Scissors";
+            } else if (computerChoiceLS <= 0.8) {
+                computerChoiceLS = "Lizard";
+            } else {
+                computerChoiceLS = "Spock";
+            }
+
+            if (userChoiceLS2.toLowerCase() === computerChoiceLS.toLowerCase()) {
+                alert("You both chose " + computerChoiceLS + ". This game is a tie!");
+            } else if (userChoiceLS2.toLowerCase() === "rock") {
+                if (computerChoiceLS === "Scissors") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nRock crushes Scissors. You win!");
+                } else if (computerChoiceLS === "Paper") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nPaper covers Rock. You lose!");
+                } else if (computerChoiceLS === "Lizard") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nRock crushes Lizard. You win!");
+                } else {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nSpock vaporizes Rock. You lose!");
+                }
+            } else if (userChoiceLS2.toLowerCase() === "paper") {
+                if (computerChoiceLS === "Rock") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nPaper covers Rock. You win!");
+                } else if (computerChoiceLS === "Scissors") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nScissors cut Paper. You lose!");
+                } else if (computerChoiceLS === "Lizard") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nLizard eats Paper. You lose!");
+                } else {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nPaper disproves Spock. You win!");
+                }
+            } else if (userChoiceLS2.toLowerCase() === "scissors") {
+                if (computerChoiceLS === "Rock") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nRock crushes Scissors. You lose!");
+                } else if (computerChoiceLS === "Paper") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nScissors cut Paper. You win!");
+                } else if (computerChoiceLS === "Lizard") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nScissors decapitates Lizard. You win!");
+                } else {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nSpock smashes Scissors. You lose!");
+                }
+            } else if (userChoiceLS2.toLowerCase() === "lizard") {
+                if (computerChoiceLS === "Paper") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nLizard eats Paper. You win!");
+                } else if (computerChoiceLS === "Rock") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nRock crushes Lizard. You lose!");
+                } else if (computerChoiceLS === "Scissors") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nScissors decapitates Lizard. You lose!");
+                } else if (computerChoiceLS === "Spock") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nLizard poisons Spock. You win!");
+                }
+            } else if (userChoiceLS2.toLowerCase() === "spock") {
+                if (computerChoiceLS === "Paper") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nPaper disproves Spock. You lose!");
+                } else if (computerChoiceLS === "Rock") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nSpock vaporizes Rock. You win!");
+                } else if (computerChoiceLS === "Scissors") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nSpock smashes Scissors. You win!");
+                } else if (computerChoiceLS === "Lizard") {
+                    alert("You chose: " + userChoiceLS2 + ".\nThe computer chose: " + computerChoiceLS +
+                        "\n\nLizard poisons Spock. You lose!");
+                }
+            } else if (userChoiceLS2.toLowerCase() === "hunter" || userChoiceLS2.toLowerCase() === "ninja" ||
+                userChoiceLS2.toLowerCase() === "bear") {
+                if (confirm(userChoiceLS2 +
+                        " is not a valid answer for this game.\n\nPlease guess a valid answer for this game type."
+                    )) {
+                    gameLS();
+                }
+            } else {
+                if (confirm(
+                        "Invalid Answer.\n\nPlease guess a valid answer."
+                    )) {
+                    gameLS();
+                }
+            }
+        }
+
+        function gameNHB() {
+            var userChoiceNHB = prompt("Do you choose Ninja, Hunter, or Bear?");
+            var userChoiceNHB2 = userChoiceNHB.charAt(0).toUpperCase() + userChoiceNHB.slice(1);
+            var computerChoiceNHB = Math.random();
+
+            if (computerChoiceNHB < 0.34) {
+                computerChoiceNHB = "Ninja";
+            } else if (computerChoiceNHB <= 0.67) {
+                computerChoiceNHB = "Hunter";
+            } else {
+                computerChoiceNHB = "Bear";
+            }
+
+            if (userChoiceNHB2.toLowerCase() === computerChoiceNHB.toLowerCase()) {
+                alert("You both chose " + computerChoiceNHB + ". This game is a tie!");
+            } else if (userChoiceNHB2.toLowerCase() === "ninja") {
+                if (computerChoiceNHB === "Bear") {
+                    alert("You chose: " + userChoiceNHB2 + ".\nThe computer chose: " + computerChoiceNHB +
+                        "\n\nBear eats Ninja. You lose!");
+                } else {
+                    alert("You chose: " + userChoiceNHB2 + ".\nThe computer chose: " + computerChoiceNHB +
+                        "\n\nNinja kills Hunter. You win!");
+                }
+            } else if (userChoiceNHB2.toLowerCase() === "hunter") {
+                if (computerChoiceNHB === "Ninja") {
+                    alert("You chose: " + userChoiceNHB2 + ".\nThe computer chose: " + computerChoiceNHB +
+                        "\n\nNinja kills Hunter. You lose!");
+                } else {
+                    alert("You chose: " + userChoiceNHB2 + ".\nThe computer chose: " + computerChoiceNHB +
+                        "\n\nHunter shoots Bear. You win!");
+                }
+            } else if (userChoiceNHB2.toLowerCase() === "bear") {
+                if (computerChoiceNHB === "Ninja") {
+                    alert("You chose: " + userChoiceNHB2 + ".\nThe computer chose: " + computerChoiceNHB +
+                        "\n\nBear eats Ninja. You win!");
+                } else {
+                    alert("You chose: " + userChoiceNHB2 + ".\nThe computer chose: " + computerChoiceNHB +
+                        "\n\nHunter shoots Bear. You lose!");
+                }
+            } else if (userChoiceNHB2.toLowerCase() === "paper" || userChoiceNHB2.toLowerCase() === "rock" ||
+                userChoiceNHB2.toLowerCase() === "scissors" ||
+                userChoiceNHB2.toLowerCase() === "lizard" || userChoiceNHB2.toLowerCase() === "spock") {
+                if (confirm(userChoiceNHB2 +
+                        " is not a valid answer for this game.\n\nPlease guess a valid answer for this game type."
+                    )) {
+                    gameNHB();
+                }
+            } else {
+                if (confirm(
+                        "Invalid Answer.\n\nPlease guess a valid answer."
+                    )) {
+                    gameNHB();
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>

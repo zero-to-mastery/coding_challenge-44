@@ -53,6 +53,7 @@ Now, once you've forked this repo and got a local version up on your computer, f
 - [Satoshi's Converter](/submissions/Almopt.html) - By: [Almopt](https://github.com/Almopt)
 - [Tic tac toe](./submissions/sherawat-Lokesh.html) -By: [sherawat-Lokesh](https://github.com/sherawat-Lokesh)
 - [House Garbage Management website](/submissions/Fly0w.html) - By: [Fly0w](https://github.com/Fly0w)
+- [Paper, Rock, Scissors - (w/ 'Lizard, Spock', and 'Ninja, Hunter, Bear' DLCs Included!)](/submissions/robertlent.html) - By: [Robert Lent](https://github.com/robertlent)
 
 
 ## One Last Thing!
