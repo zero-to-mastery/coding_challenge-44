@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary board</title>
+</head>
+<body>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body{
+            margin: 100px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main{
+            display: flex;
+            box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
+            -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
+            align-items: center;
+            flex-wrap: wrap;
+            width: 750px;
+            height: 500px;
+            border-radius: 20px;
+        }
+
+        .left-section{
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+            background: #4e22ee;
+            color: #fff;
+            border-radius: 20px;
+        }
+
+        .result{
+            border-radius: 50%;
+            border: #4722cf solid 2px;
+            text-align: center;
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+            color: #fff;
+            background: rgb(2,0,36);
+            background: linear-gradient(185deg, rgba(2,0,36,1) 11%, rgba(24,9,121,1) 29%, rgba(0,212,255,1) 85%);
+        }
+
+        
+
+        .result-text span{
+            font-size: 3.5rem;
+            font-weight: 600;
+            display: block;
+        }
+
+        .result-summary{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            width: 60%;
+        }
+
+        .result-summary h1{
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .result-summary p{
+            font-size: 14px;
+            opacity: .5;
+        }
+
+        .title{
+            font-size: 16px;
+        }
+
+        .right-section{
+            display: flex;
+            flex: 50% 0 0;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 100%;
+            width: 50%;
+            border-radius: 20px;
+        }
+
+        .right-section h1{
+            color: rgb(1, 1, 36);
+            margin: 0 20px;
+        }
+
+        .summary-box{
+            margin: 0 20px;
+        }
+
+        .summary{
+            display: flex;
+            justify-content: space-between;
+            border: #f2f2f2 2px solid;
+            padding: 10px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        .summary:hover{
+            background: #dede;
+        }
+
+        .summary-name{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            
+        }
+
+        .summary-name.one{
+            color: rgb(204, 18, 49);
+        }
+
+        .summary-name.two{
+            color: orange;
+        }
+
+        .summary-name.three{
+            color: rgb(42, 128, 240);
+        }
+
+        .summary-name.four{
+            color: blue;
+        }
+
+        .btn{
+            margin: 0 20px;
+            outline: none;
+            border: none;
+            border-radius: 30px;
+            background:  rgb(1, 1, 36);
+            color: #fff;
+            padding: 20px;
+        }
+
+        .btn:hover{
+            cursor: pointer;
+        }
+    </style>
+
+    <div class="main">
+
+        <!-- left section -->
+        <div class="left-section">
+            <h1 class="title">Your Result</h1>
+            <div class="result">
+                <p class="result-text"><span>76</span>of 100</p>
+            </div>
+            <div class="result-summary">
+                <h1>Great</h1>
+                <p>You scored higher than 65% of the people
+                    who have taken these tests.
+                </p>
+            </div>
+        </div>
+
+        <!-- right section -->
+        <div class="right-section">
+            <h1 class="title">Summary</h1>
+            <div class="summary-box">
+                <div class="summary">
+                    <div class="summary-name one">
+                        <iconify-icon class="summary-icon" icon="ic:round-flash-on"></iconify-icon>
+                        <p>Reaction</p>
+                    </div>
+                    <p class="summary-score"><span>80</span>/100</p>
+                </div>
+                <div class="summary">
+                    <div class="summary-name two">
+                        <iconify-icon icon="ic:outline-sentiment-satisfied"></iconify-icon>
+                        <p>Memory</p>
+                    </div>
+                    <p class="summary-score"><span>80</span>/100</p>
+                </div>
+                
+                <div class="summary">
+                    <div class="summary-name three">
+                        <iconify-icon icon="ic:outline-message"></iconify-icon>                        <p>Verbal</p>
+                    </div>
+                    <p class="summary-score"><span>60</span>/100</p>
+                </div>
+                <div class="summary">
+                    <div class="summary-name four">
+                        <iconify-icon icon="ic:outline-remove-red-eye"></iconify-icon>
+                        <p>Visual</p>
+                    </div>
+                    <p class="summary-score"><span>70</span>/100</p>
+                </div>
+                
+            </div>
+            <button type="submit" class="btn">Continue</button>
+        </div>
+    </div>
+
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+</body>
+</html>
