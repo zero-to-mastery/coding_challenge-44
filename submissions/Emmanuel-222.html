@@ -6,168 +6,217 @@
     <title>Summary board</title>
 </head>
 <body>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 
         *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body{
-            background-color: #fff;
-            display: flex;
             margin: 100px 0;
+            display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Roboto', sans-serif;
         }
 
-        .container{
+        .main{
             display: flex;
-            flex-wrap: row-wrap;
-            background-color: #fff;
-            box-sizing: border-box;
+            box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
+            -webkit-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
+            -moz-box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
+            align-items: center;
+            flex-wrap: wrap;
+            width: 750px;
+            height: 500px;
             border-radius: 20px;
-            width: 60%;
-            min-height: 500px;
-            max-height: 400px;
-            -webkit-box-shadow: 4px 5px 5px -2px rgba(0,0,0,0.75);
-            -moz-box-shadow: 4px 5px 5px -2px rgba(0,0,0,0.75);
-            box-shadow: 4px 5px 5px -2px rgba(0,0,0,0.75);
         }
 
         .left-section{
-            background-color: rgb(36, 36, 211);
-            border-radius: 20px;
+            width: 50%;
+            height: 100%;
             display: flex;
-            flex-direction: column;
+            justify-content: space-around;
             align-items: center;
-            padding: 20px;
-            text-align: center;
+            flex-direction: column;
+            background: #4e22ee;
             color: #fff;
-            
-        }
-        .title{
-            font-size: 20px;
-            margin: 20px 0 25px 0;
+            border-radius: 20px;
         }
 
         .result{
             border-radius: 50%;
-            border: none;
-            background-color: rgb(37, 37, 168);
+            border: #4722cf solid 2px;
+            text-align: center;
             width: 150px;
-            height: 150px;
-            padding: 40px;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .result h1{
-            font-size: 60px;
-        }
-
-        .result p{
-            opacity: 0.3;
-        }
-
-        .result-summary{
-            margin: 20px 0;
-            width: 55%;
-        }
-
-        .result-summary h2{
-            font-size: 20px;
-            font-weight: 500;
-            margin: 15px 0 20px 0;
-        }
-
-        .result-summary p{
-            font-size: 15px;
-            opacity: .7;
-            line-height: 25px;
-        }
-
-        .right-section{
-            width: 60%;
-            background-color: #fcfcfc;
-            border-radius: 20px;
-            display: flex;
-            color: rgb(1, 1, 77);
-            flex-direction: column;
-            padding: 0 35px;
-        }
-
-        .right-section h2{
-            font-size: 18px;
-            margin: 30px 0 20px 0;
-        }
-
-
-        .summary{
-            display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .summary-card-1{
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            background-color: #d1d1d1;
-            padding: 15px;
-            width: 100%;
+            height: 150px;
+            color: #fff;
+            background: rgb(2,0,36);
+            background: linear-gradient(185deg, rgba(2,0,36,1) 11%, rgba(24,9,121,1) 29%, rgba(0,212,255,1) 85%);
         }
 
         
 
+        .result-text span{
+            font-size: 3.5rem;
+            font-weight: 600;
+            display: block;
+        }
 
+        .result-summary{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            width: 60%;
+        }
 
+        .result-summary h1{
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .result-summary p{
+            font-size: 14px;
+            opacity: .5;
+        }
+
+        .title{
+            font-size: 16px;
+        }
+
+        .right-section{
+            display: flex;
+            flex: 50% 0 0;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 100%;
+            width: 50%;
+            border-radius: 20px;
+        }
+
+        .right-section h1{
+            color: rgb(1, 1, 36);
+            margin: 0 20px;
+        }
+
+        .summary-box{
+            margin: 0 20px;
+        }
+
+        .summary{
+            display: flex;
+            justify-content: space-between;
+            border: #f2f2f2 2px solid;
+            padding: 10px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+
+        .summary:hover{
+            background: #dede;
+        }
+
+        .summary-name{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            
+        }
+
+        .summary-name.one{
+            color: rgb(204, 18, 49);
+        }
+
+        .summary-name.two{
+            color: orange;
+        }
+
+        .summary-name.three{
+            color: rgb(42, 128, 240);
+        }
+
+        .summary-name.four{
+            color: blue;
+        }
+
+        .btn{
+            margin: 0 20px;
+            outline: none;
+            border: none;
+            border-radius: 30px;
+            background:  rgb(1, 1, 36);
+            color: #fff;
+            padding: 20px;
+        }
+
+        .btn:hover{
+            cursor: pointer;
+        }
     </style>
 
+    <div class="main">
 
-
-
-
-
-
-    <div class="container">
+        <!-- left section -->
         <div class="left-section">
-            <p class="title">Your Result</p>
+            <h1 class="title">Your Result</h1>
             <div class="result">
-                <h1>76</h1>
-                <p>of 100</p>
+                <p class="result-text"><span>76</span>of 100</p>
             </div>
             <div class="result-summary">
-                <h2>Great</h2>
+                <h1>Great</h1>
                 <p>You scored higher than 65% of the people
                     who have taken these tests.
                 </p>
             </div>
-            
         </div>
+
+        <!-- right section -->
         <div class="right-section">
-            <h2>Summary</h2>
-            <div class="summary">
-                <div class="summary-card-1">
-                    <div class="react">
-                        <iconify-icon icon="mingcute:flash-line"></iconify-icon>
-                        <h3>Reaction</h3>
+            <h1 class="title">Summary</h1>
+            <div class="summary-box">
+                <div class="summary">
+                    <div class="summary-name one">
+                        <iconify-icon class="summary-icon" icon="ic:round-flash-on"></iconify-icon>
+                        <p>Reaction</p>
                     </div>
-                   
-                    <p><span>80</span>/100</p>
+                    <p class="summary-score"><span>80</span>/100</p>
                 </div>
+                <div class="summary">
+                    <div class="summary-name two">
+                        <iconify-icon icon="ic:outline-sentiment-satisfied"></iconify-icon>
+                        <p>Memory</p>
+                    </div>
+                    <p class="summary-score"><span>80</span>/100</p>
+                </div>
+                
+                <div class="summary">
+                    <div class="summary-name three">
+                        <iconify-icon icon="ic:outline-message"></iconify-icon>                        <p>Verbal</p>
+                    </div>
+                    <p class="summary-score"><span>60</span>/100</p>
+                </div>
+                <div class="summary">
+                    <div class="summary-name four">
+                        <iconify-icon icon="ic:outline-remove-red-eye"></iconify-icon>
+                        <p>Visual</p>
+                    </div>
+                    <p class="summary-score"><span>70</span>/100</p>
+                </div>
+                
             </div>
-            <button class="btn">Continue</button>      
+            <button type="submit" class="btn">Continue</button>
         </div>
     </div>
-
 
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 </body>
